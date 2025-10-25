@@ -239,12 +239,11 @@
     <div class="controls">
         <label for="cardFile">Load Cards from:</label>
         <select id="cardFile">
-            <option value="cards/expansions/core_plus.json">Core Plus Expansion (40+ cards)</option>
-            <option value="cards/base_set.json" selected>Base Set (20 cards)</option>
-            <option value="cards/all_cards.json">All Cards (20 unique cards)</option>
-            <option value="cards/factions/STEAMPUNK.json">Steampunk Faction (8 cards)</option>
-            <option value="cards/factions/CYBER.json">Cyber Faction (8 cards)</option>
-            <option value="cards/factions/ARCANE.json">Arcane Faction (8 cards)</option>
+            <option value="cards/expansions/core_plus.json" selected>Core Plus Expansion (70+ cards)</option>
+            <option value="cards/base_set.json">Base Set (Legacy Format)</option>
+            <option value="cards/factions/STEAMPUNK.json">Steampunk Faction (10+ cards)</option>
+            <option value="cards/factions/CYBER.json">Cyber Faction (10+ cards)</option>
+            <option value="cards/factions/ARCANE.json">Arcane Faction (10+ cards)</option>
         </select>
     </div>
     
@@ -360,6 +359,11 @@
             if (rules.heal && typeof rules.heal === 'number') stats += `<div class='stat'>❤️ ${rules.heal} heal</div>`;
             if (rules.move && typeof rules.move === 'number') stats += `<div class='stat'>👟 ${rules.move} move</div>`;
             if (rules.draw && typeof rules.draw === 'number') stats += `<div class='stat'>📖 ${rules.draw} cards</div>`;
+            
+            // Show brick costs for structure cards
+            if (card.type === 'Structure' && card.cost && card.cost.bricks) {
+                stats += `<div class='stat'>🧱 ${card.cost.bricks} bricks</div>`;
+            }
             
             // Handle energy cost (new schema uses cost.energy)
             const energyCost = card.cost && card.cost.energy !== undefined ? card.cost.energy : (card.cost || 0);

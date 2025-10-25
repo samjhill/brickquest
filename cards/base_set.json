@@ -1,392 +1,336 @@
 {
   "cards": [
     {
-      "id": "overdrive",
+      "id": "BQ-ACT-0001",
       "name": "Overdrive",
-      "type": "action",
-      "cost": 2,
-      "description": "Double movement for this turn",
-      "effects": [
-        {
-          "type": "move",
-          "value": 2,
-          "target": "self",
-          "description": "Gain 2 additional movement"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 1,
-      "rarity": "common"
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Double movement for this turn.",
+      "rules": { "movement": 2, "duration": 1 },
+      "icons": ["movement", "speed"],
+      "flavor": "Push your limits.",
+      "v": 2
     },
     {
-      "id": "dash",
+      "id": "BQ-ACT-0002",
       "name": "Dash",
-      "type": "action",
-      "cost": 1,
-      "description": "Quick movement to adjacent tile",
-      "effects": [
-        {
-          "type": "move",
-          "value": 1,
-          "target": "self",
-          "description": "Move to adjacent tile"
-        }
-      ],
-      "range": 1,
-      "damage": 0,
-      "duration": 1,
-      "rarity": "common"
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 1 },
+      "text": "Move to adjacent tile.",
+      "rules": { "movement": 1 },
+      "icons": ["movement", "dash"],
+      "flavor": "Quick and nimble.",
+      "v": 2
     },
     {
-      "id": "pulse_strike",
+      "id": "BQ-ACT-0003",
       "name": "Pulse Strike",
-      "type": "action",
-      "cost": 3,
-      "description": "Energy attack that damages all enemies in range",
-      "effects": [
-        {
-          "type": "damage",
-          "value": 2,
-          "target": "enemy",
-          "description": "Deal 2 energy damage to all enemies in range"
-        }
-      ],
-      "range": 3,
-      "damage": 2,
-      "duration": 1,
-      "rarity": "uncommon"
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3 },
+      "text": "Deal 2 damage to all enemies in range 3.",
+      "rules": { "damage": 2, "range": 3, "target": "allEnemies" },
+      "icons": ["energy", "damage"],
+      "flavor": "Energy courses through the battlefield.",
+      "v": 2
     },
     {
-      "id": "shield_bash",
+      "id": "BQ-ACT-0004",
       "name": "Shield Bash",
-      "type": "action",
-      "cost": 2,
-      "description": "Defensive attack that damages and pushes back enemy",
-      "effects": [
-        {
-          "type": "damage",
-          "value": 1,
-          "target": "enemy",
-          "description": "Deal 1 damage and push enemy back"
-        }
-      ],
-      "range": 1,
-      "damage": 1,
-      "duration": 1,
-      "rarity": "common"
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Deal 1 damage and push enemy back 1.",
+      "rules": { "damage": 1, "push": 1 },
+      "icons": ["shield", "push"],
+      "flavor": "Defend and counter.",
+      "v": 2
     },
     {
-      "id": "repair",
+      "id": "BQ-ACT-0005",
       "name": "Repair",
-      "type": "action",
-      "cost": 2,
-      "description": "Restore HP to yourself or ally",
-      "effects": [
-        {
-          "type": "heal",
-          "value": 3,
-          "target": "self",
-          "description": "Heal 3 HP"
-        }
-      ],
-      "range": 1,
-      "damage": 0,
-      "duration": 1,
-      "rarity": "common"
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 1 },
+      "text": "Heal 3 HP.",
+      "rules": { "heal": 3 },
+      "icons": ["repair", "heal"],
+      "flavor": "Fix what's broken.",
+      "v": 2
     },
     {
-      "id": "watchtower",
+      "id": "BQ-STR-0001",
       "name": "Watchtower",
-      "type": "structure",
-      "cost": 4,
-      "description": "Build a defensive structure that provides cover",
-      "effects": [
-        {
-          "type": "build",
-          "value": 1,
-          "target": "terrain",
-          "description": "Place a watchtower structure"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "common"
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3, "bricks": 6 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 2, "special": 0, "total": 6 },
+        "lego": ["2x4_brick:4", "1x2_plate:2"],
+        "stl": ["watchtower"],
+        "footprint": "1-hex"
+      },
+      "text": "Provides +2 range to ranged attacks from this tile. Cost: 6 bricks (4 regular, 2 plates).",
+      "rules": { "rangeBonus": 2, "rangedOnly": true },
+      "icons": ["tower", "range"],
+      "flavor": "Height advantage.",
+      "v": 2
     },
     {
-      "id": "turret_base",
+      "id": "BQ-STR-0002",
+      "name": "Barricade",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 2, "bricks": 4 },
+      "buildReq": {
+        "bricks": { "regular": 3, "plates": 1, "special": 0, "total": 4 },
+        "lego": ["2x4_brick:3", "1x4_plate:1"],
+        "stl": ["barricade"],
+        "footprint": "1-hex"
+      },
+      "text": "Blocks movement. +2 Defense to adjacent units. Cost: 4 bricks (3 regular, 1 plate).",
+      "rules": { "blocksMovement": true, "defenseBonus": 2, "adjacent": true },
+      "icons": ["wall", "defense"],
+      "flavor": "Hold the line.",
+      "v": 2
+    },
+    {
+      "id": "BQ-STR-0003",
+      "name": "Bridge",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 2, "bricks": 6 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 2, "special": 0, "total": 6 },
+        "lego": ["2x6_plate:2", "1x2_brick:4"],
+        "stl": ["bridge"],
+        "footprint": "2-hex"
+      },
+      "text": "Connects two tiles. Units can move across. Cost: 6 bricks (4 regular, 2 plates).",
+      "rules": { "connects": true, "movement": true },
+      "icons": ["bridge", "connect"],
+      "flavor": "Span the gap.",
+      "v": 2
+    },
+    {
+      "id": "BQ-STR-0004",
       "name": "Turret Base",
-      "type": "structure",
-      "cost": 5,
-      "description": "Build an automated turret that attacks enemies",
-      "effects": [
-        {
-          "type": "build",
-          "value": 1,
-          "target": "terrain",
-          "description": "Place a turret base"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "uncommon"
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 4, "bricks": 8 },
+      "buildReq": {
+        "bricks": { "regular": 6, "plates": 0, "special": 1, "total": 8 },
+        "lego": ["2x4_brick:6", "turret_mount:1"],
+        "stl": ["turret_base"],
+        "footprint": "1-hex"
+      },
+      "text": "Ranged attack: 2 damage, 4 range. Cost: 8 bricks (6 regular, 1 special).",
+      "rules": { "attack": 2, "range": 4, "ranged": true },
+      "icons": ["turret", "ranged"],
+      "flavor": "Automated defense.",
+      "v": 2
     },
     {
-      "id": "grappling_bridge",
-      "name": "Grappling Bridge",
-      "type": "structure",
-      "cost": 3,
-      "description": "Create a bridge connecting two terrain pieces",
-      "effects": [
-        {
-          "type": "build",
-          "value": 1,
-          "target": "terrain",
-          "description": "Place a bridge structure"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "common"
-    },
-    {
-      "id": "trap_tile",
-      "name": "Trap Tile",
-      "type": "structure",
-      "cost": 2,
-      "description": "Place a hidden trap that damages enemies",
-      "effects": [
-        {
-          "type": "build",
-          "value": 1,
-          "target": "terrain",
-          "description": "Place a trap tile"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "common"
-    },
-    {
-      "id": "energy_barrier",
-      "name": "Energy Barrier",
-      "type": "structure",
-      "cost": 4,
-      "description": "Create a protective energy field",
-      "effects": [
-        {
-          "type": "build",
-          "value": 1,
-          "target": "terrain",
-          "description": "Place an energy barrier"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "uncommon"
-    },
-    {
-      "id": "auto_repair",
-      "name": "Auto-Repair",
-      "type": "program",
-      "cost": 2,
-      "description": "Automatically repair 1 HP at the start of each turn",
-      "effects": [
-        {
-          "type": "heal",
-          "value": 1,
-          "target": "self",
-          "description": "Heal 1 HP at start of turn"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 3,
-      "rarity": "uncommon"
-    },
-    {
-      "id": "seek_and_destroy",
-      "name": "Seek and Destroy",
-      "type": "program",
-      "cost": 3,
-      "description": "Robot automatically attacks nearest enemy for 1 damage",
-      "effects": [
-        {
-          "type": "damage",
-          "value": 1,
-          "target": "enemy",
-          "description": "Auto-attack nearest enemy for 1 damage"
-        }
-      ],
-      "range": 2,
-      "damage": 1,
-      "duration": 2,
-      "rarity": "uncommon"
-    },
-    {
-      "id": "retreat_loop",
-      "name": "Retreat Loop",
-      "type": "program",
-      "cost": 1,
-      "description": "Automatically move away from enemies when low on HP",
-      "effects": [
-        {
-          "type": "move",
-          "value": 1,
-          "target": "self",
-          "description": "Auto-move away from enemies when HP < 5"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 2,
-      "rarity": "common"
-    },
-    {
-      "id": "energy_boost",
-      "name": "Energy Boost",
-      "type": "program",
-      "cost": 2,
-      "description": "Gain 1 extra energy each turn",
-      "effects": [
-        {
-          "type": "energy",
-          "value": 1,
-          "target": "self",
-          "description": "Gain 1 extra energy per turn"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 3,
-      "rarity": "uncommon"
-    },
-    {
-      "id": "system_overload",
-      "name": "System Overload",
-      "type": "event",
-      "cost": 0,
-      "description": "The facility's power systems are unstable! All players lose 2 energy",
-      "effects": [
-        {
-          "type": "energy",
-          "value": -2,
-          "target": "all",
-          "description": "All players lose 2 energy"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 1,
-      "rarity": "common"
-    },
-    {
-      "id": "security_breach",
-      "name": "Security Breach",
-      "type": "event",
-      "cost": 0,
-      "description": "Security bots have detected your presence! All players take 1 damage",
-      "effects": [
-        {
-          "type": "damage",
-          "value": 1,
-          "target": "all",
-          "description": "All players take 1 damage"
-        }
-      ],
-      "range": 0,
-      "damage": 1,
-      "duration": 1,
-      "rarity": "common"
-    },
-    {
-      "id": "treasure_cache",
-      "name": "Treasure Cache",
-      "type": "event",
-      "cost": 0,
-      "description": "You found a hidden cache of supplies! All players gain 3 energy and heal 5 HP",
-      "effects": [
-        {
-          "type": "energy",
-          "value": 3,
-          "target": "all",
-          "description": "All players gain 3 energy"
-        },
-        {
-          "type": "heal",
-          "value": 5,
-          "target": "all",
-          "description": "All players heal 5 HP"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 1,
-      "rarity": "uncommon"
-    },
-    {
-      "id": "energy_core",
+      "id": "BQ-STR-0005",
       "name": "Energy Core",
-      "type": "upgrade",
-      "cost": 0,
-      "description": "Permanent upgrade that increases maximum energy by 2",
-      "effects": [
-        {
-          "type": "energy",
-          "value": 2,
-          "target": "self",
-          "description": "Increase max energy by 2"
-        }
-      ],
-      "range": 0,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "rare"
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": { "energy": 5, "bricks": 7 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 2, "special": 1, "total": 7 },
+        "lego": ["energy_crystal:1", "2x4_brick:4", "1x2_plate:2"],
+        "stl": ["energy_core"],
+        "footprint": "1-hex"
+      },
+      "text": "All adjacent units gain +1 Energy per turn. Cost: 7 bricks (4 regular, 2 plates, 1 special).",
+      "rules": { "energyRegen": 1, "adjacent": true },
+      "icons": ["energy", "core"],
+      "flavor": "Power source.",
+      "v": 2
     },
     {
-      "id": "flamethrower_arm",
-      "name": "Flamethrower Arm",
-      "type": "upgrade",
-      "cost": 0,
-      "description": "Permanent weapon upgrade for area damage (2 damage to all enemies in range 2)",
-      "effects": [
-        {
-          "type": "damage",
-          "value": 2,
-          "target": "enemy",
-          "description": "Deal 2 damage to all enemies in range"
-        }
-      ],
-      "range": 2,
-      "damage": 2,
-      "duration": 0,
-      "rarity": "rare"
+      "id": "BQ-ARC-0001",
+      "name": "Crystal Shard",
+      "type": "Action",
+      "faction": "Arcane",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Deal 2 damage to target. If it dies, gain 1 Energy.",
+      "rules": { "damage": 2, "onKill": { "energy": 1 } },
+      "icons": ["crystal", "damage"],
+      "flavor": "The crystal's power flows through you.",
+      "v": 2
     },
     {
-      "id": "sensor_array",
-      "name": "Sensor Array",
-      "type": "upgrade",
-      "cost": 0,
-      "description": "Permanent upgrade that increases movement by 1 and range by 1",
-      "effects": [
-        {
-          "type": "move",
-          "value": 1,
-          "target": "self",
-          "description": "Increase movement by 1"
-        }
-      ],
-      "range": 1,
-      "damage": 0,
-      "duration": 0,
-      "rarity": "uncommon"
+      "id": "BQ-ARC-0002",
+      "name": "Crystal Focus",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Rare",
+      "cost": { "energy": 4, "bricks": 6 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 1, "special": 1, "total": 6 },
+        "lego": ["crystal:1", "focus_lens:1"],
+        "stl": ["crystal_focus"],
+        "footprint": "1-hex"
+      },
+      "text": "All spells cost −1 Energy. When you cast a spell, deal 1 damage to a random enemy. Cost: 6 bricks (4 regular, 1 plate, 1 special).",
+      "rules": { "spellDiscount": 1, "onSpellCast": { "damage": 1, "target": "randomEnemy" } },
+      "icons": ["crystal", "focus"],
+      "flavor": "The crystal amplifies all magic.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0003",
+      "name": "Crystal Wall",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Common",
+      "cost": { "energy": 2, "bricks": 4 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 0, "special": 0, "total": 4 },
+        "lego": ["crystal:2"],
+        "stl": ["crystal_wall"],
+        "footprint": "1-hex"
+      },
+      "text": "Provides cover (+2 Defense) to adjacent units. Cost: 4 bricks (4 regular).",
+      "rules": { "cover": 2, "adjacent": true },
+      "icons": ["crystal", "wall"],
+      "flavor": "A shimmering barrier of pure crystal.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0001",
+      "name": "Data Stream",
+      "type": "Action",
+      "faction": "Cyber",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Draw 2 cards.",
+      "rules": { "draw": 2 },
+      "icons": ["data", "draw"],
+      "flavor": "Information flows.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0002",
+      "name": "EMP Blast",
+      "type": "Action",
+      "faction": "Cyber",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3 },
+      "text": "Deal 2 damage to all enemies. Disable all enemy programs.",
+      "rules": { "damage": 2, "target": "allEnemies", "disablePrograms": true },
+      "icons": ["emp", "damage"],
+      "flavor": "Electromagnetic pulse.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0003",
+      "name": "Cyber Turret",
+      "type": "Structure",
+      "faction": "Cyber",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3, "bricks": 7 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 2, "special": 1, "total": 7 },
+        "lego": ["circuit_board:1", "2x4_brick:4", "1x2_plate:2"],
+        "stl": ["cyber_turret"],
+        "footprint": "1-hex"
+      },
+      "text": "Ranged attack: 2 damage, 4 range. Can target through walls. Cost: 7 bricks (4 regular, 2 plates, 1 special).",
+      "rules": { "attack": 2, "range": 4, "wallPierce": true },
+      "icons": ["cyber", "turret"],
+      "flavor": "Advanced targeting systems.",
+      "v": 2
+    },
+    {
+      "id": "BQ-STE-0001",
+      "name": "Steam Vent",
+      "type": "Action",
+      "faction": "Steampunk",
+      "rarity": "Common",
+      "cost": { "energy": 1 },
+      "text": "Push all adjacent enemies 1 tile away.",
+      "rules": { "push": 1, "target": "adjacentEnemies" },
+      "icons": ["steam", "push"],
+      "flavor": "Pressurized release.",
+      "v": 2
+    },
+    {
+      "id": "BQ-STE-0002",
+      "name": "Steam Turret",
+      "type": "Structure",
+      "faction": "Steampunk",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3, "bricks": 7 },
+      "buildReq": {
+        "bricks": { "regular": 4, "plates": 2, "special": 1, "total": 7 },
+        "lego": ["steam_engine:1", "2x4_brick:4", "1x2_plate:2"],
+        "stl": ["steam_turret"],
+        "footprint": "1-hex"
+      },
+      "text": "Ranged attack: 2 damage, 3 range. Pushes target 1 tile. Cost: 7 bricks (4 regular, 2 plates, 1 special).",
+      "rules": { "attack": 2, "range": 3, "push": 1 },
+      "icons": ["steam", "turret"],
+      "flavor": "Pressurized projectile.",
+      "v": 2
+    },
+    {
+      "id": "BQ-PRO-0001",
+      "name": "Auto-Repair",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 2 },
+      "text": "Duration: 3 rounds. Heal 1 HP at start of each turn.",
+      "rules": { "duration": 3, "heal": 1, "startOfTurn": true },
+      "icons": ["repair", "auto"],
+      "flavor": "Self-maintaining systems.",
+      "v": 2
+    },
+    {
+      "id": "BQ-EVT-0001",
+      "name": "System Overload",
+      "type": "Event",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 1 },
+      "text": "All units take 1 damage. Energy costs are doubled this turn.",
+      "rules": { "damage": 1, "target": "all", "energyCostDouble": true },
+      "icons": ["overload", "damage"],
+      "flavor": "The system fails.",
+      "v": 2
+    },
+    {
+      "id": "BQ-LOT-0001",
+      "name": "Energy Core",
+      "type": "Loot",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 0 },
+      "text": "Permanent: +1 max Energy.",
+      "rules": { "permanent": true, "maxEnergy": 1 },
+      "icons": ["core", "energy"],
+      "flavor": "Enhanced power systems.",
+      "v": 2
     }
-  ]
+  ],
+  "metadata": {
+    "generated": "2024-01-01T00:00:00.000Z",
+    "totalCards": 20,
+    "validationErrors": 0
+  }
 }
-
-
