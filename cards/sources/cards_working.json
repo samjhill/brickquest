@@ -307,7 +307,7 @@
       "type": "Event",
       "faction": "Neutral",
       "rarity": "Uncommon",
-      "cost": { "energy": 1 },
+      "cost": { "energy": 0 },
       "text": "All units take 1 damage. Energy costs are doubled this turn.",
       "rules": { "damage": 1, "target": "all", "energyCostDouble": true },
       "icons": ["overload", "damage"],
