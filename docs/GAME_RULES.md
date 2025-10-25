@@ -83,9 +83,11 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - Use special abilities
 
 ### 3. Build Phase
-- Play structure cards
+- **Gain +2 Bricks** (physically from shared pool)
+- Play structure cards (spend bricks to build)
 - Place terrain tiles
 - Connect Lego/3D printed components
+- Build custom structures with your brick pile
 
 ### 4. Program Phase
 - Install robot programs
@@ -101,6 +103,51 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - Reset energy to maximum
 - Process active programs
 - Check win conditions
+
+## 🧱 Brick Economy System
+
+### Core Concept
+Every player gets a small pile of physical Lego bricks at the start of combat. The bricks themselves are the resource - no digital tracking needed!
+
+### Starting Setup
+- **2-3 players**: 6 bricks each, 50 in shared pool
+- **4-5 players**: 4 bricks each, 70 in shared pool  
+- **6+ players**: 3 bricks each, 100 in shared pool
+
+### Turn Integration
+At the start of each Build Phase:
+- **Gain +2 Energy** (tracked digitally)
+- **Gain +2 Bricks** (physically from shared pool)
+
+### Brick Usage
+During Build Phase, spend bricks to:
+- Build structure cards
+- Add to existing builds
+- Create cover, bridges, traps
+- Upgrade turrets/platforms
+- Any unused bricks stay in your personal pile
+
+### Shared Brick Pool
+- Keep one container of bricks in the middle of the table
+- When structures are destroyed, bricks return to the pool
+- If pool runs out, no one gains more until bricks are freed
+- This creates natural terrain scarcity
+
+### Brick Cap (Optional)
+- Soft cap = 8 bricks per player
+- If over cap at start of turn, don't take more
+- Players can trade bricks by passing them across the table
+
+### Structure Cost Cards
+- Print build costs directly on cards
+- "Wall — 4 bricks"
+- "Turret — 6 bricks + 1 hinge piece"
+- Use color-coding: 🟥 regular, 🟨 plate, 🟦 special
+
+### Brick Destruction & Refunds
+- **Destroyed in combat**: All bricks return to shared pool
+- **Dismantled voluntarily**: Half bricks (rounded down) return to pool
+- **Collapsed from events**: None or partial, per card/GM ruling
 
 ## 🏗️ Building System
 

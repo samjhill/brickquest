@@ -32,9 +32,14 @@
       "type": "Structure",
       "faction": "Arcane",
       "rarity": "Rare",
-      "cost": { "energy": 4 },
-      "buildReq": { "lego": ["crystal:1", "focus_lens:1"], "stl": ["crystal_focus"], "footprint": "1-hex" },
-      "text": "All spells cost −1 Energy. When you cast a spell, deal 1 damage to a random enemy.",
+      "cost": { "energy": 4, "bricks": 6 },
+      "buildReq": { 
+        "bricks": { "regular": 4, "plates": 1, "special": 1, "total": 6 },
+        "lego": ["crystal:1", "focus_lens:1"], 
+        "stl": ["crystal_focus"], 
+        "footprint": "1-hex" 
+      },
+      "text": "All spells cost −1 Energy. When you cast a spell, deal 1 damage to a random enemy. Cost: 6 bricks (4 regular, 1 plate, 1 special).",
       "rules": { "spellDiscount": 1, "onSpellCast": {"damage": 1, "target": "randomEnemy"} },
       "icons": ["crystal", "focus"],
       "flavor": "The crystal amplifies all magic.",
@@ -105,11 +110,68 @@
       "icons": ["event", "rift"],
       "flavor": "The fabric of reality tears.",
       "v": 2
+    },
+    {
+      "id": "BQ-ARC-0009",
+      "name": "Crystal Wall",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Common",
+      "cost": { "energy": 2, "bricks": 4 },
+      "buildReq": { 
+        "bricks": { "regular": 4, "plates": 0, "special": 0, "total": 4 },
+        "lego": ["crystal:2"], 
+        "stl": ["crystal_wall"], 
+        "footprint": "1-hex" 
+      },
+      "text": "Provides cover (+2 Defense) to adjacent units. Cost: 4 bricks (4 regular).",
+      "rules": { "cover": 2, "adjacent": true },
+      "icons": ["crystal", "wall", "defense"],
+      "flavor": "A shimmering barrier of pure crystal.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0010",
+      "name": "Mystic Turret",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3, "bricks": 8 },
+      "buildReq": { 
+        "bricks": { "regular": 6, "plates": 1, "special": 1, "total": 8 },
+        "lego": ["crystal:1", "focus_lens:1", "turret_base:1"], 
+        "stl": ["mystic_turret"], 
+        "footprint": "1-hex" 
+      },
+      "text": "Ranged attack: 3 damage, 3 range. Can target flying units. Cost: 8 bricks (6 regular, 1 plate, 1 special).",
+      "rules": { "attack": 3, "range": 3, "flying": true },
+      "icons": ["crystal", "turret", "ranged"],
+      "flavor": "The turret channels arcane energy into devastating blasts.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0011",
+      "name": "Portal Gateway",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Rare",
+      "cost": { "energy": 5, "bricks": 12 },
+      "buildReq": { 
+        "bricks": { "regular": 8, "plates": 2, "special": 2, "total": 12 },
+        "lego": ["crystal:3", "portal_frame:1", "energy_core:1"], 
+        "stl": ["portal_gateway"], 
+        "footprint": "2-hex" 
+      },
+      "text": "Allies can teleport to any other Portal Gateway. Cost: 12 bricks (8 regular, 2 plates, 2 special).",
+      "rules": { "teleport": "portal", "allies": true },
+      "icons": ["crystal", "portal", "teleport"],
+      "flavor": "A gateway between distant points in space.",
+      "v": 2
     }
   ],
   "metadata": {
     "faction": "Arcane",
-    "totalCards": 8,
+    "totalCards": 11,
     "version": "1.0.0"
   }
 }

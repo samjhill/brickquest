@@ -45,6 +45,11 @@
           "minimum": 0, 
           "maximum": 10 
         },
+        "bricks": { 
+          "type": "integer", 
+          "minimum": 0, 
+          "maximum": 20 
+        },
         "exhaust": { "type": "boolean" },
         "sacrifice": { "type": "string" } 
       }
@@ -53,6 +58,15 @@
     "buildReq": { 
       "type": "object",
       "properties": {
+        "bricks": {
+          "type": "object",
+          "properties": {
+            "regular": { "type": "integer", "minimum": 0 },
+            "plates": { "type": "integer", "minimum": 0 },
+            "special": { "type": "integer", "minimum": 0 },
+            "total": { "type": "integer", "minimum": 0 }
+          }
+        },
         "lego": { 
           "type": "array", 
           "items": { "type": "string" } 
