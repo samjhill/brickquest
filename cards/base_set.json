@@ -214,7 +214,7 @@
       "name": "Seek and Destroy",
       "type": "program",
       "cost": 3,
-      "description": "Robot automatically attacks nearest enemy",
+      "description": "Robot automatically attacks nearest enemy for 1 damage",
       "effects": [
         {
           "type": "damage",
@@ -252,7 +252,7 @@
       "name": "Energy Boost",
       "type": "program",
       "cost": 2,
-      "description": "Gain extra energy each turn",
+      "description": "Gain 1 extra energy each turn",
       "effects": [
         {
           "type": "energy",
@@ -271,7 +271,7 @@
       "name": "System Overload",
       "type": "event",
       "cost": 0,
-      "description": "The facility's power systems are unstable!",
+      "description": "The facility's power systems are unstable! All players lose 2 energy",
       "effects": [
         {
           "type": "energy",
@@ -290,7 +290,7 @@
       "name": "Security Breach",
       "type": "event",
       "cost": 0,
-      "description": "Security bots have detected your presence!",
+      "description": "Security bots have detected your presence! All players take 1 damage",
       "effects": [
         {
           "type": "damage",
@@ -309,7 +309,7 @@
       "name": "Treasure Cache",
       "type": "event",
       "cost": 0,
-      "description": "You found a hidden cache of supplies!",
+      "description": "You found a hidden cache of supplies! All players gain 3 energy and heal 5 HP",
       "effects": [
         {
           "type": "energy",
@@ -334,7 +334,7 @@
       "name": "Energy Core",
       "type": "upgrade",
       "cost": 0,
-      "description": "Permanent upgrade that increases maximum energy",
+      "description": "Permanent upgrade that increases maximum energy by 2",
       "effects": [
         {
           "type": "energy",
@@ -353,7 +353,7 @@
       "name": "Flamethrower Arm",
       "type": "upgrade",
       "cost": 0,
-      "description": "Permanent weapon upgrade for area damage",
+      "description": "Permanent weapon upgrade for area damage (2 damage to all enemies in range 2)",
       "effects": [
         {
           "type": "damage",
@@ -372,7 +372,7 @@
       "name": "Sensor Array",
       "type": "upgrade",
       "cost": 0,
-      "description": "Permanent upgrade that increases movement and range",
+      "description": "Permanent upgrade that increases movement by 1 and range by 1",
       "effects": [
         {
           "type": "move",
