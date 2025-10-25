@@ -1,0 +1,49 @@
+{
+  "decklist": {
+    "name": "Arcane Mastery",
+    "faction": "Arcane",
+    "strategy": "Magical control and crystal synergy",
+    "cards": [
+      "BQ-ARC-0001", "BQ-ARC-0001", "BQ-ARC-0001",
+      "BQ-ARC-0002",
+      "BQ-ARC-0003",
+      "BQ-ARC-0004", "BQ-ARC-0004",
+      "BQ-ARC-0005",
+      "BQ-ARC-0006", "BQ-ARC-0006",
+      "BQ-ARC-0007", "BQ-ARC-0007",
+      "BQ-ARC-0008",
+      "BQ-REA-0001",
+      "BQ-AUR-0003", "BQ-AUR-0003",
+      "BQ-QST-0001",
+      "BQ-WTH-0001", "BQ-WTH-0001",
+      "BQ-CNS-0004", "BQ-CNS-0004",
+      "BQ-BLP-0003",
+      "BQ-ACT-0004", "BQ-ACT-0004",
+      "BQ-STR-0003",
+      "BQ-PRO-0003",
+      "BQ-EVT-0003"
+    ],
+    "totalCards": 25,
+    "energyCurve": {
+      "0": 0,
+      "1": 2,
+      "2": 8,
+      "3": 6,
+      "4": 5,
+      "5": 4
+    },
+    "cardTypes": {
+      "Action": 5,
+      "Program": 2,
+      "Structure": 2,
+      "Consumable": 2,
+      "Reaction": 1,
+      "Trap": 2,
+      "Aura": 2,
+      "Quest": 1,
+      "Weather": 2,
+      "Blueprint": 1,
+      "Event": 1
+    }
+  }
+}

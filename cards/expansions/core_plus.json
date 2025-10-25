@@ -1,0 +1,172 @@
+{
+  "cards": [
+    {
+      "id": "BQ-REA-0001",
+      "name": "Parry Matrix",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": { "energy": 1 },
+      "text": "When your automaton would take damage, prevent 2. Gain 1 Energy if the attacker is adjacent.",
+      "rules": { "trigger": "onIncomingDamage", "prevent": 2, "bonusEnergyIf": { "rangeMax": 1, "amount": 1 } },
+      "icons": ["shield", "bolt"],
+      "flavor": "Predict, deflect, perfect.",
+      "v": 2
+    },
+    {
+      "id": "BQ-TRP-0001",
+      "name": "Snapjaw Floor",
+      "type": "Trap",
+      "rarity": "Uncommon",
+      "faction": "Neutral",
+      "cost": { "energy": 1 },
+      "buildReq": { "lego": ["hinge:2", "2x6_plate:1"], "stl": ["trap_tile"], "footprint": "1-hex" },
+      "text": "Arm on an adjacent tile. First enemy entering: 3 damage and Immobilized until end of round.",
+      "rules": { "arm": true, "trigger": "onEnterTile", "damage": 3, "statusAdd": [{"name": "Immobilized", "dur": "end_of_round"}] },
+      "icons": ["trap", "immobilize"],
+      "v": 2
+    },
+    {
+      "id": "BQ-AUR-0001",
+      "name": "Overclock Field",
+      "type": "Aura",
+      "rarity": "Rare",
+      "faction": "Cyber",
+      "cost": { "energy": 2, "exhaust": true },
+      "text": "Attach to a friendly robot. +1 Energy per turn; at end of round take 1 Heat.",
+      "rules": { "attach": "robot", "ongoing": { "energyRegen": 1, "selfDamageTag": "Heat", "amount": 1 } },
+      "icons": ["aura", "heat"],
+      "v": 2
+    },
+    {
+      "id": "BQ-QST-0001",
+      "name": "Seal the Breach",
+      "type": "Quest",
+      "rarity": "Rare",
+      "faction": "Neutral",
+      "text": "Stage I: Control the center for 1 round. Stage II: Build a Gate on it. Reward: all allies draw 1; gain 2 Energy distributed.",
+      "rules": {
+        "stages": [
+          {"require": "controlZone:center", "durationRounds": 1},
+          {"require": "build:Gate:on:center"}
+        ],
+        "reward": {"teamDraw": 1, "energyPool": 2}
+      },
+      "icons": ["quest", "gate"],
+      "v": 2
+    },
+    {
+      "id": "BQ-WTH-0001",
+      "name": "Voltaic Storm",
+      "type": "Weather",
+      "rarity": "Uncommon",
+      "faction": "Arcane",
+      "cost": { "energy": 2 },
+      "text": "Lasts 3 rounds. At round end, each unit in exposed tiles takes 1 damage (⚡). Sensors gain +1 range.",
+      "rules": { "durationRounds": 3, "endRoundTick": { "aoeDamage": 1, "tag": "electric" }, "buffs": {"sensorRange": 1} },
+      "icons": ["storm", "sensor"],
+      "v": 2
+    },
+    {
+      "id": "BQ-CNS-0001",
+      "name": "Nanite Repair Kit",
+      "type": "Consumable",
+      "rarity": "Common",
+      "faction": "Neutral",
+      "cost": { "energy": 0 },
+      "text": "Heal 2 and remove one non-boss status.",
+      "rules": { "heal": 2, "cleanse": { "max": 1, "bossImmune": true } },
+      "icons": ["heal", "cleanse"],
+      "v": 2
+    },
+    {
+      "id": "BQ-BLP-0001",
+      "name": "Turret Blueprint: Mk I",
+      "type": "Blueprint",
+      "rarity": "Common",
+      "faction": "Steampunk",
+      "cost": { "energy": 1 },
+      "text": "Your next Turret Structure this turn costs −1 Energy and may use 'turret_platform' without extra parts.",
+      "rules": { "discount": { "targetType": "Structure", "subtype": "Turret", "amount": 1 }, "tempBuildPermit": ["turret_platform"] },
+      "icons": ["blueprint", "turret"],
+      "v": 2
+    },
+    {
+      "id": "BQ-BOS-0001",
+      "name": "Overlord's Pulse",
+      "type": "BossTechnique",
+      "rarity": "Mythic",
+      "faction": "Neutral",
+      "cost": { "energy": 3, "exhaust": true, "sacrifice": "drone" },
+      "text": "Two-step attack: (1) Push all enemies 1 and deal 2 damage. (2) If any hit a wall/structure, stun them.",
+      "rules": {
+        "sequence": [
+          {"push": 1, "damage": 2},
+          {"conditional": {"collide": true}, "statusAdd": [{"name": "Stunned", "dur": "end_of_round"}]}
+        ]
+      },
+      "icons": ["boss", "stun"],
+      "v": 2
+    },
+    {
+      "id": "BQ-ACT-0001",
+      "name": "Tactical Retreat",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": { "energy": 1 },
+      "text": "Move up to 2 hexes. If you end adjacent to an enemy, deal 1 damage to them.",
+      "rules": { "move": 2, "conditional": {"adjacentToEnemy": true, "damage": 1} },
+      "icons": ["move", "damage"],
+      "flavor": "Sometimes the best attack is a good retreat.",
+      "v": 2
+    },
+    {
+      "id": "BQ-STR-0001",
+      "name": "Steam Generator",
+      "type": "Structure",
+      "faction": "Steampunk",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "buildReq": { "lego": ["2x4_brick:2", "pipe:1"], "stl": ["steam_gen"], "footprint": "1-hex" },
+      "text": "At round start, gain 1 Energy. Adjacent allies gain +1 movement.",
+      "rules": { "roundStart": {"energy": 1}, "aura": {"movement": 1, "range": 1} },
+      "icons": ["steam", "energy"],
+      "flavor": "The heart of the machine.",
+      "v": 2
+    },
+    {
+      "id": "BQ-PRO-0001",
+      "name": "Overdrive Protocol",
+      "type": "Program",
+      "faction": "Cyber",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Duration: 2 rounds. +2 movement and +1 damage to all attacks.",
+      "rules": { "duration": 2, "movement": 2, "damageBonus": 1 },
+      "icons": ["program", "overdrive"],
+      "flavor": "Pushing the limits of what's possible.",
+      "v": 2
+    },
+    {
+      "id": "BQ-EVT-0001",
+      "name": "System Overload",
+      "type": "Event",
+      "faction": "Cyber",
+      "rarity": "Uncommon",
+      "cost": { "energy": 2 },
+      "text": "All units take 1 damage. All Programs are disabled for 1 round.",
+      "rules": { "damage": 1, "target": "all", "disable": ["Program"], "duration": 1 },
+      "icons": ["event", "overload"],
+      "flavor": "The system cannot handle the load.",
+      "v": 2
+    }
+  ],
+  "metadata": {
+    "generated": "2024-01-01T00:00:00.000Z",
+    "totalCards": 13,
+    "validationErrors": 0,
+    "expansion": "Core Plus",
+    "version": "1.0.0"
+  }
+}

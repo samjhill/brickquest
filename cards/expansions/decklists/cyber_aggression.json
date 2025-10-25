@@ -1,0 +1,48 @@
+{
+  "decklist": {
+    "name": "Cyber Aggression",
+    "faction": "Cyber",
+    "strategy": "Fast-paced disruption and data manipulation",
+    "cards": [
+      "BQ-CYB-0001", "BQ-CYB-0001", "BQ-CYB-0001",
+      "BQ-CYB-0002",
+      "BQ-CYB-0003", "BQ-CYB-0003",
+      "BQ-CYB-0004", "BQ-CYB-0004",
+      "BQ-CYB-0005",
+      "BQ-CYB-0006",
+      "BQ-CYB-0007",
+      "BQ-CYB-0008", "BQ-CYB-0008", "BQ-CYB-0008",
+      "BQ-REA-0002", "BQ-REA-0002",
+      "BQ-AUR-0001",
+      "BQ-QST-0003",
+      "BQ-WTH-0003",
+      "BQ-CNS-0003", "BQ-CNS-0003",
+      "BQ-BLP-0002",
+      "BQ-ACT-0003", "BQ-ACT-0003",
+      "BQ-PRO-0001", "BQ-PRO-0001",
+      "BQ-EVT-0001"
+    ],
+    "totalCards": 25,
+    "energyCurve": {
+      "0": 0,
+      "1": 7,
+      "2": 8,
+      "3": 6,
+      "4": 3,
+      "5": 1
+    },
+    "cardTypes": {
+      "Action": 5,
+      "Program": 4,
+      "Structure": 2,
+      "Consumable": 2,
+      "Reaction": 2,
+      "Trap": 1,
+      "Aura": 1,
+      "Quest": 1,
+      "Weather": 1,
+      "Blueprint": 1,
+      "Event": 1
+    }
+  }
+}

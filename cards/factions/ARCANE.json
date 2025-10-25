@@ -1,0 +1,115 @@
+{
+  "cards": [
+    {
+      "id": "BQ-ARC-0001",
+      "name": "Crystal Shard",
+      "type": "Action",
+      "faction": "Arcane",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Deal 2 damage to target. If it dies, gain 1 Energy.",
+      "rules": { "damage": 2, "onKill": {"energy": 1} },
+      "icons": ["crystal", "damage"],
+      "flavor": "The crystal's power flows through you.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0002",
+      "name": "Crystal Resonance",
+      "type": "Program",
+      "faction": "Arcane",
+      "rarity": "Rare",
+      "cost": { "energy": 4 },
+      "text": "Duration: 3 rounds. All spells have +1 range and deal +1 damage.",
+      "rules": { "duration": 3, "spellBuff": {"range": 1, "damage": 1} },
+      "icons": ["program", "crystal"],
+      "flavor": "The crystal sings with power.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0003",
+      "name": "Crystal Focus",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Rare",
+      "cost": { "energy": 4 },
+      "buildReq": { "lego": ["crystal:1", "focus_lens:1"], "stl": ["crystal_focus"], "footprint": "1-hex" },
+      "text": "All spells cost −1 Energy. When you cast a spell, deal 1 damage to a random enemy.",
+      "rules": { "spellDiscount": 1, "onSpellCast": {"damage": 1, "target": "randomEnemy"} },
+      "icons": ["crystal", "focus"],
+      "flavor": "The crystal amplifies all magic.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0004",
+      "name": "Crystal Shard",
+      "type": "Consumable",
+      "faction": "Arcane",
+      "rarity": "Rare",
+      "cost": { "energy": 2 },
+      "text": "Deal 3 damage to target. If it dies, gain 2 Energy and draw 1 card.",
+      "rules": { "damage": 3, "onKill": {"energy": 2, "draw": 1} },
+      "icons": ["crystal", "shard"],
+      "flavor": "The crystal's final gift.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0005",
+      "name": "Storm Spire",
+      "type": "Structure",
+      "faction": "Arcane",
+      "rarity": "Mythic",
+      "cost": { "energy": 5 },
+      "buildReq": { "lego": ["crystal:2", "storm_rod:1"], "stl": ["storm_spire"], "footprint": "1-hex" },
+      "text": "At round start, deal 1 damage to all enemies. All Weather cards last +1 round.",
+      "rules": { "roundStart": {"damage": 1, "target": "enemies"}, "weatherBuff": {"duration": 1} },
+      "icons": ["storm", "crystal"],
+      "flavor": "The storm answers to none.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0006",
+      "name": "Rune Trap",
+      "type": "Trap",
+      "faction": "Arcane",
+      "rarity": "Uncommon",
+      "cost": { "energy": 2 },
+      "text": "Arm on any tile. When enemy enters: they are Stunned for 1 round and take 2 damage.",
+      "rules": { "arm": true, "trigger": "onEnterTile", "statusAdd": [{"name": "Stunned", "dur": 1}], "damage": 2 },
+      "icons": ["trap", "rune"],
+      "flavor": "The ancient runes hold power.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0007",
+      "name": "Voltaic Storm",
+      "type": "Weather",
+      "faction": "Arcane",
+      "rarity": "Uncommon",
+      "cost": { "energy": 2 },
+      "text": "Lasts 3 rounds. At round end, each unit in exposed tiles takes 1 damage (⚡). Sensors gain +1 range.",
+      "rules": { "durationRounds": 3, "endRoundTick": { "aoeDamage": 1, "tag": "electric" }, "buffs": {"sensorRange": 1} },
+      "icons": ["storm", "sensor"],
+      "flavor": "The storm rages on.",
+      "v": 2
+    },
+    {
+      "id": "BQ-ARC-0008",
+      "name": "Reality Rift",
+      "type": "Event",
+      "faction": "Arcane",
+      "rarity": "Rare",
+      "cost": { "energy": 3 },
+      "text": "All units are teleported to random tiles. Draw 2 cards.",
+      "rules": { "teleport": "random", "target": "all", "draw": 2 },
+      "icons": ["event", "rift"],
+      "flavor": "The fabric of reality tears.",
+      "v": 2
+    }
+  ],
+  "metadata": {
+    "faction": "Arcane",
+    "totalCards": 8,
+    "version": "1.0.0"
+  }
+}

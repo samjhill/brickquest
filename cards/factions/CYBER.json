@@ -1,0 +1,115 @@
+{
+  "cards": [
+    {
+      "id": "BQ-CYB-0001",
+      "name": "Data Scan",
+      "type": "Action",
+      "faction": "Cyber",
+      "rarity": "Common",
+      "cost": { "energy": 1 },
+      "text": "Reveal target enemy's hand. Draw 1 card.",
+      "rules": { "reveal": "enemyHand", "draw": 1 },
+      "icons": ["scan", "data"],
+      "flavor": "Knowledge is power.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0002",
+      "name": "Neural Overload",
+      "type": "Program",
+      "faction": "Cyber",
+      "rarity": "Rare",
+      "cost": { "energy": 3 },
+      "text": "Duration: 2 rounds. All enemies take 1 damage at round start. You gain 1 Energy per enemy hit.",
+      "rules": { "duration": 2, "roundStart": {"damage": 1, "target": "enemies", "energyPerHit": 1} },
+      "icons": ["neural", "damage"],
+      "flavor": "Your mind is not your own.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0003",
+      "name": "Sensor Array",
+      "type": "Structure",
+      "faction": "Cyber",
+      "rarity": "Uncommon",
+      "cost": { "energy": 3 },
+      "buildReq": { "lego": ["antenna:1", "circuit:2"], "stl": ["sensor_array"], "footprint": "1-hex" },
+      "text": "Range 3. Reveal all enemies in range. Adjacent allies gain +1 range.",
+      "rules": { "range": 3, "reveal": "enemies", "aura": {"range": 1, "range": 1} },
+      "icons": ["sensor", "range"],
+      "flavor": "Eyes in the darkness.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0004",
+      "name": "Data Spike",
+      "type": "Consumable",
+      "faction": "Cyber",
+      "rarity": "Uncommon",
+      "cost": { "energy": 1 },
+      "text": "Target enemy cannot use Programs for 2 rounds. Draw 1 card.",
+      "rules": { "statusAdd": [{"name": "ProgramLock", "dur": 2}], "draw": 1 },
+      "icons": ["spike", "lock"],
+      "flavor": "One spike to rule them all.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0005",
+      "name": "Neural Network",
+      "type": "Structure",
+      "faction": "Cyber",
+      "rarity": "Rare",
+      "cost": { "energy": 4 },
+      "buildReq": { "lego": ["neural_core:1", "circuit:4"], "stl": ["neural_network"], "footprint": "1-hex" },
+      "text": "All Programs cost −1 Energy. At round start, draw 1 card.",
+      "rules": { "programDiscount": 1, "roundStart": {"draw": 1} },
+      "icons": ["neural", "program"],
+      "flavor": "The network thinks as one.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0006",
+      "name": "Data Snare",
+      "type": "Trap",
+      "faction": "Cyber",
+      "rarity": "Rare",
+      "cost": { "energy": 2 },
+      "text": "Arm on any tile. When enemy enters: they cannot use Programs for 2 rounds.",
+      "rules": { "arm": true, "trigger": "onEnterTile", "statusAdd": [{"name": "ProgramLock", "dur": 2}] },
+      "icons": ["trap", "lock"],
+      "flavor": "Your circuits are mine now.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0007",
+      "name": "EMP Pulse",
+      "type": "Weather",
+      "faction": "Cyber",
+      "rarity": "Rare",
+      "cost": { "energy": 3 },
+      "text": "Lasts 1 round. All Programs are disabled. All electronic devices take 2 damage.",
+      "rules": { "durationRounds": 1, "disable": ["Program"], "damage": 2, "target": "electronic" },
+      "icons": ["emp", "pulse"],
+      "flavor": "Technology fails us all.",
+      "v": 2
+    },
+    {
+      "id": "BQ-CYB-0008",
+      "name": "Overclock Protocol",
+      "type": "Program",
+      "faction": "Cyber",
+      "rarity": "Common",
+      "cost": { "energy": 2 },
+      "text": "Duration: 2 rounds. +2 movement and +1 damage to all attacks.",
+      "rules": { "duration": 2, "movement": 2, "damageBonus": 1 },
+      "icons": ["program", "overdrive"],
+      "flavor": "Pushing the limits of what's possible.",
+      "v": 2
+    }
+  ],
+  "metadata": {
+    "faction": "Cyber",
+    "totalCards": 8,
+    "version": "1.0.0"
+  }
+}

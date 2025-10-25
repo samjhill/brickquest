@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrickQuest Printable Cards</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0.5in;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        
+        .controls {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .controls label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .controls select {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+        
+        .print-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.25in;
+            padding: 0.25in;
+        }
+        
+        .card {
+            width: 2.5in;
+            height: 3.5in;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            page-break-inside: avoid;
+        }
+        
+        .card-header {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .type-icon {
+            font-size: 24px;
+        }
+        
+        .card-name {
+            font-size: 18px;
+        }
+        
+        .card-cost {
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .card-body {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .card-description {
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 15px;
+        }
+        
+        .effects {
+            margin: 4px 0;
+        }
+        
+        .effect {
+            background: #f0f0f0;
+            padding: 4px 8px;
+            margin: 3px 0;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .stat {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 3px 8px;
+            margin: 3px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .card-footer {
+            padding: 8px 10px;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .card-type {
+            font-weight: bold;
+        }
+        
+        .card-rarity {
+            font-weight: bold;
+        }
+        
+        .card-icons {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+        
+        .card-icons .icon {
+            margin-right: 4px;
+        }
+        
+        .card-faction {
+            font-size: 12px;
+            color: #666;
+            font-weight: bold;
+            margin: 4px 0;
+        }
+        
+        .build-req {
+            font-size: 10px;
+            color: #888;
+            background: #f8f8f8;
+            padding: 4px;
+            border-radius: 4px;
+            margin: 4px 0;
+        }
+        
+        .card-limits {
+            font-size: 10px;
+            color: #888;
+            margin-top: 4px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .controls {
+                display: none !important;
+            }
+            
+            .print-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.1in;
+                padding: 0;
+            }
+            
+            .card {
+                break-inside: avoid;
+            }
+        }
+        
+        .print-instructions {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+        }
+        
+        .print-instructions h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        
+        .print-instructions ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        
+        .print-instructions li {
+            margin: 5px 0;
+        }
+        
+        @media print {
+            .print-instructions {
+                display: none !important;
+            }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <label for="cardFile">Load Cards from:</label>
+        <select id="cardFile">
+            <option value="cards/expansions/core_plus.json" selected>Core Plus Expansion (40+ cards)</option>
+            <option value="cards/base_set.json">Base Set (20 cards)</option>
+            <option value="cards/all_cards.json">All Cards (20 unique cards)</option>
+            <option value="cards/factions/STEAMPUNK.json">Steampunk Faction (8 cards)</option>
+            <option value="cards/factions/CYBER.json">Cyber Faction (8 cards)</option>
+            <option value="cards/factions/ARCANE.json">Arcane Faction (8 cards)</option>
+        </select>
+    </div>
+    
+    <div class="print-instructions" id="instructions">
+        <h2>🖨️ BrickQuest Card Printing Instructions</h2>
+        <ul>
+            <li><strong>Paper:</strong> Use 300gsm cardstock or photo paper for best results</li>
+            <li><strong>Size:</strong> Standard A4 paper (8.27" x 11.69")</li>
+            <li><strong>Layout:</strong> 3 cards per row, 9 cards per page</li>
+            <li><strong>Print Settings:</strong> High quality, color printing</li>
+            <li><strong>Cutting:</strong> Use a paper cutter or scissors to cut along the card borders</li>
+            <li><strong>Finishing:</strong> Consider laminating for durability</li>
+        </ul>
+        <p><strong>Total Cards:</strong> <span id="totalCards">0</span> cards</p>
+        <p><strong>Estimated Pages:</strong> <span id="estimatedPages">0</span> pages</p>
+    </div>
+    
+    <div class="print-container" id="cardContainer">
+        <div class="loading">Loading cards...</div>
+    </div>
+    
+    <script>
+        const typeIcons = {
+            'Action': '⚡',
+            'Structure': '🏗️',
+            'Program': '💻',
+            'Event': '🎲',
+            'Loot': '⬆️',
+            'Reaction': '🛡️',
+            'Trap': '🕳️',
+            'Aura': '🌀',
+            'Quest': '🗺️',
+            'Weather': '⛈️',
+            'Consumable': '💊',
+            'Blueprint': '📐',
+            'BossTechnique': '👑'
+        };
+        
+        const rarityColors = {
+            'Common': '#9ca3af',
+            'Uncommon': '#10b981',
+            'Rare': '#3b82f6',
+            'Mythic': '#f59e0b'
+        };
+        
+        function getTypeIcon(type) {
+            return typeIcons[type] || '🎴';
+        }
+        
+        function getIconEmoji(icon) {
+            const iconMap = {
+                'shield': '🛡️',
+                'bolt': '⚡',
+                'trap': '🕳️',
+                'immobilize': '🧊',
+                'aura': '🌀',
+                'heat': '🔥',
+                'quest': '🗺️',
+                'gate': '🚪',
+                'storm': '⛈️',
+                'sensor': '📡',
+                'heal': '❤️',
+                'cleanse': '💧',
+                'blueprint': '📐',
+                'turret': '🛞',
+                'boss': '👑',
+                'stun': '💥',
+                'counter': '🔄',
+                'damage': '⚔️',
+                'override': '🔓',
+                'energy': '⚡',
+                'steam': '💨',
+                'crystal': '💎',
+                'data': '💾',
+                'scan': '📡',
+                'neural': '🧠',
+                'emp': '📡',
+                'pulse': '📡',
+                'program': '💻',
+                'lock': '🔒',
+                'fog': '🌫️',
+                'grenade': '💣',
+                'spike': '📌',
+                'shard': '💎',
+                'focus': '🔍',
+                'resonance': '🌊',
+                'void': '🕳️',
+                'rift': '🌌',
+                'move': '👟',
+                'draw': '📖',
+                'range': '🎯',
+                'area': '📍',
+                'explosive': '💥',
+                'explosion': '💥',
+                'overload': '⚡',
+                'event': '🎲',
+                'structure': '🏗️',
+                'action': '⚡'
+            };
+            return iconMap[icon] || '❓';
+        }
+        
+        function renderCard(card) {
+            const borderColor = rarityColors[card.rarity] || '#9ca3af';
+            const bgColor = borderColor + '20';
+            
+            // Extract stats from rules object
+            let stats = '';
+            const rules = card.rules || {};
+            if (rules.damage && typeof rules.damage === 'number') stats += `<div class='stat'>⚔️ ${rules.damage}</div>`;
+            if (rules.range && typeof rules.range === 'number') stats += `<div class='stat'>🎯 ${rules.range}</div>`;
+            if (rules.duration && typeof rules.duration === 'number') stats += `<div class='stat'>⏱️ ${rules.duration}</div>`;
+            if (rules.heal && typeof rules.heal === 'number') stats += `<div class='stat'>❤️ ${rules.heal}</div>`;
+            if (rules.move && typeof rules.move === 'number') stats += `<div class='stat'>👟 ${rules.move}</div>`;
+            if (rules.draw && typeof rules.draw === 'number') stats += `<div class='stat'>📖 ${rules.draw}</div>`;
+            
+            // Handle energy cost (new schema uses cost.energy)
+            const energyCost = card.cost && card.cost.energy !== undefined ? card.cost.energy : (card.cost || 0);
+            
+            // Handle icons (new schema uses icons array)
+            let iconsHtml = '';
+            if (card.icons && card.icons.length > 0) {
+                iconsHtml = `<div class="card-icons">${card.icons.map(icon => `<span class="icon">${getIconEmoji(icon)}</span>`).join(' ')}</div>`;
+            }
+            
+            // Handle faction
+            const factionHtml = card.faction ? `<div class="card-faction">${card.faction}</div>` : '';
+            
+            // Handle build requirements
+            let buildReqHtml = '';
+            if (card.buildReq) {
+                const reqs = [];
+                if (card.buildReq.lego && card.buildReq.lego.length > 0) {
+                    reqs.push(`Lego: ${card.buildReq.lego.join(', ')}`);
+                }
+                if (card.buildReq.stl && card.buildReq.stl.length > 0) {
+                    reqs.push(`STL: ${card.buildReq.stl.join(', ')}`);
+                }
+                if (card.buildReq.footprint) {
+                    reqs.push(`Footprint: ${card.buildReq.footprint}`);
+                }
+                if (reqs.length > 0) {
+                    buildReqHtml = `<div class="build-req">${reqs.join(' | ')}</div>`;
+                }
+            }
+            
+            // Handle limits
+            let limitsHtml = '';
+            if (card.limits) {
+                const limits = [];
+                if (card.limits.perDeck) limits.push(`Deck: ${card.limits.perDeck}`);
+                if (card.limits.perField) limits.push(`Field: ${card.limits.perField}`);
+                if (limits.length > 0) {
+                    limitsHtml = `<div class="card-limits">${limits.join(' | ')}</div>`;
+                }
+            }
+            
+            return `
+                <div class="card" style="border-color: ${borderColor}">
+                    <div class="card-header" style="background: ${bgColor}">
+                        <div class="card-title">
+                            <span class="type-icon">${getTypeIcon(card.type)}</span>
+                            <span class="card-name">${card.name}</span>
+                        </div>
+                        <div class="card-cost">${energyCost}</div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="card-description">${card.text}</div>
+                        ${iconsHtml}
+                        ${factionHtml}
+                        ${buildReqHtml}
+                        ${stats}
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="card-type">${card.type}</div>
+                        <div class="card-rarity" style="color: ${borderColor}">
+                            ${card.rarity}
+                        </div>
+                        ${limitsHtml}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function updateCardStats(cards) {
+            const totalCards = cards.length;
+            const estimatedPages = Math.ceil(totalCards / 9);
+            document.getElementById('totalCards').textContent = totalCards;
+            document.getElementById('estimatedPages').textContent = estimatedPages;
+        }
+        
+        async function loadCards(filePath) {
+            const container = document.getElementById('cardContainer');
+            container.innerHTML = '<div class="loading">Loading cards...</div>';
+            
+            try {
+                const response = await fetch(filePath);
+                const data = await response.json();
+                let cards = data.cards || [];
+                
+                // Handle different card formats
+                if (Array.isArray(data) && !data.cards) {
+                    cards = data;
+                }
+                
+                // Convert old format to new format if needed
+                cards = cards.map(card => {
+                    // If it's already in new format, return as-is
+                    if (card.v === 2) {
+                        return card;
+                    }
+                    
+                    // Convert old format to new format
+                    return {
+                        id: card.id,
+                        name: card.name,
+                        type: card.type.charAt(0).toUpperCase() + card.type.slice(1),
+                        faction: 'Neutral',
+                        rarity: card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1),
+                        cost: { energy: card.cost || 0 },
+                        text: card.description || '',
+                        rules: {
+                            damage: card.damage || 0,
+                            range: card.range || 0,
+                            duration: card.duration || 0
+                        },
+                        icons: [],
+                        v: 2
+                    };
+                });
+                
+                container.innerHTML = cards.map(card => renderCard(card)).join('');
+                updateCardStats(cards);
+            } catch (error) {
+                console.error('Error loading cards:', error);
+                container.innerHTML = '<div class="loading" style="color: red;">Error loading cards. Make sure the card file exists.</div>';
+            }
+        }
+        
+        document.getElementById('cardFile').addEventListener('change', (e) => {
+            loadCards(e.target.value);
+        });
+        
+        // Load initial cards
+        loadCards(document.getElementById('cardFile').value);
+    </script>
+</body>
+</html>
+        
