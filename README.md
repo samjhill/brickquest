@@ -180,8 +180,6 @@ brickquest/
 
 ### Analysis & Reports
 - [Playtest Results](PLAYTEST_RESULTS.md) - Simulation analysis and recommendations
-- [Card Expansion Summary](CARD_EXPANSION_SUMMARY.md) - New cards documentation
-- [Cleanup Summary](CLEANUP_SUMMARY.md) - Project organization details
 
 ### Generated Reports
 - [Balance Report](docs/generated/BALANCE.md) - Energy curve analysis
