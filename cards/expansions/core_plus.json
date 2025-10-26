@@ -9,16 +9,16 @@
       "cost": {
         "energy": 2
       },
-      "text": "Move 2 tiles toward target enemy. Deal 1 damage if you end adjacent.",
+      "text": "Move 2 tiles toward target enemy. Deal 2 damage if you end adjacent.",
       "rules": {
         "movement": "charge",
         "distance": 2,
-        "damage": 1,
+        "damage": 2,
         "requiresAdjacent": true
       },
       "v": 2,
       "icons": [
-        "{\"movement\":\"charge\",\"distance\":2,\"damage\":1,\"requiresAdjacent\":true}"
+        "{\"movement\":\"charge\",\"distance\":2,\"damage\":2,\"requiresAdjacent\":true}"
       ],
       "flavor": "charge;movement;damage"
     },
@@ -51,9 +51,9 @@
       "cost": {
         "energy": 1
       },
-      "text": "Deal 2 damage. If you have 5 or less HP, deal +2 damage.",
+      "text": "Deal 1 damage. If you have 5 or less HP, deal +3 damage instead.",
       "rules": {
-        "damage": 2,
+        "damage": 1,
         "conditional": {
           "hp": "<=5",
           "damage": 4
@@ -61,7 +61,7 @@
       },
       "v": 2,
       "icons": [
-        "{\"damage\":2,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}"
+        "{\"damage\":1,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}"
       ],
       "flavor": "desperate;damage"
     },
@@ -322,15 +322,16 @@
       "cost": {
         "energy": 3
       },
-      "text": "Gain +3 Defense and +2 temporary HP until end of turn.",
+      "text": "Gain +2 Defense and +3 temporary HP until end of turn. Cannot move this turn.",
       "rules": {
-        "defense": 3,
-        "tempHP": 2,
-        "duration": 1
+        "defense": 2,
+        "tempHP": 3,
+        "duration": 1,
+        "cannotMove": true
       },
       "v": 2,
       "icons": [
-        "{\"defense\":3,\"tempHP\":2,\"duration\":1}"
+        "{\"defense\":2,\"tempHP\":3,\"duration\":1,\"cannotMove\":true}"
       ],
       "flavor": "fortify;defense"
     },
@@ -984,7 +985,7 @@
     },
     {
       "id": "BQ-LOT-0001",
-      "name": "Energy Core",
+      "name": "Power Core",
       "type": "Loot",
       "faction": "Neutral",
       "rarity": "Uncommon",
@@ -1064,7 +1065,7 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T13:19:14.040Z",
+    "generated": "2025-10-26T13:20:01.541Z",
     "totalCards": 49,
     "validationErrors": 0
   }
