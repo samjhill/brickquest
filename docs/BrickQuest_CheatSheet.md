@@ -26,7 +26,7 @@
 | **Melee Attack** | 1E | Base attack dmg, adjacent studs |
 | **Ranged Attack** | 1E | Base attack -1 dmg, 2-3 studs |
 | **Defend** | 1E | +2 Defense until next turn |
-| **Move** | 1E per stud | Move 1 stud per Energy spent |
+| **Move** | Free | Move up to Movement stat |
 | **Repair** | 1E | Restore 2 HP to self/ally |
 
 ---

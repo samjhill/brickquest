@@ -7,6 +7,15 @@
 | **HP** | +1 | Extra action cards |
 | **Focus** | Combat and damage | |
 
+## 🕹️ Standard Actions (Available to All Classes)
+| Action | Cost | Effect |
+|--------|------|--------|
+| **Melee Attack** | 1E | Base attack dmg, adjacent studs |
+| **Ranged Attack** | 1E | Base attack -1 dmg, 2-3 studs |
+| **Defend** | 1E | +2 Defense until next turn |
+| **Move** | Free | Move up to Movement stat |
+| **Repair** | 1E | Restore 2 HP to self/ally |
+
 ## 🎭 Class Actions
 | Action | Cost | Effect | Duration |
 |--------|------|--------|----------|

@@ -112,7 +112,7 @@ All players can perform these basic actions during their Action Phase, regardles
 - **Special**: Cannot move while defending, but can still use other actions
 
 ### Move
-- **Cost**: 1 Energy per tile moved
+- **Cost**: Free
 - **Range**: Up to robot's movement stat
 - **Description**: Relocate your robot on the battlefield
 - **Special**: Cannot move through enemy-controlled spaces unless you have special abilities
