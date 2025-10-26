@@ -16,7 +16,7 @@
 - **Range**: 2-3 studs (varies by weapon)
 - **Damage**: Base robot attack stat -1
 - **Accuracy**: 80% base hit chance, modified by terrain
-- **Cover**: Reduces accuracy of incoming attacks
+- **Cover**: Reduces accuracy by 20%
 
 ### Ranged vs Melee Comparison
 | Aspect | Ranged Attack | Melee Attack |
@@ -162,7 +162,7 @@
 
 #### Trickster Ranged Tips
 - **Shadow Step**: Teleport to optimal ranged positions
-- **Mobility**: Use 4-tile movement for positioning
+- **Mobility**: Use 4-studs movement for positioning
 - **Hit & Run**: Attack from unexpected angles
 - **Misdirection**: Use ranged attacks to control enemy focus
 

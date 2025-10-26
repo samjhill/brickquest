@@ -1,25 +1,25 @@
 id,name,type,subtype,faction,classLock,rarity,cost_energy,cost_exhaust,cost_sacrifice,stats,build_lego,build_footprint,text,rules,icons,flavor,limits_perDeck,limits_perField,tags
-BQ-ACT-0001,Basic Move,Action,,Neutral,,Common,1,false,,,,,,Move 1 tile.,"{\"movement\":1}",movement,Basic movement.,,,,movement
-BQ-ACT-0002,Dash,Action,,Neutral,,Common,2,false,,,,,,Move 2 tiles.,"{\"movement\":2}",movement;dash,Quick repositioning.,,,,movement;positioning
+BQ-ACT-0001,Basic Move,Action,,Neutral,,Common,1,false,,,,,,Move 1 stud.,"{\"movement\":1}",movement,Basic movement.,,,,movement
+BQ-ACT-0002,Dash,Action,,Neutral,,Common,2,false,,,,,,Move 2 studs.,"{\"movement\":2}",movement;dash,Quick repositioning.,,,,movement;positioning
 BQ-ACT-0003,Melee Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat to adjacent enemy.,"{\"damage\":\"attack\",\"range\":1}",attack,Basic combat.,,,,damage
-BQ-ACT-0004,Ranged Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat -1 to target within 2 tiles.,"{\"damage\":\"attack-1\",\"range\":2}",ranged;attack,Projectile combat.,,,,damage;ranged
+BQ-ACT-0004,Ranged Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat -1 to target within 2 studs.,"{\"damage\":\"attack-1\",\"range\":2}",ranged;attack,Projectile combat.,,,,damage;ranged
 BQ-ACT-0005,Repair,Action,,Neutral,,Common,1,false,,,,,,Heal 2 HP.,"{\"heal\":2}",repair;heal,Basic maintenance.,,,,healing;utility
 BQ-ACT-0006,Defend,Action,,Neutral,,Common,1,false,,,,,,Gain +2 Defense until end of turn.,"{\"defense\":2,\"duration\":1}",defense,Defensive posture.,,,,defense
 BQ-ACT-0007,Energy Surge,Action,,Neutral,,Uncommon,2,false,,,,,,Gain 2 Energy.,"{\"energy\":2}",energy;surge,Power boost.,,,,energy;buff
-BQ-ACT-0008,Precision Shot,Action,,Neutral,,Uncommon,2,false,,,,,,Deal 3 damage to target within 3 tiles. Cannot miss.,"{\"damage\":3,\"range\":3,\"cannotMiss\":true}",aim;damage,Perfect accuracy.,,,,damage;precision
+BQ-ACT-0008,Precision Shot,Action,,Neutral,,Uncommon,2,false,,,,,,Deal 3 damage to target within 3 studs. Cannot miss.,"{\"damage\":3,\"range\":3,\"cannotMiss\":true}",aim;damage,Perfect accuracy.,,,,damage;precision
 BQ-ACT-0009,Rally,Action,,Neutral,,Uncommon,2,false,,,,,,All allies gain +1 Attack this turn.,"{\"buff\":{\"attack\":1},\"target\":\"allies\",\"duration\":1}",rally;buff,Inspire your team.,,,,buff;teamwork
 BQ-ACT-0010,Desperate Strike,Action,,Neutral,,Common,1,false,,,,,,"Deal 2 damage. If you have 5 or less HP, deal +2 damage.","{\"damage\":2,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}",desperate;damage,"When cornered, fight harder.",,,,damage;conditional
 BQ-ACT-0011,Power Strike,Action,,Neutral,,Uncommon,3,false,,,,,,Deal 4 damage to target.,"{\"damage\":4}",power;damage,Devastating force.,,,,damage
-BQ-ACT-0012,Energy Blast,Action,,Neutral,,Uncommon,3,false,,,,,,Deal 2 damage to all enemies within 2 tiles.,"{\"damage\":2,\"range\":2,\"target\":\"allEnemies\"}",energy;blast,Area damage.,,,,damage;aoe
+BQ-ACT-0012,Energy Blast,Action,,Neutral,,Uncommon,3,false,,,,,,Deal 2 damage to all enemies within 2 studs.,"{\"damage\":2,\"range\":2,\"target\":\"allEnemies\"}",energy;blast,Area damage.,,,,damage;aoe
 BQ-ACT-0013,Combat Protocol,Action,,Neutral,,Uncommon,3,false,,,,,,Deal 3 damage to target. Draw 1 card if it dies.,"{\"damage\":3,\"onKill\":{\"draw\":1}}",combat;protocol,Execute combat sequence.,,,,damage;draw
 BQ-ACT-0014,Defensive Matrix,Action,,Neutral,,Uncommon,3,false,,,,,,Gain 3 temporary HP and +1 Defense until end of turn.,"{\"tempHP\":3,\"defense\":1,\"duration\":1}",defense;matrix,Protective systems.,,,,defense;temporary
 BQ-ACT-0015,Overcharge,Action,,Neutral,,Rare,4,false,,,,,,Deal 5 damage to target. Take 2 damage.,"{\"damage\":5,\"selfDamage\":2}",overcharge;risk,High-risk, high-reward.,,,,damage;risk
-BQ-STR-0001,Barricade,Structure,,Neutral,,Common,2,false,,,,barricade,1-tile,"Blocks movement. +2 Defense to adjacent units. Cost: 4 bricks.","{\"blocksMovement\":true,\"defenseBonus\":2,\"adjacent\":true}",wall;defense,Basic cover.,,,,defense;blocking
-BQ-STR-0002,Bridge,Structure,,Neutral,,Common,2,false,,,,bridge,2-tile,"Connects two tiles. Units can move across. Cost: 6 bricks.","{\"connects\":true,\"movement\":true}",bridge;connect,Span gaps.,,,,movement;connectivity
-BQ-STR-0003,Turret,Structure,,Neutral,,Uncommon,3,false,,,,turret,1-tile,"Ranged attack: 2 damage, 3 range. Cost: 6 bricks.","{\"attack\":2,\"range\":3,\"ranged\":true}",turret;ranged,Automated defense.,,,,defense;automated
-BQ-STR-0004,Watchtower,Structure,,Neutral,,Uncommon,3,false,,,,watchtower,1-tile,"+2 Range to all attacks from this tile. Cost: 6 bricks.","{\"rangeBonus\":2}",tower;range,Height advantage.,,,,range;scouting
-BQ-STR-0005,Energy Core,Structure,,Neutral,,Rare,4,false,,,,energy_core,1-tile,"All adjacent units gain +1 Energy per turn. Cost: 8 bricks.","{\"energyRegen\":1,\"adjacent\":true}",energy;core,Power source.,,,,energy;buff
-BQ-STR-0006,Healing Station,Structure,,Neutral,,Uncommon,3,false,,,,healing_station,1-tile,"Heal 2 HP to all adjacent units at end of turn. Cost: 6 bricks.","{\"heal\":2,\"adjacent\":true,\"endOfTurn\":true}",heal;station,Rest and recover.,,,,healing;station
+BQ-STR-0001,Barricade,Structure,,Neutral,,Common,2,false,,,,barricade,1-studs,"Blocks movement. +2 Defense to adjacent units. Cost: 4 bricks.","{\"blocksMovement\":true,\"defenseBonus\":2,\"adjacent\":true}",wall;defense,Basic cover.,,,,defense;blocking
+BQ-STR-0002,Bridge,Structure,,Neutral,,Common,2,false,,,,bridge,2-studs,"Connects two studs. Units can move across. Cost: 6 bricks.","{\"connects\":true,\"movement\":true}",bridge;connect,Span gaps.,,,,movement;connectivity
+BQ-STR-0003,Turret,Structure,,Neutral,,Uncommon,3,false,,,,turret,1-studs,"Ranged attack: 2 damage, 3 range. Cost: 6 bricks.","{\"attack\":2,\"range\":3,\"ranged\":true}",turret;ranged,Automated defense.,,,,defense;automated
+BQ-STR-0004,Watchtower,Structure,,Neutral,,Uncommon,3,false,,,,watchtower,1-studs,"+2 Range to all attacks from this stud. Cost: 6 bricks.","{\"rangeBonus\":2}",tower;range,Height advantage.,,,,range;scouting
+BQ-STR-0005,Energy Core,Structure,,Neutral,,Rare,4,false,,,,energy_core,1-studs,"All adjacent units gain +1 Energy per turn. Cost: 8 bricks.","{\"energyRegen\":1,\"adjacent\":true}",energy;core,Power source.,,,,energy;buff
+BQ-STR-0006,Healing Station,Structure,,Neutral,,Uncommon,3,false,,,,healing_station,1-studs,"Heal 2 HP to all adjacent units at end of turn. Cost: 6 bricks.","{\"heal\":2,\"adjacent\":true,\"endOfTurn\":true}",heal;station,Rest and recover.,,,,healing;station
 BQ-PRO-0001,Auto-Repair,Program,,Neutral,,Uncommon,2,false,,,,,,Duration: 3 turns. Heal 1 HP at start of each turn.,"{\"duration\":3,\"heal\":1,\"startOfTurn\":true}",repair;auto,Self-maintaining systems.,,,,healing;automated
 BQ-PRO-0002,Seek and Destroy,Program,,Neutral,,Uncommon,3,false,,,,,,Duration: 2 turns. +1 Attack against damaged enemies.,"{\"duration\":2,\"attackBonus\":1,\"vsDamaged\":true}",hunt;attack,Target the wounded.,,,,attack;hunting
 BQ-PRO-0003,Stealth Mode,Program,,Neutral,,Uncommon,2,false,,,,,,Duration: 3 turns. Enemies cannot target you with ranged attacks.,"{\"duration\":3,\"stealth\":true,\"vsRanged\":true}",stealth;defense,Hide in shadows.,,,,defense;stealth

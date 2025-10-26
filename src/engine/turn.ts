@@ -4,7 +4,7 @@
 
 import { Player, Card } from './cards';
 
-export type GamePhase = 'draw' | 'action' | 'build' | 'encounter' | 'end';
+export type GamePhase = 'draw' | 'action' | 'end';
 
 export interface GameState {
   currentPlayer: string;
@@ -35,7 +35,7 @@ export interface ActiveCard {
 
 export class TurnManager {
   private gameState: GameState;
-  private phaseOrder: GamePhase[] = ['draw', 'action', 'build', 'encounter', 'end'];
+  private phaseOrder: GamePhase[] = ['draw', 'action', 'end'];
 
   constructor(players: Player[]) {
     this.gameState = {
@@ -110,12 +110,6 @@ export class TurnManager {
       case 'action':
         // Action phase is player-controlled
         break;
-      case 'build':
-        // Build phase is player-controlled
-        break;
-      case 'encounter':
-        this.executeEncounterPhase();
-        break;
       case 'end':
         this.executeEndPhase(player);
         break;
@@ -132,12 +126,6 @@ export class TurnManager {
     switch (phase) {
       case 'action':
         // Resolve any pending actions
-        break;
-      case 'build':
-        // Finalize any structures
-        break;
-      case 'encounter':
-        // Resolve encounter effects
         break;
     }
   }
@@ -165,18 +153,6 @@ export class TurnManager {
     }
   }
 
-  /**
-   * Execute encounter phase
-   */
-  private executeEncounterPhase(): void {
-    // Draw encounter card if encounter deck has cards
-    if (this.gameState.encounterDeck.length > 0) {
-      const encounterCard = this.gameState.encounterDeck.pop();
-      if (encounterCard) {
-        this.resolveEncounter(encounterCard);
-      }
-    }
-  }
 
   /**
    * Execute end phase
@@ -251,11 +227,11 @@ export class TurnManager {
   }
 
   /**
-   * Build a structure during build phase
+   * Build a structure during action phase
    */
   buildStructure(cardId: string, position: { x: number; y: number }): boolean {
     const player = this.getCurrentPlayer();
-    if (!player || this.gameState.phase !== 'build') {
+    if (!player || this.gameState.phase !== 'action') {
       return false;
     }
 
@@ -269,7 +245,7 @@ export class TurnManager {
       return false;
     }
 
-    // Create terrain tile
+    // Create terrain studs
     const terrainTile: TerrainTile = {
       id: `${card.id}_${Date.now()}`,
       type: this.getTerrainTypeFromCard(card),
@@ -328,13 +304,6 @@ export class TurnManager {
     });
   }
 
-  /**
-   * Resolve encounter card
-   */
-  private resolveEncounter(card: Card): void {
-    // Implement encounter resolution logic
-    console.log(`Encounter: ${card.name} - ${card.description}`);
-  }
 
   /**
    * Check win conditions

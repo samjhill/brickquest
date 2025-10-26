@@ -81,24 +81,16 @@ npm run cards:validate   # Run all validation
 
 ## 🃏 Card System
 
-BrickQuest features **13 card types** with a complete content pipeline and **58 total cards**.
+BrickQuest features **5 card types** with a complete content pipeline and **35 total cards**.
 
 ### Card Types Overview
 | Type | Count | Description |
 |------|-------|-------------|
-| **Action** | 18 | Movement, attack, defend, repair |
-| **Structure** | 12 | Create physical objects with LEGO building |
-| **Program** | 10 | Give temporary AI to your robot |
-| **Reaction** | 8 | Speed-play during other players' phases |
-| **Event** | 5 | Dungeon/world effects |
-| **Loot & Upgrade** | 5 | Permanent or temporary improvements |
-| **Trap** | - | Face-down cards that trigger on conditions |
-| **Aura (Mod)** | - | Attaches to units for ongoing effects |
-| **Quest** | - | Multi-stage team objectives |
-| **Weather/Hazard** | - | Zone-wide environmental effects |
-| **Consumable** | - | One-shot items and potions |
-| **Blueprint** | - | Discounts and unlocks for structures |
-| **Boss Technique** | - | DM/NPC only powerful effects |
+| **Action** | 15 | Movement, attack, defend, repair |
+| **Structure** | 6 | Create physical objects with LEGO building |
+| **Program** | 6 | Give temporary AI to your robot |
+| **Reaction** | 3 | Speed-play during other players' phases |
+| **Loot & Upgrade** | 5 | Permanent improvements |
 
 ### Faction Themes
 - **Steampunk** - Gears, pressure, steam vents, mechanical complexity

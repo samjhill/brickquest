@@ -48,7 +48,7 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - **Purpose**: Create physical objects with Lego/3D terrain
 - **Examples**: "Watchtower," "Turret Base," "Grappling Bridge"
 - **Cost**: 2-5 energy
-- **Effects**: Place terrain tiles on the board
+- **Effects**: Place terrain studs on the board
 
 ### Program Cards
 - **Purpose**: Give temporary AI to your robot
@@ -77,7 +77,7 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - Process any "start of turn" effects
 
 ### 2. Action Phase
-- Play action cards
+- Play action cards, build structures, install programs
 - Move your robot
 - Attack enemies
 - Use special abilities
@@ -88,19 +88,19 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 
 All players can perform these basic actions during their Action Phase, regardless of their robot class:
 
-### Melee Attack
+### Attack
 - **Cost**: 1 Energy
-- **Range**: Adjacent tiles only
+- **Range**: Adjacent studs only
 - **Damage**: Base robot attack stat
-- **Description**: Basic close-quarters combat attack
+- **Description**: Basic combat attack
 - **Special**: Cannot be used against flying enemies unless you have anti-air capabilities
 
 ### Ranged Attack
 - **Cost**: 1 Energy
-- **Range**: 2-3 tiles (varies by weapon)
+- **Range**: 2-3 studs (varies by weapon)
 - **Damage**: Base robot attack stat -1
-- **Description**: Projectile or energy-based attack
-- **Special**: Cannot be used if target has cover, reduced accuracy at maximum range
+- **Description**: Projecstuds or energy-based attack
+- **Special**: Cannot be used if target has cover
 
 ### Defend
 - **Cost**: 1 Energy
@@ -110,23 +110,16 @@ All players can perform these basic actions during their Action Phase, regardles
 - **Special**: Cannot move while defending, but can still use other actions
 
 ### Move
-- **Cost**: 1 Energy (move up to 2 tiles) or 2 Energy (move up to movement stat)
+- **Cost**: 1 Energy per studs moved
 - **Range**: Up to robot's movement stat
 - **Description**: Relocate your robot on the battlefield
 - **Special**: Cannot move through enemy-controlled spaces unless you have special abilities
-
-### Scan
-- **Cost**: 1 Energy
-- **Range**: 3 tiles
-- **Effect**: Reveal hidden enemies or traps in range
-- **Description**: Use sensors to detect threats and opportunities
-- **Special**: Reveals enemy positions but not their cards or stats
 
 ### Repair
 - **Cost**: 1 Energy
 - **Effect**: Restore 2 HP to self or adjacent ally
 - **Description**: Basic maintenance to restore robot functionality
-- **Special**: Cannot repair above maximum HP, requires repair tools for advanced repairs
+- **Special**: Cannot repair above maximum HP
 
 ## 🎭 Class Flavor Actions
 
@@ -149,7 +142,7 @@ Each robot class has unique actions that reflect their specialization and playst
 
 #### Emergency Repair
 - **Cost**: 1 Energy
-- **Effect**: Instantly repair 4 HP to any structure within 2 tiles
+- **Effect**: Instantly repair 4 HP to any structure within 2 studs
 - **Description**: Rapid field maintenance for critical systems
 - **Special**: Can target enemy structures to sabotage them instead
 
@@ -170,7 +163,7 @@ Each robot class has unique actions that reflect their specialization and playst
 
 #### Battle Cry
 - **Cost**: 1 Energy
-- **Range**: All allies within 3 tiles
+- **Range**: All allies within 3 studs
 - **Effect**: All allies gain +1 Attack for 2 turns
 - **Description**: Inspire your comrades with your combat prowess
 - **Special**: Cannot affect yourself, requires at least one ally in range
@@ -200,43 +193,26 @@ Each robot class has unique actions that reflect their specialization and playst
 
 #### Shadow Step
 - **Cost**: 1 Energy
-- **Range**: 3 tiles
-- **Effect**: Teleport to any unoccupied tile within range
+- **Range**: 3 studs
+- **Effect**: Teleport to any unoccupied studs within range
 - **Description**: Move through shadows and avoid obstacles
-- **Special**: Cannot teleport to tiles occupied by enemies or structures
+- **Special**: Cannot teleport to studs occupied by enemies or structures
 
 #### Misdirection
 - **Cost**: 1 Energy
-- **Target**: One enemy within 2 tiles
+- **Target**: One enemy within 2 studs
 - **Effect**: Target cannot attack you for 1 turn
 - **Description**: Confuse enemies with clever tactics and illusions
 - **Special**: Target can still attack other players
 
 #### Sabotage
 - **Cost**: 2 Energy
-- **Target**: One enemy structure within 2 tiles
+- **Target**: One enemy structure within 2 studs
 - **Effect**: Structure takes 3 damage and cannot function for 1 turn
 - **Description**: Disable enemy constructions with cunning sabotage
 - **Special**: Cannot target structures you built
 
-### 3. Build Phase
-- **Gain +2 Bricks** (physically from shared pool)
-- Play structure cards (spend bricks to build)
-- Place terrain tiles
-- Connect Lego/3D printed components
-- Build custom structures with your brick pile
-
-### 4. Program Phase
-- Install robot programs
-- Activate special abilities
-- Process program effects
-
-### 5. Encounter Phase
-- Draw encounter card (if any)
-- Resolve events and hazards
-- Spawn enemies (if combat encounter)
-
-### 6. End Phase
+### 3. End Phase
 - Reset energy to maximum
 - Process active programs
 - Check win conditions
@@ -252,12 +228,12 @@ Every player gets a small pile of physical Lego bricks at the start of combat. T
 - **6+ players**: 3 bricks each, 100 in shared pool
 
 ### Turn Integration
-At the start of each Build Phase:
+At the start of each turn:
 - **Gain +2 Energy** (tracked digitally)
 - **Gain +2 Bricks** (physically from shared pool)
 
 ### Brick Usage
-During Build Phase, spend bricks to:
+During Action Phase, spend bricks to:
 - Build structure cards
 - Add to existing builds
 - Create cover, bridges, traps
@@ -278,8 +254,8 @@ During Build Phase, spend bricks to:
 ### Structure Cost Cards
 - Print build costs directly on cards
 - "Wall — 4 bricks"
-- "Turret — 6 bricks + 1 hinge piece"
-- Use color-coding: 🟥 regular, 🟨 plate, 🟦 special
+- "Turret — 6 bricks"
+- All structures use standard bricks (no special pieces required)
 
 ### Brick Destruction & Refunds
 - **Destroyed in combat**: All bricks return to shared pool
@@ -295,7 +271,7 @@ During Build Phase, spend bricks to:
 - Structures provide tactical advantages
 
 ### 3D Printed Terrain
-- Modular hex/square tiles
+- Modular hex/square studs
 - Pre-designed STL files included
 - Print settings and guides provided
 - Compatible with Lego system
@@ -311,13 +287,13 @@ During Build Phase, spend bricks to:
 
 ### Attack Resolution
 1. **Range Check**: Target must be within weapon range
-2. **Accuracy Roll**: Base 80% hit chance, modified by terrain
+2. **Hit Check**: Base 80% hit chance, modified by terrain
 3. **Damage Calculation**: Base damage + robot attack - target defense
 4. **Apply Damage**: Reduce target's HP
 
 ### Terrain Effects
-- **Cover**: Reduces accuracy of incoming attacks
-- **Height**: Provides attack bonuses
+- **Cover**: Reduces accuracy of incoming attacks by 20%
+- **Height**: Provides +1 attack bonus
 - **Hazards**: Damage players who enter
 - **Bridges**: Allow movement over gaps
 
@@ -358,12 +334,12 @@ During Build Phase, spend bricks to:
 
 ### Required Components
 - **Cards**: Base set + expansions
-- **Terrain**: 3D printed tiles + Lego pieces
+- **Terrain**: 3D printed studs + Lego pieces
 - **Robots**: Player avatars with upgrade slots
 - **Dice**: For random effects (optional)
 
 ### Board Setup
-1. Place starting terrain tiles
+1. Place starting terrain studs
 2. Each player starts at opposite corners
 3. Shuffle encounter deck
 4. Deal starting hands (5 cards each)
@@ -371,11 +347,8 @@ During Build Phase, spend bricks to:
 ## 🔄 Turn Structure
 
 1. **Draw Phase**: Draw up to hand limit
-2. **Action Phase**: Play cards, move, attack
-3. **Build Phase**: Construct structures
-4. **Program Phase**: Install programs
-5. **Encounter Phase**: Resolve events
-6. **End Phase**: Reset energy, process effects
+2. **Action Phase**: Play cards, move, attack, build, install programs
+3. **End Phase**: Reset energy, process effects
 
 ## 🎨 Customization
 

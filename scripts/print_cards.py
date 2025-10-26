@@ -76,11 +76,11 @@ class CardPrinter:
                     <span class="type-icon">{type_icon}</span>
                     <span class="card-name">{card.get('name', 'Unknown')}</span>
                 </div>
-                <div class="card-cost">{card.get('cost', 0)}</div>
+                <div class="card-cost">{card.get('cost', {}).get('energy', 0)}</div>
             </div>
             
             <div class="card-body">
-                <div class="card-description">{card.get('description', '')}</div>
+                <div class="card-description">{card.get('text', '')}</div>
                 {effects_html}
                 {stats_html}
             </div>

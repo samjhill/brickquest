@@ -12,7 +12,7 @@
 ## 🏃‍♂️ Movement Fundamentals
 
 ### Basic Movement Rules
-- **Standard Move**: 1E for 2 studs OR 2E for full movement stat
+- **Standard Move**: 1E per studs moved
 - **Movement Stat**: Base 2 + class bonuses
 - **Restrictions**: Cannot move through enemy-controlled spaces (except Trickster)
 - **Terrain**: Different terrain types affect movement costs
@@ -32,14 +32,17 @@
 ### Movement Cost Breakdown
 | Energy Cost | Movement | Efficiency | Best Use |
 |-------------|----------|------------|----------|
-| **1E** | 2 studs | High | Short repositioning |
-| **2E** | Full stat | Variable | Long-distance moves |
+| **1E** | 1 studs | High | Short repositioning |
+| **2E** | 2 studs | High | Medium-distance moves |
+| **3E** | 3 studs | High | Long-distance moves |
+| **4E** | 4 studs | High | Maximum distance |
+| **5E** | 5 studs | High | Trickster maximum |
 
 ### Energy Optimization Tips
-- **Short Moves**: Use 1E for 2 studs when possible
-- **Full Moves**: Only use 2E when you need maximum distance
-- **Trickster Advantage**: 4-stud movement for 2E is excellent value
-- **Mage Core**: 3-stud movement for 2E is solid
+- **Short Moves**: Use 1E for 1 studs when possible
+- **Medium Moves**: Use 2E for 2 studs efficiently
+- **Trickster Advantage**: 5-studs movement for 5E is excellent value
+- **Mage Core**: 4-studs movement for 4E is solid
 
 ---
 
@@ -98,7 +101,7 @@
 - **Spell Weaving**: Position for enhanced spell effects
 
 #### Mage Core Movement Tips
-- **3-tile Movement**: Use full movement for positioning
+- **3-studs Movement**: Use full movement for positioning
 - **Spell Range**: Position for maximum spell coverage
 - **Energy Surge**: Move to safe positions before using
 - **Arcane Shield**: Position defensively when shield is active
@@ -107,12 +110,12 @@
 **Focus**: Mobility and positioning control
 
 #### Trickster Movement Strategy
-- **Maximum Mobility**: Use 4-tile movement advantage
+- **Maximum Mobility**: Use 4-studs movement advantage
 - **Shadow Step**: Teleport for instant repositioning
 - **Enemy Movement**: Move through enemy spaces
 
 #### Trickster Movement Tips
-- **4-tile Movement**: Excellent value for 2E
+- **4-studs Movement**: Excellent value for 2E
 - **Shadow Step**: Bypass obstacles and enemies
 - **Enemy Spaces**: Move through enemy-controlled areas
 - **Hit & Run**: Use mobility for hit-and-run tactics
