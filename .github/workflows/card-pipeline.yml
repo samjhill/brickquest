@@ -1,0 +1,157 @@
+name: Card Pipeline
+
+on:
+  push:
+    paths:
+      - 'cards/sources/**'
+      - 'cards/schema/**'
+      - 'tools/card-pipeline/**'
+  pull_request:
+    paths:
+      - 'cards/sources/**'
+      - 'cards/schema/**'
+      - 'tools/card-pipeline/**'
+  workflow_dispatch:
+
+jobs:
+  build-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build cards from CSV
+        run: npm run cards:build
+      
+      - name: Check generated files
+        run: |
+          if [ ! -f "cards/base_set.json" ]; then
+            echo "Card JSON not generated"
+            exit 1
+          fi
+      
+      - name: Upload generated cards
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-cards
+          path: cards/*.json
+          retention-days: 30
+
+  lint-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Lint cards
+        run: npm run cards:lint
+      
+      - name: Validate schema
+        run: npm run cards:build
+        continue-on-error: true
+
+  balance-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Generate balance report
+        run: npm run cards:balance
+      
+      - name: Upload balance report
+        uses: actions/upload-artifact@v4
+        with:
+          name: balance-report
+          path: docs/generated/BALANCE.md
+          retention-days: 90
+      
+      - name: Comment balance report on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('docs/generated/BALANCE.md', 'utf8');
+            const body = `## Balance Report\n\n\`\`\`\n${report}\n\`\`\``;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+  dedupe-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Check for duplicates
+        run: npm run cards:dedupe
+        continue-on-error: true
+      
+      - name: Upload duplicate report
+        uses: actions/upload-artifact@v4
+        with:
+          name: duplicate-report
+          path: docs/generated/DUPLICATES.md
+          retention-days: 90
+
+  validate-all:
+    runs-on: ubuntu-latest
+    needs: [build-cards, lint-cards, balance-analysis, dedupe-check]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run full validation
+        run: npm run cards:validate
+      
+      - name: Validate card count
+        run: |
+          count=$(jq 'length' cards/base_set.json)
+          echo "Total cards: $count"
+          if [ "$count" -lt 50 ]; then
+            echo "Warning: Card count seems low"
+          fi

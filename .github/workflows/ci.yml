@@ -1,0 +1,137 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run tests
+        run: npm test -- --coverage --watchAll=false
+      
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage/coverage-final.json
+          fail_ci_if_error: false
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Run card validation
+        run: npm run cards:validate
+      
+      - name: Validate card schema
+        run: npm run cards:build
+
+  build-engine:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build engine
+        run: npm run cards:all
+      
+      - name: Check for build artifacts
+        run: |
+          if [ ! -d "cards/base_set.json" ] && [ ! -f "cards/base_set.json" ]; then
+            echo "Build artifacts not found"
+            exit 1
+          fi
+
+  build-client:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install root dependencies
+        run: npm ci
+      
+      - name: Install client dependencies
+        working-directory: ./src/client
+        run: npm ci
+      
+      - name: Build client
+        working-directory: ./src/client
+        run: npm run build
+      
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: client-build
+          path: src/client/build
+          retention-days: 7
+
+  build-cheatsheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build cheat sheet
+        run: npm run build:cheatsheet
+      
+      - name: Check PDF was created
+        run: |
+          if [ ! -f "docs/BrickQuest_CheatSheet.pdf" ]; then
+            echo "PDF not created"
+            exit 1
+          fi
+      
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cheatsheet-pdf
+          path: docs/BrickQuest_CheatSheet.pdf

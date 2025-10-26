@@ -1,0 +1,95 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build cards
+        run: npm run cards:all
+      
+      - name: Build client
+        working-directory: ./src/client
+        run: npm ci && npm run build
+      
+      - name: Build cheat sheet
+        run: npm run build:cheatsheet
+      
+      - name: Generate printable cards
+        run: npm run print-cards || true
+      
+      - name: Create release package
+        run: |
+          mkdir -p release
+          cp -r cards/*.json release/ || true
+          cp -r cards/expansions release/ || true
+          cp -r cards/factions release/ || true
+          cp brickquest_printable_cards.html release/ || true
+          cp brickquest_starter_bricklink_wantedlist.xml release/ || true
+          cp docs/BrickQuest_CheatSheet.pdf release/ || true
+          cp -r docs/*.md release/ || true
+          tar -czf brickquest-release.tar.gz release/
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            brickquest-release.tar.gz
+            docs/BrickQuest_CheatSheet.pdf
+            brickquest_printable_cards.html
+          generate_release_notes: true
+          draft: false
+          prerelease: ${{ contains(github.ref, 'alpha') || contains(github.ref, 'beta') || contains(github.ref, 'rc') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-package
+          path: brickquest-release.tar.gz
+          retention-days: 90
+
+  publish-npm:
+    runs-on: ubuntu-latest
+    needs: release
+    if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+      
+      - name: Publish to npm
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+          npm publish --access public || echo "Publishing skipped (not configured or already published)"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
