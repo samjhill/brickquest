@@ -72,6 +72,8 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 ## 🎯 Game Phases
 
 ### 1. Draw Phase
+- Gain +2 Energy (reset to maximum if you had less)
+- Gain +2 Bricks from shared pool
 - Draw cards up to hand limit (5 cards)
 - Shuffle discard pile into deck if needed
 - Process any "start of turn" effects
@@ -254,9 +256,9 @@ Each robot class has unique actions that reflect their specialization and playst
 - **Special**: Cannot target structures you built
 
 ### 3. End Phase
-- Reset energy to maximum
 - Process active programs
 - Check win conditions
+- **Note**: Energy and bricks are gained at the start of the next Draw Phase, not at End Phase
 
 ## 🧱 Brick Economy System
 
@@ -387,9 +389,9 @@ During Action Phase, spend bricks to:
 
 ## 🔄 Turn Structure
 
-1. **Draw Phase**: Draw up to hand limit
+1. **Draw Phase**: Gain +2 Energy and +2 Bricks, draw cards up to hand limit
 2. **Action Phase**: Play cards, move, attack, build, install programs
-3. **End Phase**: Reset energy, process effects
+3. **End Phase**: Process active programs, check win conditions
 
 ## 🎨 Customization
 
