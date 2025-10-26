@@ -2,14 +2,14 @@
 
 ## Overview
 
-The Brick Economy system transforms BrickQuest into a truly tactile, physical experience where Lego bricks themselves become the primary resource for building structures. This system eliminates digital tracking complexity while reinforcing the game's maker-centric philosophy.
+The Brick Economy system transforms BrickQuest into a truly tacstud, physical experience where Lego bricks themselves become the primary resource for building structures. This system eliminates digital tracking complexity while reinforcing the game's maker-centric philosophy.
 
 ## 🎯 Core Principles
 
 ### 1. Physical Resource Management
 - **Bricks are the resource** - no digital tracking needed
 - Players physically manage their brick inventory
-- Visual and tactile feedback enhances gameplay
+- Visual and tacstud feedback enhances gameplay
 
 ### 2. Table-Only Implementation
 - No UI changes required for basic functionality
@@ -33,7 +33,7 @@ DRAW → ACTION → BUILD → PROGRAM → ENCOUNTER → END
 ```
 
 ### Phase Descriptions
-- **Build Phase**: "Gain +2 Bricks from shared pool, play structure cards (spend bricks to build), place terrain tiles, connect Lego/3D printed components"
+- **Build Phase**: "Gain +2 Bricks from shared pool, play structure cards (spend bricks to build), place terrain studs, connect Lego/3D printed components"
 
 ## 📊 Scaling by Player Count
 
@@ -193,4 +193,4 @@ Use consistent visual indicators:
 - **Effect**: Teleportation network for allies
 - **Build Time**: 3 turns
 
-This brick economy system transforms BrickQuest into a truly unique hybrid experience, combining the strategic depth of card games with the creative satisfaction of physical building. The tactile nature of brick management adds a new dimension to gameplay while maintaining the game's core mechanics and accessibility.
+This brick economy system transforms BrickQuest into a truly unique hybrid experience, combining the strategic depth of card games with the creative satisfaction of physical building. The tacstud nature of brick management adds a new dimension to gameplay while maintaining the game's core mechanics and accessibility.

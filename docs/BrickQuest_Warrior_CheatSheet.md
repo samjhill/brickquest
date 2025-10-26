@@ -54,7 +54,7 @@
 
 ### Positioning
 - Use **Berserker Rage** movement bonus for positioning
-- **Battle Cry** affects allies within 3 tiles
+- **Battle Cry** affects allies within 3 studs
 - **Weapon Mastery** only works with melee attacks
 
 ---

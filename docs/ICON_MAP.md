@@ -201,7 +201,7 @@ When adding new icons:
 {
   "name": "Snapjaw Floor",
   "icons": ["trap", "immobilize"],
-  "text": "Arm on an adjacent tile. First enemy entering..."
+  "text": "Arm on an adjacent stud. First enemy entering..."
 }
 ```
 
@@ -228,7 +228,7 @@ When adding new icons:
 {
   "name": "Voltaic Storm",
   "icons": ["storm", "sensor"],
-  "text": "Lasts 3 rounds. At round end, each unit in exposed tiles..."
+  "text": "Lasts 3 rounds. At round end, each unit in exposed studs..."
 }
 ```
 

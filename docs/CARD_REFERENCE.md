@@ -16,7 +16,7 @@
 | Card | Cost | Effect | Range | Rarity |
 |------|------|--------|-------|--------|
 | **Overdrive** | 2 | Double movement for this turn | Self | Common |
-| **Dash** | 1 | Quick movement to adjacent tile | 1 | Common |
+| **Dash** | 1 | Quick movement to adjacent stud | 1 | Common |
 | **Teleport** | 3 | Move to any visible location | 5 | Rare |
 
 ### Attack Cards
@@ -89,7 +89,7 @@
 | **System Overload** | All players lose 2 energy | All | Common |
 | **Security Breach** | All players take 1 damage | All | Common |
 | **Power Surge** | All players gain 3 energy | All | Uncommon |
-| **Structural Collapse** | Random terrain tile destroyed | Random | Uncommon |
+| **Structural Collapse** | Random terrain stud destroyed | Random | Uncommon |
 
 ### Combat Events
 | Card | Effect | Target | Rarity |

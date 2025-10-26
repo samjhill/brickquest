@@ -14,11 +14,8 @@
 | Phase | Description | Key Actions |
 |-------|-------------|-------------|
 | **1. Draw** | Refresh hand, resolve start effects | Draw up to 5 cards |
-| **2. Action** | Play cards, move, attack | 2 actions per turn |
-| **3. Build** | **+2 Energy + 2 Bricks** | Spend bricks, build structures |
-| **4. Program** | Install robot programs | Activate abilities |
-| **5. Encounter** | Enemy/NPC AI acts | Resolve events |
-| **6. End** | Status cleanup, shield refresh | Burning ticks |
+| **2. Action** | Play cards, move, attack, build, program | All actions in one phase |
+| **3. End** | Status cleanup, shield refresh | Reset energy, process programs |
 
 ---
 
@@ -26,11 +23,10 @@
 
 | Action | Cost | Effect |
 |--------|------|--------|
-| **Melee Attack** | 1E | Base attack dmg, adjacent tiles |
-| **Ranged Attack** | 1E | Base attack -1 dmg, 2-3 tiles |
+| **Melee Attack** | 1E | Base attack dmg, adjacent studs |
+| **Ranged Attack** | 1E | Base attack -1 dmg, 2-3 studs |
 | **Defend** | 1E | +2 Defense until next turn |
-| **Move** | 1E (2 tiles) or 2E (full) | Move up to SPD tiles |
-| **Scan** | 1E | Reveal hidden threats, 3 tiles |
+| **Move** | 1E per stud | Move 1 stud per Energy spent |
 | **Repair** | 1E | Restore 2 HP to self/ally |
 
 ---
@@ -98,7 +94,7 @@
 
 | Status | Effect |
 |--------|--------|
-| **Prone** | −1 SPD, +1 dmg from ranged, stand costs 1 tile |
+| **Prone** | −1 SPD, +1 dmg from ranged, stand costs 1 stud |
 | **Immobilized** | SPD 0 |
 | **Stunned** | −1 Action next Action Phase |
 | **Burning** | 1 dmg at End Phase, +1 Heat |

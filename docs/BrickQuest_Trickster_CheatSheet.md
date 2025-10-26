@@ -23,7 +23,7 @@
 
 | Action | Cost | Effect | Duration |
 |--------|------|--------|----------|
-| **Shadow Step** | 1E | Teleport to unoccupied tile | Immediate |
+| **Shadow Step** | 1E | Teleport to unoccupied stud | Immediate |
 | **Misdirection** | 1E | Enemy can't attack you 1 turn | 1 turn |
 | **Sabotage** | 2E | Structure -3 HP, disabled 1 turn | 1 turn |
 
@@ -33,9 +33,9 @@
 
 | Action | Range | Restrictions | Best Use |
 |--------|-------|--------------|----------|
-| **Shadow Step** | 3 tiles | Unoccupied tiles only | Escape/Positioning |
-| **Misdirection** | 2 tiles | One enemy target | Avoid damage |
-| **Sabotage** | 2 tiles | Enemy structures only | Disable defenses |
+| **Shadow Step** | 3 studs | Unoccupied studs only | Escape/Positioning |
+| **Misdirection** | 2 studs | One enemy target | Avoid damage |
+| **Sabotage** | 2 studs | Enemy structures only | Disable defenses |
 
 ---
 
@@ -64,7 +64,7 @@
 ### Sabotage Mechanics
 - **Damage**: 3 HP to target structure
 - **Disable**: Structure cannot function for 1 turn
-- **Range**: 2 tiles from Trickster
+- **Range**: 2 studs from Trickster
 - **Target**: Enemy structures only
 
 ### Sabotage Targets
@@ -117,11 +117,11 @@
 
 ## ⚡ Movement Economy (Trickster Focus)
 
-**Base Movement**: 4 tiles (2 + 2 bonus)
+**Base Movement**: 4 studs (2 + 2 bonus)
 
-**Shadow Step**: 3 tiles teleport for 1 Energy
+**Shadow Step**: 3 studs teleport for 1 Energy
 
-**Standard Move**: 1E for 2 tiles, 2E for full movement
+**Standard Move**: 1E per stud moved
 
 **Enemy Movement**: Can move through enemy spaces (special ability)
 
