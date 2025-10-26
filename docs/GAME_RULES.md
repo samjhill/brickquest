@@ -14,22 +14,22 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 
 ### 🔧 Engineer
 - **Focus**: Build efficiency and structures
-- **Starting Stats**: +2 Defense, +1 Energy
+- **Starting Stats**: HP 15, +2 Defense, +1 Energy
 - **Special Ability**: Build structures for 1 less energy
 
 ### ⚔️ Warrior
 - **Focus**: Combat and damage
-- **Starting Stats**: +3 Attack, +1 HP
+- **Starting Stats**: HP 16, +3 Attack, +1 HP bonus
 - **Special Ability**: Deal +1 damage with attack cards
 
 ### ⚡ Mage Core
 - **Focus**: Energy manipulation
-- **Starting Stats**: +2 Energy, +1 Movement
+- **Starting Stats**: HP 15, +2 Energy, +1 Movement
 - **Special Ability**: Draw extra card when playing energy cards
 
 ### 🎭 Trickster
 - **Focus**: Mobility and sabotage
-- **Starting Stats**: +2 Movement, +1 Attack
+- **Starting Stats**: HP 15, +2 Movement, +1 Attack
 - **Special Ability**: Move through enemy spaces
 
 ## 🃏 Card Types
@@ -71,8 +71,11 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - Gain +2 Energy (reset to maximum if you had less)
 - Gain +2 Bricks from shared pool
 - Draw cards up to hand limit (5 cards)
+- **Hand size limit**: Maximum 5 cards - discard excess if you have more
 - Shuffle discard pile into deck if needed
 - Process any "start of turn" effects
+
+**Important**: Energy can never go below 0. You must have sufficient energy to play cards.
 
 ### 2. Action Phase
 - Play action cards, build structures, install programs
@@ -87,7 +90,7 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 All players can perform these basic actions during their Action Phase, regardless of their robot class:
 
 ### Attack
-- **Cost**: 1 Energy
+- **Cost**: 1 Energy (must have sufficient energy - energy never goes below 0)
 - **Range**: Adjacent tiles only
 - **Damage**: Base robot attack stat
 - **Description**: Basic combat attack

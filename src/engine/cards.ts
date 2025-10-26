@@ -188,8 +188,8 @@ export class CardEngine {
       resolution.effects.push(effectResult);
     }
 
-    // Deduct energy cost
-    player.energy -= card.cost;
+    // Deduct energy cost (never go below 0 - prevents energy debt)
+    player.energy = Math.max(0, player.energy - card.cost);
 
     resolution.message = `Played ${card.name}`;
     return resolution;
@@ -247,12 +247,18 @@ export class CardEngine {
   createPlayer(id: string, name: string, playerClass: Player['class']): Player {
     const startingDeck = this.getStartingDeck(playerClass);
     
+    // Get base HP based on class (updated from 20/21 to 15/16)
+    let startingHp = 15;
+    if (playerClass === 'warrior') {
+      startingHp = 16; // Warrior gets +1 HP bonus
+    }
+    
     return {
       id,
       name,
       class: playerClass,
-      hp: 20,
-      maxHp: 20,
+      hp: startingHp,
+      maxHp: startingHp,
       energy: 5,
       maxEnergy: 5,
       hand: [],

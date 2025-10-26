@@ -134,7 +134,7 @@ export class TurnManager {
    * Execute draw phase
    */
   private executeDrawPhase(player: Player): void {
-    // Draw cards up to hand limit (typically 5)
+    // Draw cards up to hand limit (5 cards maximum)
     const handLimit = 5;
     const cardsToDraw = Math.min(handLimit - player.hand.length, player.deck.length);
     
@@ -142,6 +142,17 @@ export class TurnManager {
       const card = player.deck.pop();
       if (card) {
         player.hand.push(card);
+      }
+    }
+
+    // If hand exceeds limit, discard down to 5 cards
+    if (player.hand.length > handLimit) {
+      const excessCards = player.hand.length - handLimit;
+      for (let i = 0; i < excessCards; i++) {
+        const card = player.hand.pop();
+        if (card) {
+          player.discard.push(card);
+        }
       }
     }
 
@@ -210,8 +221,8 @@ export class TurnManager {
     player.hand.splice(cardIndex, 1);
     player.discard.push(card);
 
-    // Deduct energy
-    player.energy -= card.cost;
+    // Deduct energy (never go below 0 - prevents energy debt)
+    player.energy = Math.max(0, player.energy - card.cost);
 
     // If it's a program card, add to active cards
     if (card.type === 'program') {
@@ -261,8 +272,8 @@ export class TurnManager {
     player.hand.splice(cardIndex, 1);
     player.discard.push(card);
 
-    // Deduct energy
-    player.energy -= card.cost;
+    // Deduct energy (never go below 0 - prevents energy debt)
+    player.energy = Math.max(0, player.energy - card.cost);
 
     return true;
   }

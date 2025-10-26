@@ -45,6 +45,8 @@ venv.bak/
 # Temporary files
 *.tmp
 *.temp
+*.bak
+*.backup
 temp/
 tmp/
 

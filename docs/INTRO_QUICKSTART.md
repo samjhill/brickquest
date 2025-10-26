@@ -166,25 +166,25 @@ Each card belongs to a faction with unique flavor:
 ## 🤖 Meet the Hero Classes
 
 ### 🔧 Engineer - "Build, Don't Destroy"
-**Stats:** HP 20 | Attack 2 | Defense 4 | Energy 6 | Movement 3  
+**Stats:** HP 15 | Attack 2 | Defense 4 | Energy 6 | Movement 3  
 **Playstyle:** Defensive builder who controls the battlefield  
 **Best For:** Players who love planning and building  
 **Signature Move:** Build a turret and defend it with your life!
 
 ### ⚔️ Warrior - "Strength Through Unity"
-**Stats:** HP 21 | Attack 5 | Defense 2 | Energy 5 | Movement 3  
+**Stats:** HP 16 | Attack 5 | Defense 2 | Energy 5 | Movement 3  
 **Playstyle:** Aggressive fighter who charges into battle  
 **Best For:** Players who want straightforward combat  
 **Signature Move:** Charge into the fray and dominate!
 
 ### ⚡ MageCore - "Energy is Life"
-**Stats:** HP 20 | Attack 3 | Defense 2 | Energy 7 | Movement 4  
+**Stats:** HP 15 | Attack 3 | Defense 2 | Energy 7 | Movement 4  
 **Playstyle:** Energy manipulator who controls resources  
 **Best For:** Players who love combo plays  
 **Signature Move:** Chain energy cards for massive power!
 
 ### 🎭 Trickster - "Adapt, Survive, Thrive"
-**Stats:** HP 20 | Attack 3 | Defense 2 | Energy 5 | Movement 5  
+**Stats:** HP 15 | Attack 3 | Defense 2 | Energy 5 | Movement 5  
 **Playstyle:** Mobile saboteur who hit-and-runs  
 **Best For:** Players who love positioning and tactics  
 **Signature Move:** Teleport behind enemies and strike!

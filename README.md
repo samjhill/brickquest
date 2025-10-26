@@ -3,8 +3,9 @@
 A hybrid **tabletop + maker** game combining tactical card combat, LEGO building, and modular battlefield strategy.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Cards](https://img.shields.io/badge/Cards-58-blue.svg)](cards/sources/cards.csv)
-[![Types](https://img.shields.io/badge/Types-13-green.svg)](cards/schema/card.schema.json)
+[![Cards](https://img.shields.io/badge/Cards-42-blue.svg)](cards/sources/cards_balanced.csv)
+[![Reactions](https://img.shields.io/badge/Reactions-10-red.svg)](cards/sources/cards_balanced.csv)
+[![Types](https://img.shields.io/badge/Types-5-green.svg)](cards/schema/card.schema.json)
 
 ## 🎮 What is BrickQuest?
 
@@ -81,15 +82,15 @@ npm run cards:validate   # Run all validation
 
 ## 🃏 Card System
 
-BrickQuest features **5 card types** with a complete content pipeline and **51 total cards**.
+BrickQuest features **5 card types** with a complete content pipeline and **42 total cards**.
 
 ### Card Types Overview
 | Type | Count | Description |
 |------|-------|-------------|
-| **Action** | 19 | Movement, attack, defend, repair |
-| **Structure** | 11 | Create physical objects with LEGO building |
+| **Action** | 15 | Movement, attack, defend, repair |
+| **Structure** | 6 | Create physical objects with LEGO building |
 | **Program** | 6 | Give temporary AI to your robot |
-| **Reaction** | 3 | Speed-play during other players' phases |
+| **Reaction** | 10 | Speed-play during other players' phases |
 | **Loot & Upgrade** | 5 | Permanent improvements |
 
 ### Faction Themes
@@ -153,6 +154,17 @@ brickquest/
 └── tools/               # Development tools
 ```
 
+## 🚀 Recent Updates
+
+Based on comprehensive virtual playtesting, we've made key improvements to enhance gameplay:
+
+- ✅ **Fixed Energy Debt System** - Energy can never go below 0, eliminating wasted turns
+- ✅ **Reduced Starting HP** - Faster games (7-10 turns vs 10-15) for better pacing
+- ✅ **Added 7 New Reaction Cards** - Increased player interaction from 3 to 10 reaction cards
+- ✅ **Implemented Hand Size Limit** - Maximum 5 cards for focused decision-making
+
+*See [Game Rules Updates](docs/GAME_RULES_UPDATES.md) and [Virtual Playtest Report](docs/VIRTUAL_PLAYTEST_REPORT.md) for details.*
+
 ## 📚 Documentation
 
 ### 🎯 Getting Started
@@ -161,6 +173,7 @@ brickquest/
 
 ### Core Documentation
 - [Game Rules](docs/GAME_RULES.md) - Complete game mechanics and rules
+- [Game Rules Updates](docs/GAME_RULES_UPDATES.md) - Latest improvements and changes
 - [Card Reference](docs/CARD_REFERENCE.md) - Card types and effects
 
 ### Design & Development
@@ -169,7 +182,9 @@ brickquest/
 - [Icon Map](docs/ICON_MAP.md) - Complete icon-to-emoji mapping
 
 ### Analysis & Reports
-- [Playtest Results](PLAYTEST_RESULTS.md) - Simulation analysis and recommendations
+- [Virtual Playtest Report](docs/VIRTUAL_PLAYTEST_REPORT.md) - Comprehensive 6-turn playtest analysis
+- [Virtual Playtest Summary](docs/VIRTUAL_PLAYTEST_SUMMARY.md) - Quick stats and key findings
+- [Playtest Results](PLAYTEST_RESULTS.md) - Earlier simulation analysis
 
 ### Generated Reports
 - [Balance Report](docs/generated/BALANCE.md) - Energy curve analysis
@@ -188,7 +203,7 @@ This is an open-source project! We welcome contributions in many areas:
 - **🛠️ Improve tooling** - Enhance the content pipeline and validation tools
 
 ### Card Creation Workflow
-1. Edit `cards/sources/cards.csv` with new card data
+1. Edit `cards/sources/cards_balanced.csv` with new card data
 2. Run `npm run cards:build` to generate JSON
 3. Run `npm run cards:validate` to check for issues
 4. View `brickquest_printable_cards.html` to see the results
