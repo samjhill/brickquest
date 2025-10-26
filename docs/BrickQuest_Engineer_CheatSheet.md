@@ -33,10 +33,11 @@
 
 | Structure Type | Base Cost | Engineer Cost | Effect |
 |----------------|-----------|---------------|--------|
-| **Wall** | 2E + 4 bricks | 1E + 4 bricks | +2 Defense cover |
-| **Turret** | 3E + 8 bricks | 2E + 8 bricks | 3 damage, 3 range |
-| **Bridge** | 2E + 6 bricks | 1E + 6 bricks | Connect separated areas |
-| **Platform** | 2E + 4 bricks | 1E + 4 bricks | Height advantage |
+| **Modular Base** | 3E + 5 bricks | 2E + 5 bricks | Foundation for upgrades |
+| **Defense Module** | 3E + 4 bricks | 2E + 4 bricks | +3 Defense to adjacent |
+| **Weapon Module** | 3E + 4 bricks | 2E + 4 bricks | 3 damage, 2 range |
+| **Utility Module** | 3E + 4 bricks | 2E + 4 bricks | +1 Energy to adjacent |
+| **Fortress Complex** | 4E + 12 bricks | 3E + 12 bricks | Large defensive structure |
 
 ---
 
@@ -48,10 +49,11 @@
 - **Emergency Repair** for critical structure maintenance
 
 ### Building Priority
-1. **Walls** - Defensive positioning first
-2. **Turrets** - Area control and damage
-3. **Bridges** - Mobility and positioning
-4. **Platforms** - Height advantages
+1. **Modular Base** - Foundation for upgrades
+2. **Defense Module** - Defensive positioning
+3. **Weapon Module** - Area control and damage
+4. **Utility Module** - Energy support
+5. **Fortress Complex** - Major defensive position
 
 ### Tactical Positioning
 - Build structures to control key chokepoints
@@ -67,9 +69,9 @@
 **Turn Income**: +2 bricks per turn
 
 **Building Costs**:
-- **Basic Wall**: 4 bricks (3E → 2E with Engineer)
-- **Turret**: 8 bricks (4E → 3E with Engineer)
-- **Bridge**: 6 bricks (3E → 2E with Engineer)
+- **Modular Base**: 5 bricks (3E → 2E with Engineer)
+- **Modules**: 4 bricks each (3E → 2E with Engineer)
+- **Fortress Complex**: 12 bricks (4E → 3E with Engineer)
 
 **Destruction**: All bricks return to shared pool
 
@@ -90,13 +92,13 @@
 
 ### Competitive Mode
 - **Structure Control**: Dominate key positions with buildings
-- **Area Denial**: Use turrets to control movement
+- **Area Denial**: Use modules to control movement
 - **Resource Starvation**: Block enemy access to bricks
 
 ### Cooperative Mode
 - **Defensive Support**: Protect allies with structures
 - **Area Control**: Create safe zones for team
-- **Utility Support**: Provide bridges and platforms
+- **Utility Support**: Provide energy and defense
 
 ---
 
