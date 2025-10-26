@@ -14,28 +14,39 @@ This list covers:
 
 | Part No. | Name | Qty | Color | Purpose |
 |----------|------|-----|-------|---------|
-| 3002 | Brick 2×3 | 20 | Light Bluish Gray (86) | Engineer torso + spares |
-| 3003 | Brick 2×2 | 20 | Dark Bluish Gray (85) | Warrior torso |
-| 3004 | Brick 1×2 | 30 | White (1) | Trickster/MageCore torso |
-| 3022 | Plate 2×2 | 40 | Black (0) | Base feet |
-| 3023 | Plate 1×2 | 40 | Black (0) | Jetpack mounts, connection plates |
-| 3040 | Slope 30° 1×2 | 20 | Bright Orange (106) | Trickster front panel |
-| 3747 | Inverted Slope 1×2 | 10 | Light Bluish Gray (86) | Optional armor shaping |
-| 4085b | Clip Plate 1×1 | 30 | Black (0) | Arm sockets |
-| 48729 | Bar 1L with Clip | 30 | Black (0) | Arms, weapons |
-| 4589 | Cone 1×1 | 20 | Black (0) | Emitters, jetpack nozzles |
-| 4073 | Round Plate 1×1 | 20 | Translucent Blue (41) | Sensors, cores |
-| 3068b | Tile 2×2 | 10 | Dark Bluish Gray (85) | Shield faces |
-| 30367 | Dome 2×2 | 10 | White (1) | MageCore sensor dome |
-| 3957 | Antenna 4H | 10 | Black (0) | Sensor arrays |
+| 3002 | Brick 2×3 | 8 | Light Bluish Gray (86) | Engineer torso + spares |
+| 3003 | Brick 2×2 | 8 | Dark Bluish Gray (85) | Warrior torso |
+| 3004 | Brick 1×2 | 8 | White (1) | MageCore torso |
+| 3003 | Brick 2×2 | 8 | Bright Orange (106) | Trickster torso |
+| 3022 | Plate 2×2 | 16 | Black (0) | Base feet |
+| 3023 | Plate 1×2 | 16 | Black (0) | Jetpack mounts, connection plates |
+| 3024 | Plate 1×1 | 20 | Black (0) | Small connections |
+| 3040 | Slope 30° 1×2 | 8 | Bright Orange (106) | Trickster front panel |
+| 3040 | Slope 30° 1×2 | 4 | Red (4) | Warrior helmet crest |
+| 3747 | Inverted Slope 1×2 | 4 | Light Bluish Gray (86) | Optional armor shaping |
+| 4085b | Clip Plate 1×1 | 16 | Black (0) | Arm sockets |
+| 48729 | Bar 1L with Clip | 16 | Black (0) | Arms, weapons |
+| 4589 | Cone 1×1 | 12 | Black (0) | Emitters, jetpack nozzles |
+| 4073 | Round Plate 1×1 | 12 | Translucent Blue (41) | Sensors, cores |
+| 3068b | Tile 2×2 | 4 | Dark Bluish Gray (85) | Shield faces |
+| 30367 | Dome 2×2 | 4 | White (1) | MageCore sensor dome |
+| 3957 | Antenna 4H | 8 | Black (0) | Sensor arrays |
+| 3626b | Minifigure Head | 4 | Yellow (4) | Standard heads |
+| 4073 | Round Plate 1×1 | 8 | Light Bluish Gray (86) | Engineer head assembly |
+| 3001 | Brick 2×4 | 8 | Light Bluish Gray (86) | Base plates |
+| 3001 | Brick 2×4 | 8 | Dark Bluish Gray (85) | Base plates |
+| 3001 | Brick 2×4 | 8 | White (1) | Base plates |
+| 3001 | Brick 2×4 | 8 | Bright Orange (106) | Base plates |
 
 ## Accent Parts
 
 | Part No. | Qty | Color ID | Description | Use |
 |----------|-----|----------|-------------|-----|
-| 3002 | 8 | 24 (Yellow) | Engineer accent | Shoulders |
-| 3003 | 8 | 4 (Red) | Warrior accent | Chest armor |
-| 3040 | 8 | 106 (Orange) | Trickster accent | Slope front |
+| 3024 | 4 | 24 (Yellow) | Engineer belt accent | Waist detail |
+| 3003 | 4 | 4 (Red) | Warrior accent | Chest armor |
+| 3040 | 4 | 106 (Orange) | Trickster accent | Slope front |
+| 3024 | 4 | 41 (Translucent Blue) | MageCore energy core | Chest detail |
+| 3024 | 4 | 6 (Teal) | Trickster grappling hook | Tool detail |
 
 ## 🧰 2. Upgrade Mod Assemblies
 

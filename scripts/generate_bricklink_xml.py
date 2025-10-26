@@ -22,26 +22,51 @@ def generate_bricklink_xml():
     # Core LEGO System Parts
     # Format: (part_no, quantity, color_id, description)
     parts = [
-        # Core parts
-        ("3002", 20, 86, "Brick 2×3 - Light Bluish Gray (Engineer torso + spares)"),
-        ("3003", 20, 85, "Brick 2×2 - Dark Bluish Gray (Warrior torso)"),
-        ("3004", 30, 1, "Brick 1×2 - White (Trickster/MageCore torso)"),
-        ("3022", 40, 0, "Plate 2×2 - Black (Base feet)"),
-        ("3023", 40, 0, "Plate 1×2 - Black (Jetpack mounts, connection plates)"),
-        ("3040", 20, 106, "Slope 30° 1×2 - Bright Orange (Trickster front panel)"),
-        ("3747", 10, 86, "Inverted Slope 1×2 - Light Bluish Gray (Optional armor shaping)"),
-        ("4085b", 30, 0, "Clip Plate 1×1 - Black (Arm sockets)"),
-        ("48729", 30, 0, "Bar 1L with Clip - Black (Arms, weapons)"),
-        ("4589", 20, 0, "Cone 1×1 - Black (Emitters, jetpack nozzles)"),
-        ("4073", 20, 41, "Round Plate 1×1 - Translucent Blue (Sensors, cores)"),
-        ("3068b", 10, 85, "Tile 2×2 - Dark Bluish Gray (Shield faces)"),
-        ("30367", 10, 1, "Dome 2×2 - White (MageCore sensor dome)"),
-        ("3957", 10, 0, "Antenna 4H - Black (Sensor arrays)"),
+        # Core torso parts (enough for 4 characters + spares)
+        ("3002", 8, 86, "Brick 2×3 - Light Bluish Gray (Engineer torso + spares)"),
+        ("3003", 8, 85, "Brick 2×2 - Dark Bluish Gray (Warrior torso)"),
+        ("3004", 8, 1, "Brick 1×2 - White (MageCore torso)"),
+        ("3003", 8, 106, "Brick 2×2 - Bright Orange (Trickster torso)"),
+        
+        # Base plates and feet
+        ("3022", 16, 0, "Plate 2×2 - Black (Base feet)"),
+        ("3023", 16, 0, "Plate 1×2 - Black (Jetpack mounts, connection plates)"),
+        ("3024", 20, 0, "Plate 1×1 - Black (Small connections)"),
+        
+        # Slope pieces
+        ("3040", 8, 106, "Slope 30° 1×2 - Bright Orange (Trickster front panel)"),
+        ("3040", 4, 4, "Slope 30° 1×2 - Red (Warrior helmet crest)"),
+        ("3747", 4, 86, "Inverted Slope 1×2 - Light Bluish Gray (Optional armor shaping)"),
+        
+        # Connection and arm parts
+        ("4085b", 16, 0, "Clip Plate 1×1 - Black (Arm sockets)"),
+        ("48729", 16, 0, "Bar 1L with Clip - Black (Arms, weapons)"),
+        ("4589", 12, 0, "Cone 1×1 - Black (Emitters, jetpack nozzles)"),
+        
+        # Sensor and detail parts
+        ("4073", 12, 41, "Round Plate 1×1 - Translucent Blue (Sensors, cores)"),
+        ("3068b", 4, 85, "Tile 2×2 - Dark Bluish Gray (Shield faces)"),
+        ("30367", 4, 1, "Dome 2×2 - White (MageCore sensor dome)"),
+        ("3957", 8, 0, "Antenna 4H - Black (Sensor arrays)"),
+        
+        # Head parts (standard minifigure heads)
+        ("3626b", 4, 4, "Minifigure Head - Yellow (Standard heads)"),
+        ("4073", 8, 86, "Round Plate 1×1 - Light Bluish Gray (Engineer head assembly)"),
         
         # Accent parts
-        ("3002", 8, 24, "Brick 2×3 - Yellow (Engineer accent shoulders)"),
-        ("3003", 8, 4, "Brick 2×2 - Red (Warrior accent chest armor)"),
-        ("3040", 8, 106, "Slope 30° 1×2 - Orange (Trickster accent slope front)"),
+        ("3024", 4, 24, "Plate 1×1 - Yellow (Engineer belt accent)"),
+        ("3003", 4, 4, "Brick 2×2 - Red (Warrior accent chest armor)"),
+        ("3040", 4, 106, "Slope 30° 1×2 - Orange (Trickster accent slope front)"),
+        
+        # Specialized parts
+        ("3024", 4, 41, "Plate 1×1 - Translucent Blue (MageCore energy core)"),
+        ("3024", 4, 6, "Plate 1×1 - Teal (Trickster grappling hook)"),
+        
+        # Additional parts for upgrades and customization
+        ("3001", 8, 86, "Brick 2×4 - Light Bluish Gray (Base plates)"),
+        ("3001", 8, 85, "Brick 2×4 - Dark Bluish Gray (Base plates)"),
+        ("3001", 8, 1, "Brick 2×4 - White (Base plates)"),
+        ("3001", 8, 106, "Brick 2×4 - Bright Orange (Base plates)"),
     ]
     
     # Create XML structure

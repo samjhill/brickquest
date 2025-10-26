@@ -16,17 +16,18 @@ brickquest/
 │   ├── expansions/        # Card sets and decklists
 │   ├── sources/           # Human-editable CSV files
 │   └── factions/          # Faction-specific cards
-├── terrain/               # 3D printable content
-│   ├── STL/              # STL files for 3D printing
-│   └── previews/         # Preview images
 ├── docs/                  # Documentation
 │   ├── generated/         # Auto-generated reports
 │   └── *.md              # Manual documentation
 ├── tools/                 # Development and build tools
 │   ├── card-pipeline/    # Modern card processing tools
-│   ├── legacy/           # Legacy Python scripts
 │   └── test/             # Test utilities
+├── scripts/              # Utility scripts
+│   ├── generate_bricklink_xml.py  # BrickLink parts list generator
+│   ├── generate_cards.py          # Card generation utilities
+│   └── print_cards.*              # Card printing scripts
 └── assets/               # Static assets and resources
+    └── images/           # Character images and visuals
 ```
 
 ## 📂 Detailed Structure

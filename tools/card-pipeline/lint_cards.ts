@@ -48,7 +48,7 @@ class CardLinter {
 
   constructor() {
     this.ajv = new Ajv();
-    const schemaPath = path.join(__dirname, '..', 'cards', 'schema', 'card.schema.json');
+    const schemaPath = path.join(__dirname, '..', '..', 'cards', 'schema', 'card.schema.json');
     this.schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
     this.validate = this.ajv.compile(this.schema);
   }
@@ -201,7 +201,7 @@ async function main() {
   if (args.length > 0) {
     targetPath = args[0];
   } else {
-    targetPath = path.join(__dirname, '..', 'cards', 'expansions');
+    targetPath = path.join(__dirname, '..', '..', 'cards', 'expansions');
   }
 
   const isDirectory = fs.statSync(targetPath).isDirectory();

@@ -17,7 +17,6 @@ interface CardData {
   cost_sacrifice?: string;
   stats?: any;
   build_lego?: string;
-  build_stl?: string;
   build_footprint?: string;
   text: string;
   rules?: any;
@@ -61,7 +60,7 @@ interface BrickQuestCard {
 
 function parseCSV(csvContent: string): CardData[] {
   const lines = csvContent.trim().split('\n');
-  const headers = lines[0].split(',').map(h => h.trim());
+  const headers = parseCSVLine(lines[0]);
   const cards: CardData[] = [];
 
   for (let i = 1; i < lines.length; i++) {
@@ -151,13 +150,10 @@ function transformCard(cardData: CardData): BrickQuestCard {
   if (cardData.flavor) card.flavor = cardData.flavor;
 
   // Build requirements
-  if (cardData.build_lego || cardData.build_stl || cardData.build_footprint) {
+  if (cardData.build_lego || cardData.build_footprint) {
     card.buildReq = {};
     if (cardData.build_lego) {
       card.buildReq.lego = cardData.build_lego.split(';').map(s => s.trim());
-    }
-    if (cardData.build_stl) {
-      card.buildReq.stl = cardData.build_stl.split(';').map(s => s.trim());
     }
     if (cardData.build_footprint) {
       card.buildReq.footprint = cardData.build_footprint;
@@ -176,7 +172,7 @@ function transformCard(cardData: CardData): BrickQuestCard {
 
 function validateCards(cards: BrickQuestCard[]): { valid: BrickQuestCard[], errors: string[] } {
   const ajv = new Ajv();
-  const schemaPath = path.join(__dirname, '..', 'cards', 'schema', 'card.schema.json');
+  const schemaPath = path.join(__dirname, '..', '..', 'cards', 'schema', 'card.schema.json');
   const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
   const validate = ajv.compile(schema);
 
@@ -213,14 +209,14 @@ function sortCards(cards: BrickQuestCard[]): BrickQuestCard[] {
 
 async function main() {
   try {
-    const csvPath = path.join(__dirname, '..', 'cards', 'sources', 'cards.csv');
-    const outputPath = path.join(__dirname, '..', 'cards', 'expansions', 'core_plus.json');
+    const csvPath = path.join(__dirname, '..', '..', 'cards', 'sources', 'cards.csv');
+    const outputPath = path.join(__dirname, '..', '..', 'cards', 'expansions', 'core_plus.json');
     
     // Check if CSV exists
     if (!fs.existsSync(csvPath)) {
       console.log('CSV file not found, creating sample file...');
-      const sampleCSV = `id,name,type,subtype,faction,classLock,rarity,cost_energy,cost_exhaust,cost_sacrifice,stats,build_lego,build_stl,build_footprint,text,rules,icons,flavor,limits_perDeck,limits_perField,tags
-BQ-REA-0001,Parry Matrix,Reaction,,Neutral,,Uncommon,1,false,,,,"","","","When your automaton would take damage, prevent 2. Gain 1 Energy if the attacker is adjacent.","{\"trigger\":\"onIncomingDamage\",\"prevent\":2,\"bonusEnergyIf\":{\"rangeMax\":1,\"amount\":1}}","shield;bolt","Predict, deflect, perfect.",,,,"defense;counter"`;
+      const sampleCSV = `id,name,type,subtype,faction,classLock,rarity,cost_energy,cost_exhaust,cost_sacrifice,stats,build_lego,build_footprint,text,rules,icons,flavor,limits_perDeck,limits_perField,tags
+BQ-REA-0001,Parry Matrix,Reaction,,Neutral,,Uncommon,1,false,,,,"","","When your automaton would take damage, prevent 2. Gain 1 Energy if the attacker is adjacent.","{\"trigger\":\"onIncomingDamage\",\"prevent\":2,\"bonusEnergyIf\":{\"rangeMax\":1,\"amount\":1}}","shield;bolt","Predict, deflect, perfect.",,,,"defense;counter"`;
       fs.writeFileSync(csvPath, sampleCSV);
     }
 

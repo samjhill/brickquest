@@ -236,7 +236,7 @@ async function main() {
   if (args.length > 0) {
     targetPath = args[0];
   } else {
-    targetPath = path.join(__dirname, '..', 'cards', 'expansions');
+    targetPath = path.join(__dirname, '..', '..', 'cards', 'expansions');
   }
   
   if (args.length > 1) {

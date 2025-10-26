@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <INVENTORY>
-  <!--BrickQuest Starter Parts List - Generated on 2025-10-25 21:00:42-->
+  <!--BrickQuest Starter Parts List - Generated on 2025-10-25 21:09:43-->
   <ITEM>
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3002</ITEMID>
     <COLOR>86</COLOR>
-    <MINQTY>20</MINQTY>
+    <MINQTY>8</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Brick 2×3 - Light Bluish Gray (Engineer torso + spares) -->
   </ITEM>
@@ -13,7 +13,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3003</ITEMID>
     <COLOR>85</COLOR>
-    <MINQTY>20</MINQTY>
+    <MINQTY>8</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Brick 2×2 - Dark Bluish Gray (Warrior torso) -->
   </ITEM>
@@ -21,15 +21,23 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3004</ITEMID>
     <COLOR>1</COLOR>
-    <MINQTY>30</MINQTY>
+    <MINQTY>8</MINQTY>
     <CONDITION>N</CONDITION>
-    <!-- Brick 1×2 - White (Trickster/MageCore torso) -->
+    <!-- Brick 1×2 - White (MageCore torso) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3003</ITEMID>
+    <COLOR>106</COLOR>
+    <MINQTY>8</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Brick 2×2 - Bright Orange (Trickster torso) -->
   </ITEM>
   <ITEM>
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3022</ITEMID>
     <COLOR>0</COLOR>
-    <MINQTY>40</MINQTY>
+    <MINQTY>16</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Plate 2×2 - Black (Base feet) -->
   </ITEM>
@@ -37,23 +45,39 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3023</ITEMID>
     <COLOR>0</COLOR>
-    <MINQTY>40</MINQTY>
+    <MINQTY>16</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Plate 1×2 - Black (Jetpack mounts, connection plates) -->
   </ITEM>
   <ITEM>
     <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3024</ITEMID>
+    <COLOR>0</COLOR>
+    <MINQTY>20</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Plate 1×1 - Black (Small connections) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3040</ITEMID>
     <COLOR>106</COLOR>
-    <MINQTY>20</MINQTY>
+    <MINQTY>8</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Slope 30° 1×2 - Bright Orange (Trickster front panel) -->
   </ITEM>
   <ITEM>
     <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3040</ITEMID>
+    <COLOR>4</COLOR>
+    <MINQTY>4</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Slope 30° 1×2 - Red (Warrior helmet crest) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3747</ITEMID>
     <COLOR>86</COLOR>
-    <MINQTY>10</MINQTY>
+    <MINQTY>4</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Inverted Slope 1×2 - Light Bluish Gray (Optional armor shaping) -->
   </ITEM>
@@ -61,7 +85,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>4085b</ITEMID>
     <COLOR>0</COLOR>
-    <MINQTY>30</MINQTY>
+    <MINQTY>16</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Clip Plate 1×1 - Black (Arm sockets) -->
   </ITEM>
@@ -69,7 +93,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>48729</ITEMID>
     <COLOR>0</COLOR>
-    <MINQTY>30</MINQTY>
+    <MINQTY>16</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Bar 1L with Clip - Black (Arms, weapons) -->
   </ITEM>
@@ -77,7 +101,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>4589</ITEMID>
     <COLOR>0</COLOR>
-    <MINQTY>20</MINQTY>
+    <MINQTY>12</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Cone 1×1 - Black (Emitters, jetpack nozzles) -->
   </ITEM>
@@ -85,7 +109,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>4073</ITEMID>
     <COLOR>41</COLOR>
-    <MINQTY>20</MINQTY>
+    <MINQTY>12</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Round Plate 1×1 - Translucent Blue (Sensors, cores) -->
   </ITEM>
@@ -93,7 +117,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3068b</ITEMID>
     <COLOR>85</COLOR>
-    <MINQTY>10</MINQTY>
+    <MINQTY>4</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Tile 2×2 - Dark Bluish Gray (Shield faces) -->
   </ITEM>
@@ -101,7 +125,7 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>30367</ITEMID>
     <COLOR>1</COLOR>
-    <MINQTY>10</MINQTY>
+    <MINQTY>4</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Dome 2×2 - White (MageCore sensor dome) -->
   </ITEM>
@@ -109,23 +133,39 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3957</ITEMID>
     <COLOR>0</COLOR>
-    <MINQTY>10</MINQTY>
+    <MINQTY>8</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Antenna 4H - Black (Sensor arrays) -->
   </ITEM>
   <ITEM>
     <ITEMTYPE>P</ITEMTYPE>
-    <ITEMID>3002</ITEMID>
-    <COLOR>24</COLOR>
+    <ITEMID>3626b</ITEMID>
+    <COLOR>4</COLOR>
+    <MINQTY>4</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Minifigure Head - Yellow (Standard heads) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>4073</ITEMID>
+    <COLOR>86</COLOR>
     <MINQTY>8</MINQTY>
     <CONDITION>N</CONDITION>
-    <!-- Brick 2×3 - Yellow (Engineer accent shoulders) -->
+    <!-- Round Plate 1×1 - Light Bluish Gray (Engineer head assembly) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3024</ITEMID>
+    <COLOR>24</COLOR>
+    <MINQTY>4</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Plate 1×1 - Yellow (Engineer belt accent) -->
   </ITEM>
   <ITEM>
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3003</ITEMID>
     <COLOR>4</COLOR>
-    <MINQTY>8</MINQTY>
+    <MINQTY>4</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Brick 2×2 - Red (Warrior accent chest armor) -->
   </ITEM>
@@ -133,8 +173,56 @@
     <ITEMTYPE>P</ITEMTYPE>
     <ITEMID>3040</ITEMID>
     <COLOR>106</COLOR>
-    <MINQTY>8</MINQTY>
+    <MINQTY>4</MINQTY>
     <CONDITION>N</CONDITION>
     <!-- Slope 30° 1×2 - Orange (Trickster accent slope front) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3024</ITEMID>
+    <COLOR>41</COLOR>
+    <MINQTY>4</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Plate 1×1 - Translucent Blue (MageCore energy core) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3024</ITEMID>
+    <COLOR>6</COLOR>
+    <MINQTY>4</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Plate 1×1 - Teal (Trickster grappling hook) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3001</ITEMID>
+    <COLOR>86</COLOR>
+    <MINQTY>8</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Brick 2×4 - Light Bluish Gray (Base plates) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3001</ITEMID>
+    <COLOR>85</COLOR>
+    <MINQTY>8</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Brick 2×4 - Dark Bluish Gray (Base plates) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3001</ITEMID>
+    <COLOR>1</COLOR>
+    <MINQTY>8</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Brick 2×4 - White (Base plates) -->
+  </ITEM>
+  <ITEM>
+    <ITEMTYPE>P</ITEMTYPE>
+    <ITEMID>3001</ITEMID>
+    <COLOR>106</COLOR>
+    <MINQTY>8</MINQTY>
+    <CONDITION>N</CONDITION>
+    <!-- Brick 2×4 - Bright Orange (Base plates) -->
   </ITEM>
 </INVENTORY>

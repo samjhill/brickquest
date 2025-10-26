@@ -1,6 +1,6 @@
 # 🧱 BrickQuest
 
-A hybrid **tabletop + maker** game combining card mechanics, D&D-style storytelling, Lego building, and 3D printed terrain.
+A hybrid **tabletop + maker** game combining card mechanics, D&D-style storytelling and LEGO building.
 
 ## 🎮 Game Overview
 
@@ -8,7 +8,6 @@ BrickQuest is a story-driven skirmish adventure with:
 - 🃏 **Card game mechanics** for actions, events, and upgrades
 - 🧠 **Light D&D-style storytelling** and character progression  
 - 🧱 **Lego building** for dynamic in-game construction
-- 🖨️ **3D printed terrain and parts** for modular, fast setup
 
 ## 🤖 Meet Your Characters
 
@@ -59,7 +58,7 @@ BrickQuest features 13 card types with a complete content pipeline:
 
 ### Card Types
 - **Action**: Movement, attack, defend, repair
-- **Structure**: Create physical objects with Lego/3D terrain
+- **Structure**: Create physical objects with LEGO building
 - **Program**: Give temporary AI to your robot
 - **Event**: Dungeon/world effects
 - **Loot & Upgrade**: Permanent or temporary improvements
@@ -102,16 +101,11 @@ brickquest/
 │   ├── expansions/     # Card sets and decklists
 │   ├── sources/        # Human-editable CSV files
 │   └── factions/       # Faction-specific cards
-├── terrain/            # 3D printable STL files
 ├── docs/               # Game rules and guides
 └── scripts/            # Helper utilities
 ```
 
-## 🖨️ Printing
-
-### 3D Terrain
-Check `terrain/STL/` for printable components:
-- Base hex tiles, turret platforms, trap tiles, robot upgrade parts
+## 🖨️ Card Printing
 
 ### Printable Cards
 - HTML Generator - `brickquest_printable_cards.html` for print-ready layouts
@@ -134,7 +128,7 @@ The starter set includes parts for 4 character classes (Engineer, Warrior, MageC
 
 - [Game Rules](docs/GAME_RULES.md)
 - [Card Reference](docs/CARD_REFERENCE.md)
-- [Printing Guide](docs/PRINTING_GUIDE.md)
+- [Card Printing Guide](docs/CARD_PRINTING_GUIDE.md)
 - [Lore & Story](docs/LORE.md)
 - [Card Design Guide](docs/CARD_DESIGN_GUIDE.md) - Comprehensive card design principles
 - [Icon Map](docs/ICON_MAP.md) - Complete icon-to-emoji mapping
@@ -146,7 +140,6 @@ The starter set includes parts for 4 character classes (Engineer, Warrior, MageC
 This is an open-source project! Feel free to:
 - Add new cards - Use the CSV format in `cards/sources/` for easy editing
 - Create expansions - Follow the card design guide for balanced content
-- Design terrain pieces - Add STL files and update build requirements
 - Improve the game engine - Enhance the core mechanics and systems
 - Create campaign content - Write quests, encounters, and storylines
 - Add new factions - Create themed card sets with unique mechanics

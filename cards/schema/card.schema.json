@@ -71,10 +71,6 @@
           "type": "array", 
           "items": { "type": "string" } 
         },
-        "stl": { 
-          "type": "array", 
-          "items": { "type": "string" } 
-        },
         "footprint": { "type": "string" } 
       }
     },
