@@ -155,6 +155,10 @@ brickquest/
 
 ## 📚 Documentation
 
+### 🎯 Getting Started
+- **[Intro & Quick Start Guide](docs/INTRO_QUICKSTART.md)** ⭐ **START HERE!** - Welcome guide for new players
+- **[Intro & Quick Start PDF](docs/INTRO_QUICKSTART.pdf)** - Printable version
+
 ### Core Documentation
 - [Game Rules](docs/GAME_RULES.md) - Complete game mechanics and rules
 - [Card Reference](docs/CARD_REFERENCE.md) - Card types and effects
