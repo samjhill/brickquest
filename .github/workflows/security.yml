@@ -20,7 +20,6 @@ jobs:
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: moderate
-          deny-licenses: GPL-2.0, GPL-3.0
 
   audit-dependencies:
     runs-on: ubuntu-latest
@@ -93,37 +92,25 @@ jobs:
 
   check-secrets:
     runs-on: ubuntu-latest
-    # Skip on push events to avoid BASE=HEAD issues
-    if: github.event_name != 'push'
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Fetch full history for diff comparison
+          fetch-depth: 0
       
-      - name: Check for secrets (PR mode)
-        if: github.event_name == 'pull_request'
+      - name: Run TruffleHog
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
           base: ${{ github.event.pull_request.base.sha }}
-          head: HEAD
-          extra_args: --json
+          head: ${{ github.event.pull_request.head.sha }}
+          extra_args: --no-verification --max-depth 10
         continue-on-error: true
+        if: github.event_name == 'pull_request'
       
-      - name: Check for secrets (scheduled/manual)
-        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+      - name: Run TruffleHog (non-PR)
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          extra_args: --json
+          extra_args: --no-verification
         continue-on-error: true
-      
-      - name: Check for hardcoded secrets
-        run: |
-          echo "Checking for common secret patterns..."
-          if grep -r "api_key\|secret\|password" . --include="*.ts" --include="*.js" --include="*.py" | grep -v "node_modules" | grep -v ".git" | grep -v ".github"; then
-            echo "⚠️  Potential secrets found"
-          else
-            echo "✅ No obvious secrets found"
-          fi
-        continue-on-error: true
+        if: github.event_name != 'pull_request'

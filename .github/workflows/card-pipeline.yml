@@ -91,19 +91,23 @@ jobs:
           retention-days: 90
       
       - name: Comment balance report on PR
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && github.event.pull_request
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('docs/generated/BALANCE.md', 'utf8');
-            const body = `## Balance Report\n\n\`\`\`\n${report}\n\`\`\``;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: body
-            });
+            try {
+              const report = fs.readFileSync('docs/generated/BALANCE.md', 'utf8');
+              const body = `## Balance Report\n\n\`\`\`\n${report}\n\`\`\``;
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: body
+              });
+            } catch (error) {
+              console.log('Could not post comment:', error.message);
+            }
 
   dedupe-check:
     runs-on: ubuntu-latest

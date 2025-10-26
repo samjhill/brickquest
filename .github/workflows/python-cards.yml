@@ -25,20 +25,17 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pillow || true
+          pip install pillow
       
       - name: Check script exists
         run: |
           if [ ! -f "scripts/generate_cards.py" ]; then
-            echo "Script not found, skipping"
-            exit 0
+            echo "Script not found, exiting"
+            exit 1
           fi
       
       - name: Generate cards
-        run: |
-          if [ -f "scripts/generate_cards.py" ]; then
-            python3 scripts/generate_cards.py || echo "Generation failed (may not be configured)"
-          fi
+        run: python3 scripts/generate_cards.py
         continue-on-error: true
 
   print-cards:
@@ -54,15 +51,15 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install jinja2 pillow || true
+          pip install jinja2 pillow
       
       - name: Check HTML exists
         run: |
-          if [ -f "brickquest_printable_cards.html" ]; then
+          if [ ! -f "brickquest_printable_cards.html" ]; then
+            echo "HTML file not found, will be generated"
+          else
             echo "Printable cards HTML already exists"
             ls -lh brickquest_printable_cards.html
-          else
-            echo "HTML file will be generated on demand"
           fi
 
   generate-bricklink-xml:
