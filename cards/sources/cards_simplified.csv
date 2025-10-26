@@ -1,7 +1,7 @@
 id,name,type,subtype,faction,classLock,rarity,cost_energy,cost_exhaust,cost_sacrifice,stats,build_lego,build_footprint,text,rules,icons,flavor,limits_perDeck,limits_perField,tags
 BQ-ACT-0001,Overdrive,Action,,Neutral,,Common,2,false,,,,,,Double your movement this turn.,"{\"movementMultiplier\":2,\"duration\":1}",movement;overdrive,Push your limits.,,,,movement;speed
 BQ-ACT-0002,Tactical Retreat,Action,,Neutral,,Common,1,false,,,,,,Move up to 2 tiles away from nearest enemy. Gain +1 Defense.,"{\"movement\":\"retreat\",\"distance\":2,\"defenseBonus\":1,\"duration\":1}",retreat;defense,Strategic withdrawal.,,,,movement;defense
-BQ-ACT-0003,Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat.,"{\"damage\":\"attack\"}",attack,Basic combat.,,,,damage
+BQ-ACT-0003,Flanking Strike,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat +1 if target is adjacent to an ally.,"{\"damage\":\"attack\",\"conditional\":{\"adjacentToAlly\":\"+1\"}}",flank;attack,Strike from the side.,,,,damage;positioning
 BQ-ACT-0004,Ranged Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat -1 to target within 2 tiles.,"{\"damage\":\"attack-1\",\"range\":2}",ranged;attack,Projectile combat.,,,,damage;ranged
 BQ-ACT-0005,Repair,Action,,Neutral,,Common,1,false,,,,,,Heal 2 HP.,"{\"heal\":2}",repair;heal,Basic maintenance.,,,,healing;utility
 BQ-ACT-0006,Defend,Action,,Neutral,,Common,1,false,,,,,,Gain +2 Defense until end of turn.,"{\"defense\":2,\"duration\":1}",defense,Defensive posture.,,,,defense

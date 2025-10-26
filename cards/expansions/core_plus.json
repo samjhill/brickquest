@@ -1,25 +1,6 @@
 {
   "cards": [
     {
-      "id": "BQ-ACT-0003",
-      "name": "Attack",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Common",
-      "cost": {
-        "energy": 1
-      },
-      "text": "Deal damage equal to your attack stat.",
-      "rules": {
-        "damage": "attack"
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":\"attack\"}"
-      ],
-      "flavor": "attack"
-    },
-    {
       "id": "BQ-ACT-0016",
       "name": "Charge",
       "type": "Action",
@@ -83,6 +64,28 @@
         "{\"damage\":2,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}"
       ],
       "flavor": "desperate;damage"
+    },
+    {
+      "id": "BQ-ACT-0003",
+      "name": "Flanking Strike",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Deal damage equal to your attack stat +1 if target is adjacent to an ally.",
+      "rules": {
+        "damage": "attack",
+        "conditional": {
+          "adjacentToAlly": "+1"
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":\"attack\",\"conditional\":{\"adjacentToAlly\":\"+1\"}}"
+      ],
+      "flavor": "flank;attack"
     },
     {
       "id": "BQ-ACT-0001",
@@ -1061,7 +1064,7 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T13:03:29.999Z",
+    "generated": "2025-10-26T13:14:09.620Z",
     "totalCards": 49,
     "validationErrors": 0
   }
