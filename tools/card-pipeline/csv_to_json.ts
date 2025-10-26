@@ -64,8 +64,22 @@ function parseCSV(csvContent: string): CardData[] {
   const cards: CardData[] = [];
 
   for (let i = 1; i < lines.length; i++) {
-    const values = parseCSVLine(lines[i]);
-    if (values.length !== headers.length) continue;
+    let values = parseCSVLine(lines[i]);
+    
+    // Handle extra fields: remove trailing empty fields or truncate to match headers
+    if (values.length > headers.length) {
+      while (values.length > headers.length && (!values[values.length - 1] || values[values.length - 1].trim() === '')) {
+        values.pop();
+      }
+      if (values.length > headers.length) {
+        values = values.slice(0, headers.length);
+      }
+    }
+    
+    if (values.length !== headers.length) {
+      console.warn(`Skipping row ${i}: field count mismatch (${values.length} vs ${headers.length})`);
+      continue;
+    }
 
     const card: any = {};
     headers.forEach((header, index) => {
@@ -129,6 +143,22 @@ function parseCSVLine(line: string): string[] {
 }
 
 function transformCard(cardData: CardData): BrickQuestCard {
+  // The CSV has text in the 'rules' field, swap them if text is empty
+  const text = cardData.text || (typeof cardData.rules === 'string' ? cardData.rules : '') || '';
+  
+  // Parse rules - could be object or string (as JSON)
+  let rules: any = {};
+  if (typeof cardData.rules === 'object' && cardData.rules !== null) {
+    rules = cardData.rules;
+  } else if (typeof cardData.rules === 'string' && cardData.rules && cardData.rules !== text) {
+    try {
+      rules = JSON.parse(cardData.rules);
+    } catch (e) {
+      rules = {};
+    }
+  }
+  
+
   const card: BrickQuestCard = {
     id: cardData.id,
     name: cardData.name,
@@ -138,8 +168,8 @@ function transformCard(cardData: CardData): BrickQuestCard {
     cost: {
       energy: cardData.cost_energy
     },
-    text: cardData.text,
-    rules: cardData.rules || {}, // Ensure rules field exists
+    text: text,
+    rules: rules, // Ensure rules field is an object
     v: 2
   };
 

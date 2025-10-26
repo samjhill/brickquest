@@ -254,7 +254,8 @@ async function main() {
   const duplicates = detector.findDuplicates(threshold);
   const report = detector.generateReport(duplicates);
   
-  const outputPath = path.join(__dirname, '..', 'docs', 'DUPLICATES.md');
+  const outputPath = path.join(__dirname, '..', '..', 'docs', 'generated', 'DUPLICATES.md');
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, report);
   
   console.log('✅ Duplicate detection report generated:', outputPath);

@@ -301,7 +301,8 @@ async function main() {
   const stats = analyzer.analyze();
   const report = analyzer.generateReport(stats);
   
-  const outputPath = path.join(__dirname, '..', 'docs', 'BALANCE.md');
+  const outputPath = path.join(__dirname, '..', '..', 'docs', 'generated', 'BALANCE.md');
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, report);
   
   console.log('✅ Balance report generated:', outputPath);
