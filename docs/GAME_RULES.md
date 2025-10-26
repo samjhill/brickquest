@@ -40,8 +40,8 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 
 ### Action Cards
 - **Purpose**: Movement, attack, defend, repair
-- **Examples**: "Overdrive," "Dash," "Pulse Strike," "Shield Bash"
-- **Cost**: 1-3 energy
+- **Examples**: "Overdrive," "Charge," "Tactical Retreat," "Shadow Step"
+- **Cost**: 1-4 energy
 - **Effects**: Immediate effects during action phase
 
 ### Structure Cards
@@ -90,16 +90,16 @@ All players can perform these basic actions during their Action Phase, regardles
 
 ### Attack
 - **Cost**: 1 Energy
-- **Range**: Adjacent studs only
+- **Range**: Adjacent tiles only
 - **Damage**: Base robot attack stat
 - **Description**: Basic combat attack
 - **Special**: Cannot be used against flying enemies unless you have anti-air capabilities
 
 ### Ranged Attack
 - **Cost**: 1 Energy
-- **Range**: 2-3 studs (varies by weapon)
+- **Range**: 2-3 tiles (varies by weapon)
 - **Damage**: Base robot attack stat -1
-- **Description**: Projecstuds or energy-based attack
+- **Description**: Projectile or energy-based attack
 - **Special**: Cannot be used if target has cover
 
 ### Defend
@@ -110,7 +110,7 @@ All players can perform these basic actions during their Action Phase, regardles
 - **Special**: Cannot move while defending, but can still use other actions
 
 ### Move
-- **Cost**: 1 Energy per studs moved
+- **Cost**: 1 Energy per tile moved
 - **Range**: Up to robot's movement stat
 - **Description**: Relocate your robot on the battlefield
 - **Special**: Cannot move through enemy-controlled spaces unless you have special abilities
@@ -120,6 +120,46 @@ All players can perform these basic actions during their Action Phase, regardles
 - **Effect**: Restore 2 HP to self or adjacent ally
 - **Description**: Basic maintenance to restore robot functionality
 - **Special**: Cannot repair above maximum HP
+
+### Movement Cards
+
+Movement cards provide tactical positioning options beyond standard movement:
+
+#### Overdrive
+- **Cost**: 2 Energy
+- **Effect**: Double your movement this turn
+- **Best Use**: Long-distance repositioning in a single turn
+- **Example**: With a base movement of 3, Overdrive lets you move 6 tiles for 2 energy
+
+#### Tactical Retreat
+- **Cost**: 1 Energy
+- **Effect**: Move up to 2 tiles away from nearest enemy. Gain +1 Defense.
+- **Best Use**: Defensive repositioning while improving survivability
+
+#### Charge
+- **Cost**: 2 Energy
+- **Effect**: Move 2 tiles toward target enemy. Deal 1 damage if you end adjacent.
+- **Best Use**: Aggressively close distance while dealing damage
+
+#### Juke
+- **Cost**: 1 Energy
+- **Effect**: Move 1 tile. Cannot be attacked this turn.
+- **Best Use**: Safe repositioning in dangerous situations
+
+#### Rush
+- **Cost**: 3 Energy
+- **Effect**: Move up to 3 tiles. Can move through enemy spaces this turn.
+- **Best Use**: Break through enemy lines or reach inaccessible positions
+
+#### Shadow Step
+- **Cost**: 3 Energy (Rare)
+- **Effect**: Teleport to any visible tile within 3 tiles
+- **Best Use**: Emergency repositioning or bypassing obstacles completely
+
+#### Circling Maneuver
+- **Cost**: 2 Energy
+- **Effect**: Move to opposite side of target enemy. Gain +1 Attack next turn.
+- **Best Use**: Flanking for tactical advantage and damage boost
 
 ## 🎭 Class Flavor Actions
 
@@ -142,7 +182,7 @@ Each robot class has unique actions that reflect their specialization and playst
 
 #### Emergency Repair
 - **Cost**: 1 Energy
-- **Effect**: Instantly repair 4 HP to any structure within 2 studs
+- **Effect**: Instantly repair 4 HP to any structure within 2 tiles
 - **Description**: Rapid field maintenance for critical systems
 - **Special**: Can target enemy structures to sabotage them instead
 
@@ -163,7 +203,7 @@ Each robot class has unique actions that reflect their specialization and playst
 
 #### Battle Cry
 - **Cost**: 1 Energy
-- **Range**: All allies within 3 studs
+- **Range**: All allies within 3 tiles
 - **Effect**: All allies gain +1 Attack for 2 turns
 - **Description**: Inspire your comrades with your combat prowess
 - **Special**: Cannot affect yourself, requires at least one ally in range
@@ -191,23 +231,24 @@ Each robot class has unique actions that reflect their specialization and playst
 
 ### 🎭 Trickster Class Actions
 
-#### Shadow Step
+#### Shadow Step (Class Ability)
 - **Cost**: 1 Energy
-- **Range**: 3 studs
-- **Effect**: Teleport to any unoccupied studs within range
+- **Range**: 3 tiles
+- **Effect**: Teleport to any unoccupied tile within range
 - **Description**: Move through shadows and avoid obstacles
-- **Special**: Cannot teleport to studs occupied by enemies or structures
+- **Special**: Cannot teleport to tiles occupied by enemies or structures
+- **Note**: This is the Trickster class ability. The Shadow Step movement card is a separate rare card with different mechanics
 
 #### Misdirection
 - **Cost**: 1 Energy
-- **Target**: One enemy within 2 studs
+- **Target**: One enemy within 2 tiles
 - **Effect**: Target cannot attack you for 1 turn
 - **Description**: Confuse enemies with clever tactics and illusions
 - **Special**: Target can still attack other players
 
 #### Sabotage
 - **Cost**: 2 Energy
-- **Target**: One enemy structure within 2 studs
+- **Target**: One enemy structure within 2 tiles
 - **Effect**: Structure takes 3 damage and cannot function for 1 turn
 - **Description**: Disable enemy constructions with cunning sabotage
 - **Special**: Cannot target structures you built
