@@ -88,22 +88,23 @@ Sample structure:
   └── generate_bricklink_xml.py      # Script to regenerate XML
 /assets
   └── images/characters/              # Visual renders of starter & modded bots
-      ├── starter_characters.jpg     # Base character builds
-      └── upgraded_characters.jpg     # Mid-game upgraded characters
+      ├── starter.png                # Base character builds
+      └── upgraded.png               # Mid-game upgraded characters
 ```
 
 ## 🖼️ Visual Reference
 
 See the character images in `/assets/images/characters/` for visual building guides:
 
-- **`starter_characters.jpg`** - Shows the four base character classes in their initial state
-- **`upgraded_characters.jpg`** - Demonstrates the same characters with mid-game upgrades and mods
+- **`starter.png`** - Shows the four base character classes in their initial state (2x2 grid layout)
+- **`upgraded.png`** - Demonstrates the same characters with mid-game upgrades and mods (line layout)
 
 These images provide clear visual reference for:
 - Color schemes and part placement
 - Upgrade mod assembly examples
 - Character progression from starter to mid-game state
 - Building techniques and part combinations
+- Exact LEGO part usage and positioning
 
 ## 📈 6. Extending the System
 

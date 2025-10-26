@@ -15,7 +15,7 @@ BrickQuest is a story-driven skirmish adventure with:
 Build, customize, and upgrade your LEGO robot heroes! Each character class offers unique abilities and upgrade paths.
 
 ### Starter Characters
-*[Image: Four BrickQuest starter characters in 2x2 grid - Engineer, Warrior, MageCore, Trickster]*
+![BrickQuest Starter Characters](assets/images/characters/starter.png)
 
 **From left to right:**
 - **🔧 Engineer** - Light bluish-gray with yellow accents, master of construction and repair
@@ -24,7 +24,7 @@ Build, customize, and upgrade your LEGO robot heroes! Each character class offer
 - **🎭 Trickster** - White with orange accents, mobility expert with jetpack and grapple
 
 ### Mid-Game Upgrades
-*[Image: Four upgraded BrickQuest characters in a line - showing progression and enhanced capabilities]*
+![BrickQuest Upgraded Characters](assets/images/characters/upgraded.png)
 
 **Enhanced capabilities:**
 - **Engineer** - Advanced tool arms, sensor arrays, and construction drones
