@@ -20,45 +20,51 @@ async function buildCheatSheet(inputFile, outputFile, title) {
     const cssContent = `
 @page {
   size: A4 landscape;
-  margin: 0.5in;
+  margin: 0.3in;
 }
 
 body {
   font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 11px;
-  line-height: 1.3;
+  font-size: 9px;
+  line-height: 1.2;
   color: #333;
   margin: 0;
   padding: 0;
+  column-count: 2;
+  column-gap: 20px;
+  column-fill: auto;
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  margin: 0 0 10px 0;
+  margin: 0 0 8px 0;
   text-align: center;
   color: #2c3e50;
+  column-span: all;
 }
 
 h2 {
-  font-size: 14px;
+  font-size: 11px;
   font-weight: bold;
-  margin: 15px 0 8px 0;
+  margin: 8px 0 4px 0;
   color: #34495e;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 2px;
+  border-bottom: 1px solid #3498db;
+  padding-bottom: 1px;
+  break-after: avoid;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 8px 0;
-  font-size: 10px;
+  margin: 4px 0;
+  font-size: 8px;
+  break-inside: avoid;
 }
 
 th, td {
   border: 1px solid #bdc3c7;
-  padding: 4px 6px;
+  padding: 2px 4px;
   text-align: left;
   vertical-align: top;
 }
@@ -66,7 +72,7 @@ th, td {
 th {
   background-color: #ecf0f1;
   font-weight: bold;
-  font-size: 10px;
+  font-size: 8px;
 }
 
 tr:nth-child(even) {
@@ -75,8 +81,9 @@ tr:nth-child(even) {
 
 hr {
   border: none;
-  border-top: 2px solid #3498db;
-  margin: 15px 0;
+  border-top: 1px solid #3498db;
+  margin: 8px 0;
+  column-span: all;
 }
 
 /* Ensure single page layout */
@@ -91,28 +98,29 @@ hr {
 }
 
 h2 {
-  margin-top: 12px;
-  margin-bottom: 6px;
+  margin-top: 6px;
+  margin-bottom: 3px;
 }
 
 table {
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 /* Icon styling */
 .icon {
-  font-size: 12px;
-  margin-right: 2px;
+  font-size: 10px;
+  margin-right: 1px;
 }
 
 /* Footer */
 .footer {
-  font-size: 9px;
+  font-size: 7px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5px;
   color: #7f8c8d;
   font-style: italic;
+  column-span: all;
 }
 
 /* Additional CSS for better print layout */
@@ -120,6 +128,13 @@ table {
   body { -webkit-print-color-adjust: exact; }
   table { page-break-inside: avoid; }
   h2 { page-break-after: avoid; }
+  h1 { page-break-after: avoid; }
+}
+
+/* Force single page */
+body {
+  height: 100vh;
+  overflow: hidden;
 }
     `;
     
@@ -131,14 +146,14 @@ table {
         format: 'A4',
         landscape: true,
         margin: {
-          top: '0.5in',
-          right: '0.5in',
-          bottom: '0.5in',
-          left: '0.5in'
+          top: '0.3in',
+          right: '0.3in',
+          bottom: '0.3in',
+          left: '0.3in'
         },
         printBackground: true,
         displayHeaderFooter: false,
-        scale: 0.8
+        scale: 0.9
       },
       stylesheet: cssFile,
       body_class: 'cheatsheet',
