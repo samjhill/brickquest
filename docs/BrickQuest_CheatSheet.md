@@ -33,23 +33,6 @@
 | **Scan** | 1E | Reveal hidden threats, 3 tiles |
 | **Repair** | 1E | Restore 2 HP to self/ally |
 
-## 🎭 Class Flavor Actions
-
-| Class | Action | Cost | Effect |
-|-------|--------|------|--------|
-| **🔧 Engineer** | Build Structure | Variable | Construct with -1 energy cost |
-| **🔧 Engineer** | Overcharge Systems | 2E | All structures +1 attack/HP |
-| **🔧 Engineer** | Emergency Repair | 1E | Repair 4 HP to structure |
-| **⚔️ Warrior** | Berserker Rage | 2E | +2 Attack, +1 Move, -1 Defense |
-| **⚔️ Warrior** | Weapon Mastery | 1E | Next attack +2 dmg, ignore armor |
-| **⚔️ Warrior** | Battle Cry | 1E | Allies +1 Attack for 2 turns |
-| **⚡ Mage Core** | Energy Surge | 2E | Gain 3 Energy next turn |
-| **⚡ Mage Core** | Spell Weaving | 1E | Next spell -1 cost, +1 range |
-| **⚡ Mage Core** | Arcane Shield | 2E | Absorb 4 damage for 2 turns |
-| **🎭 Trickster** | Shadow Step | 1E | Teleport to unoccupied tile |
-| **🎭 Trickster** | Misdirection | 1E | Enemy can't attack you 1 turn |
-| **🎭 Trickster** | Sabotage | 2E | Structure -3 HP, disabled 1 turn |
-
 ---
 
 ## ⚔️ Combat Resolution
