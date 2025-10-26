@@ -325,6 +325,32 @@ During Action Phase, spend bricks to:
 - **Turrets**: Defensive positions
 - **Traps**: Hidden hazards
 - **Ruins**: Cover and obstacles
+- **Modular Structures**: Expandable buildings with upgrade paths
+
+### Modular Building System
+
+#### Modular Base
+- **Foundation**: Required for all modular structures
+- **Cost**: 5 bricks, 3 energy
+- **Properties**: Can be upgraded with modules
+- **HP**: 4 (increases with modules)
+
+#### Module Types
+- **Defense Module**: +3 Defense to adjacent units
+- **Weapon Module**: Ranged attack (3 damage, 2 range)
+- **Utility Module**: +1 Energy per turn to adjacent units
+
+#### Building Rules
+1. **Placement**: Modules must be adjacent to Modular Base
+2. **Requirements**: Each module requires an existing Modular Base
+3. **Upgrades**: Structures can be enhanced over multiple turns
+4. **Combination**: Multiple Modular Bases can combine into Fortress Complex
+
+#### Fortress Complex
+- **Requirements**: 2 Modular Bases + 12 bricks
+- **Size**: 3-tile structure
+- **Properties**: High HP (12), defensive bonuses, ranged attack
+- **Strategic Value**: Major defensive position
 
 ## ⚔️ Combat System
 

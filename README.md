@@ -81,13 +81,13 @@ npm run cards:validate   # Run all validation
 
 ## 🃏 Card System
 
-BrickQuest features **5 card types** with a complete content pipeline and **35 total cards**.
+BrickQuest features **5 card types** with a complete content pipeline and **51 total cards**.
 
 ### Card Types Overview
 | Type | Count | Description |
 |------|-------|-------------|
-| **Action** | 15 | Movement, attack, defend, repair |
-| **Structure** | 6 | Create physical objects with LEGO building |
+| **Action** | 19 | Movement, attack, defend, repair |
+| **Structure** | 11 | Create physical objects with LEGO building |
 | **Program** | 6 | Give temporary AI to your robot |
 | **Reaction** | 3 | Speed-play during other players' phases |
 | **Loot & Upgrade** | 5 | Permanent improvements |

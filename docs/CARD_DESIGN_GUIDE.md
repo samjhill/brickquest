@@ -88,6 +88,17 @@ Structure cards must specify physical build requirements:
 - **Requirements**: Must have `buildReq` for physical builds
 - **Examples**: Generators, turrets, sensors, defensive walls
 
+### Modular Structure Cards
+- **Purpose**: Expandable buildings with upgrade paths
+- **Energy Range**: 3-4E typically
+- **Design Focus**: Multi-turn investment, strategic positioning
+- **Requirements**: Must specify module requirements and combinations
+- **Examples**: Modular Base, Defense Module, Weapon Module, Fortress Complex
+- **Special Rules**: 
+  - Modules require existing Modular Base
+  - Structures can be enhanced over multiple turns
+  - Multiple bases can combine into larger structures
+
 ### Program Cards
 - **Purpose**: Temporary buffs and ongoing effects
 - **Duration**: 1-3 rounds typically
@@ -143,13 +154,20 @@ Structure cards must specify physical build requirements:
 - **0E**: Utility only, no damage or card draw
 - **1E**: Up to 2 damage or +2 movement or single buff
 - **2E**: Up to 4 damage or 2 effects of 1E tier
-- **3E**: Up to 6 damage or strong utility (stun/immobilize)
+- **3E**: Up to 6 damage or strong utility (stun/immobilize) or card draw + damage
 - **4E+**: Multi-target, summon, or tempo swing (should exhaust or be Rare+)
 
 ### Structure Balance
 - **Common utility**: HP 4-6, Armor 0-1
 - **Defensive/turret**: HP 6-10, Armor 1-2, requires buildReq
 - **High HP structures**: Should have significant build requirements
+
+### Modular Structure Balance
+- **Modular Base**: HP 4, foundation for upgrades
+- **Modules**: HP 3, provide specific bonuses
+- **Fortress Complex**: HP 12+, requires 2+ Modular Bases
+- **Upgrade Path**: Each module should provide meaningful tactical advantage
+- **Cost Scaling**: Modules cost 3E, Complex costs 4E
 
 ### Program Duration
 - **1 round**: Baseline duration

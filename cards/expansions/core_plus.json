@@ -166,6 +166,23 @@
       "flavor": "retreat;defense"
     },
     {
+      "id": "BQ-ACT-0024",
+      "name": "Adaptive Systems",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Choose one: +2 Attack",
+      "rules": {},
+      "v": 2,
+      "icons": [
+        "+2 Defense"
+      ],
+      "flavor": "or +2 Movement this turn."
+    },
+    {
       "id": "BQ-ACT-0020",
       "name": "Circling Maneuver",
       "type": "Action",
@@ -207,6 +224,30 @@
         "{\"damage\":3,\"onKill\":{\"draw\":1}}"
       ],
       "flavor": "combat;protocol"
+    },
+    {
+      "id": "BQ-ACT-0023",
+      "name": "Coordinated Assault",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Deal 2 damage to target. Allies within 2 tiles deal +1 damage this turn.",
+      "rules": {
+        "damage": 2,
+        "allyBuff": {
+          "damage": 1,
+          "range": 2,
+          "duration": 1
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":2,\"allyBuff\":{\"damage\":1,\"range\":2,\"duration\":1}}"
+      ],
+      "flavor": "coordinate;assault"
     },
     {
       "id": "BQ-ACT-0014",
@@ -268,6 +309,27 @@
         "{\"energy\":2}"
       ],
       "flavor": "energy;surge"
+    },
+    {
+      "id": "BQ-ACT-0022",
+      "name": "Fortify Position",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Gain +3 Defense and +2 temporary HP until end of turn.",
+      "rules": {
+        "defense": 3,
+        "tempHP": 2,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"defense\":3,\"tempHP\":2,\"duration\":1}"
+      ],
+      "flavor": "fortify;defense"
     },
     {
       "id": "BQ-ACT-0017",
@@ -373,6 +435,26 @@
         "{\"movement\":3,\"ignoreEnemies\":true,\"duration\":1}"
       ],
       "flavor": "rush;movement"
+    },
+    {
+      "id": "BQ-ACT-0021",
+      "name": "Tactical Strike",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Deal 3 damage and draw 1 card.",
+      "rules": {
+        "damage": 3,
+        "draw": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":3,\"draw\":1}"
+      ],
+      "flavor": "tactical;damage;draw"
     },
     {
       "id": "BQ-ACT-0015",
@@ -527,6 +609,31 @@
       }
     },
     {
+      "id": "BQ-STR-0008",
+      "name": "Defense Module",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Attach to Modular Base. +3 Defense to adjacent units. Cost: 4 bricks.",
+      "rules": {
+        "requires": "modular_base",
+        "defenseBonus": 3,
+        "adjacent": true,
+        "hp": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"requires\":\"modular_base\",\"defenseBonus\":3,\"adjacent\":true,\"hp\":3}"
+      ],
+      "flavor": "module;defense",
+      "buildReq": {
+        "footprint": "defense_module"
+      }
+    },
+    {
       "id": "BQ-STR-0006",
       "name": "Healing Station",
       "type": "Structure",
@@ -548,6 +655,30 @@
       "flavor": "heal;station",
       "buildReq": {
         "footprint": "healing_station"
+      }
+    },
+    {
+      "id": "BQ-STR-0007",
+      "name": "Modular Base",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Foundation for larger structures. Can be upgraded. Cost: 5 bricks.",
+      "rules": {
+        "modular": true,
+        "upgradeable": true,
+        "hp": 4
+      },
+      "v": 2,
+      "icons": [
+        "{\"modular\":true,\"upgradeable\":true,\"hp\":4}"
+      ],
+      "flavor": "base;modular",
+      "buildReq": {
+        "footprint": "modular_base"
       }
     },
     {
@@ -575,6 +706,31 @@
       }
     },
     {
+      "id": "BQ-STR-0010",
+      "name": "Utility Module",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Attach to Modular Base. Adjacent units gain +1 Energy per turn. Cost: 4 bricks.",
+      "rules": {
+        "requires": "modular_base",
+        "energyRegen": 1,
+        "adjacent": true,
+        "hp": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"requires\":\"modular_base\",\"energyRegen\":1,\"adjacent\":true,\"hp\":3}"
+      ],
+      "flavor": "module;utility",
+      "buildReq": {
+        "footprint": "utility_module"
+      }
+    },
+    {
       "id": "BQ-STR-0004",
       "name": "Watchtower",
       "type": "Structure",
@@ -594,6 +750,32 @@
       "flavor": "tower;range",
       "buildReq": {
         "footprint": "watchtower"
+      }
+    },
+    {
+      "id": "BQ-STR-0009",
+      "name": "Weapon Module",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Attach to Modular Base. Ranged attack: 3 damage, 2 range. Cost: 4 bricks.",
+      "rules": {
+        "requires": "modular_base",
+        "attack": 3,
+        "range": 2,
+        "ranged": true,
+        "hp": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"requires\":\"modular_base\",\"attack\":3,\"range\":2,\"ranged\":true,\"hp\":3}"
+      ],
+      "flavor": "module;weapon",
+      "buildReq": {
+        "footprint": "weapon_module"
       }
     },
     {
@@ -617,6 +799,36 @@
       "flavor": "energy;core",
       "buildReq": {
         "footprint": "energy_core"
+      }
+    },
+    {
+      "id": "BQ-STR-0011",
+      "name": "Fortress Complex",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Large structure with multiple modules. Requires 2 Modular Bases. Cost: 12 bricks.",
+      "rules": {
+        "requires": [
+          "modular_base",
+          "modular_base"
+        ],
+        "hp": 12,
+        "defenseBonus": 2,
+        "adjacent": true,
+        "attack": 2,
+        "range": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"requires\":[\"modular_base\",\"modular_base\"],\"hp\":12,\"defenseBonus\":2,\"adjacent\":true,\"attack\":2,\"range\":3}"
+      ],
+      "flavor": "fortress;complex",
+      "buildReq": {
+        "footprint": "fortress_complex"
       }
     },
     {
@@ -849,8 +1061,8 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T12:50:44.240Z",
-    "totalCards": 40,
+    "generated": "2025-10-26T13:03:29.999Z",
+    "totalCards": 49,
     "validationErrors": 0
   }
 }
