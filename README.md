@@ -100,11 +100,6 @@ BrickQuest features **13 card types** with a complete content pipeline and **58 
 | **Blueprint** | - | Discounts and unlocks for structures |
 | **Boss Technique** | - | DM/NPC only powerful effects |
 
-### Recent Improvements ✨
-- **✅ Energy Curve Fixed**: Added 19 mid-cost cards (3-4 energy) for better progression
-- **✅ Player Interaction Enhanced**: Added 8 reaction cards for opponent turn engagement
-- **✅ Strategic Depth Increased**: More meaningful choices between efficiency and power
-
 ### Faction Themes
 - **Steampunk** - Gears, pressure, steam vents, mechanical complexity
 - **Cyber** - Sensors, overclock, EMP, digital warfare  
