@@ -1,6 +1,6 @@
 id,name,type,subtype,faction,classLock,rarity,cost_energy,cost_exhaust,cost_sacrifice,stats,build_lego,build_footprint,text,rules,icons,flavor,limits_perDeck,limits_perField,tags
-BQ-ACT-0001,Move,Action,,Neutral,,Common,1,false,,,,,,Move 1 tile.,"{\"movement\":1}",movement,Basic movement.,,,,movement
-BQ-ACT-0002,Dash,Action,,Neutral,,Common,2,false,,,,,,Move 2 tiles.,"{\"movement\":2}",movement;dash,Quick repositioning.,,,,movement;positioning
+BQ-ACT-0001,Overdrive,Action,,Neutral,,Common,2,false,,,,,,Double your movement this turn.,"{\"movementMultiplier\":2,\"duration\":1}",movement;overdrive,Push your limits.,,,,movement;speed
+BQ-ACT-0002,Tactical Retreat,Action,,Neutral,,Common,1,false,,,,,,Move up to 2 tiles away from nearest enemy. Gain +1 Defense.,"{\"movement\":\"retreat\",\"distance\":2,\"defenseBonus\":1,\"duration\":1}",retreat;defense,Strategic withdrawal.,,,,movement;defense
 BQ-ACT-0003,Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat.,"{\"damage\":\"attack\"}",attack,Basic combat.,,,,damage
 BQ-ACT-0004,Ranged Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat -1 to target within 2 tiles.,"{\"damage\":\"attack-1\",\"range\":2}",ranged;attack,Projectile combat.,,,,damage;ranged
 BQ-ACT-0005,Repair,Action,,Neutral,,Common,1,false,,,,,,Heal 2 HP.,"{\"heal\":2}",repair;heal,Basic maintenance.,,,,healing;utility
@@ -14,6 +14,11 @@ BQ-ACT-0012,Energy Blast,Action,,Neutral,,Uncommon,3,false,,,,,,Deal 2 damage to
 BQ-ACT-0013,Combat Protocol,Action,,Neutral,,Uncommon,3,false,,,,,,Deal 3 damage to target. Draw 1 card if it dies.,"{\"damage\":3,\"onKill\":{\"draw\":1}}",combat;protocol,Execute combat sequence.,,,,damage;draw
 BQ-ACT-0014,Defensive Matrix,Action,,Neutral,,Uncommon,3,false,,,,,,Gain 3 temporary HP and +1 Defense until end of turn.,"{\"tempHP\":3,\"defense\":1,\"duration\":1}",defense;matrix,Protective systems.,,,,defense;temporary
 BQ-ACT-0015,Overcharge,Action,,Neutral,,Rare,4,false,,,,,,Deal 5 damage to target. Take 2 damage.,"{\"damage\":5,\"selfDamage\":2}",overcharge;risk,High-risk, high-reward.,,,,damage;risk
+BQ-ACT-0016,Charge,Action,,Neutral,,Common,2,false,,,,,,Move 2 tiles toward target enemy. Deal 1 damage if you end adjacent.,"{\"movement\":\"charge\",\"distance\":2,\"damage\":1,\"requiresAdjacent\":true}",charge;movement;damage,Bull rush.,,,,movement;damage;positioning
+BQ-ACT-0017,Juke,Action,,Neutral,,Uncommon,1,false,,,,,,Move 1 tile. Cannot be attacked this turn.,"{\"movement\":1,\"dodge\":true,\"duration\":1}",juke;evasion,Misdirection.,,,,movement;evasion
+BQ-ACT-0018,Rush,Action,,Neutral,,Uncommon,3,false,,,,,,Move up to 3 tiles. Can move through enemy spaces this turn.,"{\"movement\":3,\"ignoreEnemies\":true,\"duration\":1}",rush;movement,Break through.,,,,movement;positioning
+BQ-ACT-0019,Shadow Step,Action,,Neutral,,Rare,3,false,,,,,,Teleport to any visible tile within 3 tiles.,"{\"teleport\":3,\"visibleOnly\":true}",teleport;shadow,Mystical translocation.,,,,movement;teleport
+BQ-ACT-0020,Circling Maneuver,Action,,Neutral,,Uncommon,2,false,,,,,,Move to opposite side of target enemy. Gain +1 Attack next turn.,"{\"movement\":\"flank\",\"attackBonus\":1,\"duration\":1}",flank;positioning,Outmaneuver.,,,,movement;positioning;attack
 BQ-STR-0001,Barricade,Structure,,Neutral,,Common,2,false,,,,barricade,1-tile,"Blocks movement. +2 Defense to adjacent units. Cost: 4 bricks.","{\"blocksMovement\":true,\"defenseBonus\":2,\"adjacent\":true}",wall;defense,Basic cover.,,,,defense;blocking
 BQ-STR-0002,Bridge,Structure,,Neutral,,Common,2,false,,,,bridge,2-tile,"Connects two tiles. Units can move across. Cost: 6 bricks.","{\"connects\":true,\"movement\":true}",bridge;connect,Span gaps.,,,,movement;connectivity
 BQ-STR-0003,Turret,Structure,,Neutral,,Uncommon,3,false,,,,turret,1-tile,"Ranged attack: 2 damage, 3 range. Cost: 6 bricks.","{\"attack\":2,\"range\":3,\"ranged\":true}",turret;ranged,Automated defense.,,,,defense;automated

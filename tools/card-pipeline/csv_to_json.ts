@@ -259,7 +259,7 @@ function sortCards(cards: BrickQuestCard[]): BrickQuestCard[] {
 
 async function main() {
   try {
-    const csvPath = path.join(__dirname, '..', '..', 'cards', 'sources', 'cards.csv');
+    const csvPath = path.join(__dirname, '..', '..', 'cards', 'sources', 'cards_simplified.csv');
     const outputPath = path.join(__dirname, '..', '..', 'cards', 'expansions', 'core_plus.json');
     
     // Check if CSV exists

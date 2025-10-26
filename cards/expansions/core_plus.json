@@ -1,42 +1,45 @@
 {
   "cards": [
     {
-      "id": "BQ-ACT-0001",
-      "name": "Basic Move",
+      "id": "BQ-ACT-0003",
+      "name": "Attack",
       "type": "Action",
       "faction": "Neutral",
       "rarity": "Common",
       "cost": {
         "energy": 1
       },
-      "text": "Move 1 stud.",
+      "text": "Deal damage equal to your attack stat.",
       "rules": {
-        "movement": 1
+        "damage": "attack"
       },
       "v": 2,
       "icons": [
-        "{\"movement\":1}"
+        "{\"damage\":\"attack\"}"
       ],
-      "flavor": "movement"
+      "flavor": "attack"
     },
     {
-      "id": "BQ-ACT-0002",
-      "name": "Dash",
+      "id": "BQ-ACT-0016",
+      "name": "Charge",
       "type": "Action",
       "faction": "Neutral",
       "rarity": "Common",
       "cost": {
         "energy": 2
       },
-      "text": "Move 2 studs.",
+      "text": "Move 2 tiles toward target enemy. Deal 1 damage if you end adjacent.",
       "rules": {
-        "movement": 2
+        "movement": "charge",
+        "distance": 2,
+        "damage": 1,
+        "requiresAdjacent": true
       },
       "v": 2,
       "icons": [
-        "{\"movement\":2}"
+        "{\"movement\":\"charge\",\"distance\":2,\"damage\":1,\"requiresAdjacent\":true}"
       ],
-      "flavor": "movement;dash"
+      "flavor": "charge;movement;damage"
     },
     {
       "id": "BQ-ACT-0006",
@@ -82,24 +85,24 @@
       "flavor": "desperate;damage"
     },
     {
-      "id": "BQ-ACT-0003",
-      "name": "Melee Attack",
+      "id": "BQ-ACT-0001",
+      "name": "Overdrive",
       "type": "Action",
       "faction": "Neutral",
       "rarity": "Common",
       "cost": {
-        "energy": 1
+        "energy": 2
       },
-      "text": "Deal damage equal to your attack stat to adjacent enemy.",
+      "text": "Double your movement this turn.",
       "rules": {
-        "damage": "attack",
-        "range": 1
+        "movementMultiplier": 2,
+        "duration": 1
       },
       "v": 2,
       "icons": [
-        "{\"damage\":\"attack\",\"range\":1}"
+        "{\"movementMultiplier\":2,\"duration\":1}"
       ],
-      "flavor": "attack"
+      "flavor": "movement;overdrive"
     },
     {
       "id": "BQ-ACT-0004",
@@ -110,7 +113,7 @@
       "cost": {
         "energy": 1
       },
-      "text": "Deal damage equal to your attack stat -1 to target within 2 studs.",
+      "text": "Deal damage equal to your attack stat -1 to target within 2 tiles.",
       "rules": {
         "damage": "attack-1",
         "range": 2
@@ -139,6 +142,49 @@
         "{\"heal\":2}"
       ],
       "flavor": "repair;heal"
+    },
+    {
+      "id": "BQ-ACT-0002",
+      "name": "Tactical Retreat",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Move up to 2 tiles away from nearest enemy. Gain +1 Defense.",
+      "rules": {
+        "movement": "retreat",
+        "distance": 2,
+        "defenseBonus": 1,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":\"retreat\",\"distance\":2,\"defenseBonus\":1,\"duration\":1}"
+      ],
+      "flavor": "retreat;defense"
+    },
+    {
+      "id": "BQ-ACT-0020",
+      "name": "Circling Maneuver",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Move to opposite side of target enemy. Gain +1 Attack next turn.",
+      "rules": {
+        "movement": "flank",
+        "attackBonus": 1,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":\"flank\",\"attackBonus\":1,\"duration\":1}"
+      ],
+      "flavor": "flank;positioning"
     },
     {
       "id": "BQ-ACT-0013",
@@ -192,7 +238,7 @@
       "cost": {
         "energy": 3
       },
-      "text": "Deal 2 damage to all enemies within 2 studs.",
+      "text": "Deal 2 damage to all enemies within 2 tiles.",
       "rules": {
         "damage": 2,
         "range": 2,
@@ -224,6 +270,27 @@
       "flavor": "energy;surge"
     },
     {
+      "id": "BQ-ACT-0017",
+      "name": "Juke",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Move 1 tile. Cannot be attacked this turn.",
+      "rules": {
+        "movement": 1,
+        "dodge": true,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":1,\"dodge\":true,\"duration\":1}"
+      ],
+      "flavor": "juke;evasion"
+    },
+    {
       "id": "BQ-ACT-0011",
       "name": "Power Strike",
       "type": "Action",
@@ -251,7 +318,7 @@
       "cost": {
         "energy": 2
       },
-      "text": "Deal 3 damage to target within 3 studs. Cannot miss.",
+      "text": "Deal 3 damage to target within 3 tiles. Cannot miss.",
       "rules": {
         "damage": 3,
         "range": 3,
@@ -287,6 +354,27 @@
       "flavor": "rally;buff"
     },
     {
+      "id": "BQ-ACT-0018",
+      "name": "Rush",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Move up to 3 tiles. Can move through enemy spaces this turn.",
+      "rules": {
+        "movement": 3,
+        "ignoreEnemies": true,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":3,\"ignoreEnemies\":true,\"duration\":1}"
+      ],
+      "flavor": "rush;movement"
+    },
+    {
       "id": "BQ-ACT-0015",
       "name": "Overcharge",
       "type": "Action",
@@ -305,6 +393,26 @@
         "{\"damage\":5,\"selfDamage\":2}"
       ],
       "flavor": "overcharge;risk"
+    },
+    {
+      "id": "BQ-ACT-0019",
+      "name": "Shadow Step",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Teleport to any visible tile within 3 tiles.",
+      "rules": {
+        "teleport": 3,
+        "visibleOnly": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"teleport\":3,\"visibleOnly\":true}"
+      ],
+      "flavor": "teleport;shadow"
     },
     {
       "id": "BQ-REA-0003",
@@ -404,7 +512,7 @@
       "cost": {
         "energy": 2
       },
-      "text": "Connects two studs. Units can move across. Cost: 6 bricks.",
+      "text": "Connects two tiles. Units can move across. Cost: 6 bricks.",
       "rules": {
         "connects": true,
         "movement": true
@@ -475,7 +583,7 @@
       "cost": {
         "energy": 3
       },
-      "text": "+2 Range to all attacks from this stud. Cost: 6 bricks.",
+      "text": "+2 Range to all attacks from this tile. Cost: 6 bricks.",
       "rules": {
         "rangeBonus": 2
       },
@@ -741,8 +849,8 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T12:36:46.121Z",
-    "totalCards": 35,
+    "generated": "2025-10-26T12:50:44.240Z",
+    "totalCards": 40,
     "validationErrors": 0
   }
 }
