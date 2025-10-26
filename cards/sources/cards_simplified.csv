@@ -5,7 +5,7 @@ BQ-ACT-0003,Flanking Strike,Action,,Neutral,,Common,1,false,,,,,,Deal damage equ
 BQ-ACT-0004,Ranged Attack,Action,,Neutral,,Common,1,false,,,,,,Deal damage equal to your attack stat -1 to target within 2 tiles.,"{\"damage\":\"attack-1\",\"range\":2}",ranged;attack,Projectile combat.,,,,damage;ranged
 BQ-ACT-0005,Repair,Action,,Neutral,,Common,1,false,,,,,,Heal 2 HP.,"{\"heal\":2}",repair;heal,Basic maintenance.,,,,healing;utility
 BQ-ACT-0006,Defend,Action,,Neutral,,Common,1,false,,,,,,Gain +2 Defense until end of turn.,"{\"defense\":2,\"duration\":1}",defense,Defensive posture.,,,,defense
-BQ-ACT-0007,Energy Surge,Action,,Neutral,,Uncommon,2,false,,,,,,Gain 2 Energy.,"{\"energy\":2}",energy;surge,Power boost.,,,,energy;buff
+BQ-ACT-0007,Energy Boost,Action,,Neutral,,Uncommon,2,false,,,,,,Gain 3 Energy.,"{\"energy\":3}",energy;boost,Power surge.,,,,energy;buff
 BQ-ACT-0008,Precision Shot,Action,,Neutral,,Uncommon,2,false,,,,,,Deal 3 damage to target within 3 tiles. Cannot miss.,"{\"damage\":3,\"range\":3,\"cannotMiss\":true}",aim;damage,Perfect accuracy.,,,,damage;precision
 BQ-ACT-0009,Rally,Action,,Neutral,,Uncommon,2,false,,,,,,All allies gain +1 Attack this turn.,"{\"buff\":{\"attack\":1},\"target\":\"allies\",\"duration\":1}",rally;buff,Inspire your team.,,,,buff;teamwork
 BQ-ACT-0010,Desperate Strike,Action,,Neutral,,Common,1,false,,,,,,"Deal 2 damage. If you have 5 or less HP, deal +2 damage.","{\"damage\":2,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}",desperate;damage,"When cornered, fight harder.",,,,damage;conditional

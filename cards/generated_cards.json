@@ -296,22 +296,22 @@
     },
     {
       "id": "BQ-ACT-0007",
-      "name": "Energy Surge",
+      "name": "Energy Boost",
       "type": "Action",
       "faction": "Neutral",
       "rarity": "Uncommon",
       "cost": {
         "energy": 2
       },
-      "text": "Gain 2 Energy.",
+      "text": "Gain 3 Energy.",
       "rules": {
-        "energy": 2
+        "energy": 3
       },
       "v": 2,
       "icons": [
-        "{\"energy\":2}"
+        "{\"energy\":3}"
       ],
-      "flavor": "energy;surge"
+      "flavor": "energy;boost"
     },
     {
       "id": "BQ-ACT-0022",
@@ -1064,7 +1064,7 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T13:15:27.483Z",
+    "generated": "2025-10-26T13:19:14.040Z",
     "totalCards": 49,
     "validationErrors": 0
   }
