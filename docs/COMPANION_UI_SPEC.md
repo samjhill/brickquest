@@ -6,6 +6,7 @@
 - Track players, teams, and Hero Automata stats (HP, Energy, Armor, Statuses, Upgrades)
 - Run a turn/phase tracker with a visible current player, phase, and round
 - Provide quick actions: damage/heal, gain/spend energy, add/remove status, draw/discard markers, program timers
+- Track standard actions and class flavor actions usage
 - Log all changes with undo/redo
 - Persist sessions, export/import state, and support hotseat/TV display
 
@@ -64,6 +65,39 @@ export interface UpgradeTag {
   bonus?: Partial<StatBlock>;
 }
 
+export interface ActionUsage {
+  standardActions: {
+    meleeAttack: number;
+    rangedAttack: number;
+    defend: number;
+    move: number;
+    scan: number;
+    repair: number;
+  };
+  classActions: {
+    engineer?: {
+      buildStructure: number;
+      overchargeSystems: number;
+      emergencyRepair: number;
+    };
+    warrior?: {
+      berserkerRage: number;
+      weaponMastery: number;
+      battleCry: number;
+    };
+    mageCore?: {
+      energySurge: number;
+      spellWeaving: number;
+      arcaneShield: number;
+    };
+    trickster?: {
+      shadowStep: number;
+      misdirection: number;
+      sabotage: number;
+    };
+  };
+}
+
 export interface Participant {
   id: Id;
   name: string;
@@ -74,6 +108,7 @@ export interface Participant {
   stats: StatBlock;
   statuses: StatusEffect[];
   upgrades: UpgradeTag[];
+  actionUsage?: ActionUsage;    // Track action usage this turn/round
   notes?: string;
   isDown?: boolean;
 }
@@ -94,6 +129,7 @@ export interface LogEvent {
     | "STAT_SET" | "STAT_DELTA"
     | "STATUS_ADD" | "STATUS_UPDATE" | "STATUS_REMOVE"
     | "UPGRADE_ADD" | "UPGRADE_REMOVE"
+    | "ACTION_USED" | "ACTION_RESET"
     | "TURN_NEXT" | "PHASE_SET" | "ROUND_ADVANCE"
     | "PARTICIPANT_ADD" | "PARTICIPANT_REMOVE" | "PARTICIPANT_UPDATE"
     | "NOTE";
@@ -148,9 +184,10 @@ DRAW → ACTION → BUILD_PROGRAM → ENCOUNTER → END
 - Header: Session name • Round • Current Player chip • Phase pills (clickable)
 - Turn/Phase Rail: Large "Now Playing" panel; Prev/Next buttons; Skip, Hold, End Turn
 - Participants Grid/List: cards with HP/energy bars, armor, statuses, upgrades
-- Quick actions (+/− HP; +/− Energy; Add Status; Add Upgrade)
-- Collapse/expand details (notes, custom stats)
-- Log Drawer: chronological, filterable, click-to-undo
+- Action Tracking Panel: Standard actions (6 buttons) + Class flavor actions (3 per class)
+- Quick actions (+/− HP; +/− Energy; Add Status; Add Upgrade; Use Action)
+- Collapse/expand details (notes, custom stats, action usage history)
+- Log Drawer: chronological, filterable, click-to-undo, action usage events
 - Timers: phase/turn countdown, pause/reset, subtle sound cue toggle
 - Encounter Quick Panel (optional): add NPC, mass-apply status, round events
 
@@ -173,6 +210,9 @@ DRAW → ACTION → BUILD_PROGRAM → ENCOUNTER → END
 - `N` Next Phase • `T` End Turn • `[/]` Previous/Next Player
 - `H/Shift+H` −/+ 1 HP on selected participant
 - `E/Shift+E` −/+ 1 Energy
+- `A` Use Standard Action (cycle through: Melee, Ranged, Defend, Move, Scan, Repair)
+- `C` Use Class Flavor Action (cycle through class-specific actions)
+- `R` Reset Action Usage (clear all action counters for current turn)
 - `U` Undo • `R` Redo
 - `G` Add Status • `P` Add Upgrade
 - `.` Start/Stop timer
@@ -223,6 +263,11 @@ All mutations are event-based; the server applies events and returns updated ses
     ParticipantGrid.tsx
     ParticipantModal.tsx
     QuickActions.tsx
+  /features/actions
+    ActionTracker.tsx
+    StandardActions.tsx
+    ClassActions.tsx
+    ActionUsageDisplay.tsx
   /features/log
     LogDrawer.tsx
     LogItem.tsx
@@ -261,9 +306,10 @@ MVP must pass:
 1. Create session, add 4 players + 2 NPCs; reorder; save and reload state
 2. Run 3 full rounds with phase changes; timers running; no crashes
 3. Adjust HP/Energy via hotkeys and UI; log records all; undo/redo works
-4. Export JSON, clear cache, import JSON; state restored 1:1
-5. Spectator mode shows correct player/phase and updates live (local or synced)
-6. A11y: complete keyboard flow; screen reader announces phase/turn changes
+4. Track standard actions and class flavor actions; reset counters per turn/round
+5. Export JSON, clear cache, import JSON; state restored 1:1
+6. Spectator mode shows correct player/phase and updates live (local or synced)
+7. A11y: complete keyboard flow; screen reader announces phase/turn changes
 
 ## 15) Roadmap
 

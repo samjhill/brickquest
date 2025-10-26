@@ -1055,7 +1055,7 @@
       "faction": "Neutral",
       "rarity": "Common",
       "cost": {
-        "energy": 1
+        "energy": 0
       },
       "text": "All players draw 2 cards.",
       "rules": {
@@ -1136,7 +1136,7 @@
       "faction": "Neutral",
       "rarity": "Rare",
       "cost": {
-        "energy": 1
+        "energy": 0
       },
       "text": "Draw 3 cards and gain 2 Energy.",
       "rules": {
@@ -1251,7 +1251,7 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T02:25:21.406Z",
+    "generated": "2025-10-26T12:08:35.632Z",
     "totalCards": 58,
     "validationErrors": 0
   }

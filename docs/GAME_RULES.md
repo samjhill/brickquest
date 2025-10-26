@@ -81,6 +81,143 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - Move your robot
 - Attack enemies
 - Use special abilities
+- **Standard Actions** (available to all players)
+- **Class Flavor Actions** (unique to each robot class)
+
+## ⚔️ Standard Actions
+
+All players can perform these basic actions during their Action Phase, regardless of their robot class:
+
+### Melee Attack
+- **Cost**: 1 Energy
+- **Range**: Adjacent tiles only
+- **Damage**: Base robot attack stat
+- **Description**: Basic close-quarters combat attack
+- **Special**: Cannot be used against flying enemies unless you have anti-air capabilities
+
+### Ranged Attack
+- **Cost**: 1 Energy
+- **Range**: 2-3 tiles (varies by weapon)
+- **Damage**: Base robot attack stat -1
+- **Description**: Projectile or energy-based attack
+- **Special**: Cannot be used if target has cover, reduced accuracy at maximum range
+
+### Defend
+- **Cost**: 1 Energy
+- **Duration**: Until your next turn
+- **Effect**: +2 Defense against incoming attacks
+- **Description**: Assume defensive posture, reducing incoming damage
+- **Special**: Cannot move while defending, but can still use other actions
+
+### Move
+- **Cost**: 1 Energy (move up to 2 tiles) or 2 Energy (move up to movement stat)
+- **Range**: Up to robot's movement stat
+- **Description**: Relocate your robot on the battlefield
+- **Special**: Cannot move through enemy-controlled spaces unless you have special abilities
+
+### Scan
+- **Cost**: 1 Energy
+- **Range**: 3 tiles
+- **Effect**: Reveal hidden enemies or traps in range
+- **Description**: Use sensors to detect threats and opportunities
+- **Special**: Reveals enemy positions but not their cards or stats
+
+### Repair
+- **Cost**: 1 Energy
+- **Effect**: Restore 2 HP to self or adjacent ally
+- **Description**: Basic maintenance to restore robot functionality
+- **Special**: Cannot repair above maximum HP, requires repair tools for advanced repairs
+
+## 🎭 Class Flavor Actions
+
+Each robot class has unique actions that reflect their specialization and playstyle:
+
+### 🔧 Engineer Class Actions
+
+#### Build Structure
+- **Cost**: Variable (2-5 Energy + bricks)
+- **Effect**: Construct defensive or utility structures
+- **Description**: Use engineering expertise to create tactical advantages
+- **Special**: Structures built this way cost 1 less energy than normal
+
+#### Overcharge Systems
+- **Cost**: 2 Energy
+- **Duration**: 2 turns
+- **Effect**: All structures you control gain +1 attack and +1 HP
+- **Description**: Push your constructions beyond normal limits
+- **Special**: Cannot be used if you have no structures on the battlefield
+
+#### Emergency Repair
+- **Cost**: 1 Energy
+- **Effect**: Instantly repair 4 HP to any structure within 2 tiles
+- **Description**: Rapid field maintenance for critical systems
+- **Special**: Can target enemy structures to sabotage them instead
+
+### ⚔️ Warrior Class Actions
+
+#### Berserker Rage
+- **Cost**: 2 Energy
+- **Duration**: 2 turns
+- **Effect**: +2 Attack, +1 Movement, -1 Defense
+- **Description**: Enter a combat frenzy, trading defense for offensive power
+- **Special**: Cannot use defensive actions while raging
+
+#### Weapon Mastery
+- **Cost**: 1 Energy
+- **Effect**: Next attack deals +2 damage and ignores armor
+- **Description**: Perfect technique with your weapon of choice
+- **Special**: Must declare before attacking, cannot be used with ranged attacks
+
+#### Battle Cry
+- **Cost**: 1 Energy
+- **Range**: All allies within 3 tiles
+- **Effect**: All allies gain +1 Attack for 2 turns
+- **Description**: Inspire your comrades with your combat prowess
+- **Special**: Cannot affect yourself, requires at least one ally in range
+
+### ⚡ Mage Core Class Actions
+
+#### Energy Surge
+- **Cost**: 2 Energy
+- **Effect**: Gain 3 Energy next turn instead of normal amount
+- **Description**: Channel arcane power to boost your energy reserves
+- **Special**: Cannot be used if you already have maximum energy
+
+#### Spell Weaving
+- **Cost**: 1 Energy
+- **Effect**: Next spell card costs 1 less energy and has +1 range
+- **Description**: Enhance your magical abilities through careful preparation
+- **Special**: Must be used before playing a spell card
+
+#### Arcane Shield
+- **Cost**: 2 Energy
+- **Duration**: 2 turns
+- **Effect**: Absorb up to 4 damage before taking any HP damage
+- **Description**: Create a protective barrier of magical energy
+- **Special**: Shield regenerates each turn if not fully depleted
+
+### 🎭 Trickster Class Actions
+
+#### Shadow Step
+- **Cost**: 1 Energy
+- **Range**: 3 tiles
+- **Effect**: Teleport to any unoccupied tile within range
+- **Description**: Move through shadows and avoid obstacles
+- **Special**: Cannot teleport to tiles occupied by enemies or structures
+
+#### Misdirection
+- **Cost**: 1 Energy
+- **Target**: One enemy within 2 tiles
+- **Effect**: Target cannot attack you for 1 turn
+- **Description**: Confuse enemies with clever tactics and illusions
+- **Special**: Target can still attack other players
+
+#### Sabotage
+- **Cost**: 2 Energy
+- **Target**: One enemy structure within 2 tiles
+- **Effect**: Structure takes 3 damage and cannot function for 1 turn
+- **Description**: Disable enemy constructions with cunning sabotage
+- **Special**: Cannot target structures you built
 
 ### 3. Build Phase
 - **Gain +2 Bricks** (physically from shared pool)
