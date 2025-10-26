@@ -7,11 +7,23 @@ const path = require('path');
 // Load environment variables
 require('dotenv').config();
 
+// Configuration with defaults
+const PORT = process.env.PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000";
+const MAX_PLAYERS = parseInt(process.env.MAX_PLAYERS) || 4;
+const GAME_TIMEOUT = parseInt(process.env.GAME_TIMEOUT) || 3600000; // 1 hour
+
+console.log('Environment configuration:');
+console.log(`- PORT: ${PORT}`);
+console.log(`- CLIENT_URL: ${CLIENT_URL}`);
+console.log(`- MAX_PLAYERS: ${MAX_PLAYERS}`);
+console.log(`- GAME_TIMEOUT: ${GAME_TIMEOUT}ms`);
+
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: CLIENT_URL,
     methods: ["GET", "POST"]
   }
 });
@@ -30,8 +42,6 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Game state management
-const MAX_PLAYERS = parseInt(process.env.MAX_PLAYERS) || 4;
-const GAME_TIMEOUT = parseInt(process.env.GAME_TIMEOUT) || 3600000; // 1 hour
 
 let gameState = {
   players: [],
@@ -368,14 +378,20 @@ app.get('*', (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`BrickQuest server running on port ${PORT}`);
-});
-
 // Handle server errors
 server.on('error', (error) => {
-  console.error('Server error:', error);
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${PORT} is already in use. Trying port ${PORT + 1}...`);
+    server.listen(PORT + 1, () => {
+      console.log(`BrickQuest server running on port ${PORT + 1}`);
+    });
+  } else {
+    console.error('Server error:', error);
+  }
+});
+
+server.listen(PORT, () => {
+  console.log(`BrickQuest server running on port ${PORT}`);
 });
 
 // Handle uncaught exceptions

@@ -80,7 +80,7 @@ class DuplicateDetector {
     });
     
     // Add cost and type to fingerprint
-    fingerprint.cost = card.cost.energy;
+    fingerprint.cost = card.cost?.energy || 0;
     fingerprint.type = card.type;
     
     return JSON.stringify(fingerprint, Object.keys(fingerprint).sort());
