@@ -177,13 +177,21 @@
       "cost": {
         "energy": 3
       },
-      "text": "Choose one: +2 Attack",
-      "rules": {},
+      "text": "Choose one: +2 Attack or +2 Defense or +2 Movement this turn.",
+      "rules": {
+        "choice": [
+          "attack",
+          "defense",
+          "movement"
+        ],
+        "value": 2,
+        "duration": 1
+      },
       "v": 2,
       "icons": [
-        "+2 Defense"
+        "{\"choice\":[\"attack\",\"defense\",\"movement\"],\"value\":2,\"duration\":1}"
       ],
-      "flavor": "or +2 Movement this turn."
+      "flavor": "adaptive;flexible"
     },
     {
       "id": "BQ-ACT-0020",
@@ -1065,7 +1073,7 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T13:20:01.541Z",
+    "generated": "2025-10-26T13:21:20.918Z",
     "totalCards": 49,
     "validationErrors": 0
   }
