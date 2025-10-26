@@ -615,8 +615,8 @@ class BrickQuestSimulation {
    */
   createPlayer(name, playerClass, position) {
     const baseStats = {
-      hp: 20,
-      maxHp: 20,
+      hp: 15,  // Updated from 20 to 15 (faster games)
+      maxHp: 15,  // Updated from 20 to 15
       energy: 5,
       maxEnergy: 5,
       movement: 3,
@@ -630,19 +630,22 @@ class BrickQuestSimulation {
       case 'engineer':
         baseStats.defense += 2;
         baseStats.maxEnergy += 1;
-        baseStats.maxHp += 1;
+        // Engineer: 15 HP (no bonus)
         break;
       case 'warrior':
         baseStats.attack += 3;
-        baseStats.maxHp += 1;
+        baseStats.maxHp += 1;  // Warrior: 16 HP (gets +1 bonus)
+        baseStats.hp += 1;     // Update current HP too
         break;
       case 'mage':
         baseStats.maxEnergy += 2;
         baseStats.movement += 1;
+        // Mage: 15 HP (no bonus)
         break;
       case 'trickster':
         baseStats.movement += 2;
         baseStats.attack += 1;
+        // Trickster: 15 HP (no bonus)
         break;
     }
 
