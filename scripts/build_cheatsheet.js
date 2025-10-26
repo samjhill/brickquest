@@ -144,7 +144,16 @@ table {
         scale: 0.8
       },
       stylesheet: cssFile,
-      body_class: 'cheatsheet'
+      body_class: 'cheatsheet',
+      launch_options: {
+        args: [
+          '--no-sandbox',
+          '--disable-setuid-sandbox',
+          '--disable-dev-shm-usage',
+          '--disable-gpu',
+          '--disable-software-rasterizer'
+        ]
+      }
     };
     
     // Generate PDF
