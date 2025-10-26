@@ -1,6 +1,6 @@
 # 🧱 BrickQuest
 
-A hybrid **tabletop + maker** game combining card mechanics, D&D-style storytelling, and LEGO building.
+A hybrid **tabletop + maker** game combining tactical card combat, LEGO building, and modular battlefield strategy.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Cards](https://img.shields.io/badge/Cards-58-blue.svg)](cards/sources/cards.csv)
@@ -8,9 +8,9 @@ A hybrid **tabletop + maker** game combining card mechanics, D&D-style storytell
 
 ## 🎮 What is BrickQuest?
 
-BrickQuest is a story-driven skirmish adventure that combines:
+BrickQuest is a tactical skirmish adventure that combines:
 - 🃏 **Card game mechanics** for actions, events, and upgrades
-- 🧠 **D&D-style storytelling** and character progression  
+- ⚔️ **Tactical combat** with strategic positioning and terrain
 - 🧱 **LEGO building** for dynamic in-game construction
 
 Players build and customize LEGO robot heroes, then battle across a modular battlefield using custom cards and strategic positioning.
