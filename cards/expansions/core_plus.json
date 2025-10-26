@@ -1,8 +1,1258 @@
 {
-  "cards": [],
+  "cards": [
+    {
+      "id": "BQ-ACT-0002",
+      "name": "Dash",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Move to adjacent tile.",
+      "rules": {
+        "movement": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":1}"
+      ],
+      "flavor": "movement;dash"
+    },
+    {
+      "id": "BQ-ACT-0010",
+      "name": "Desperate Strike",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Deal 2 damage. If you have 5 or less HP, deal +2 damage.",
+      "rules": {
+        "damage": 2,
+        "conditional": {
+          "hp": "<=5",
+          "damage": 4
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":2,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}"
+      ],
+      "flavor": "desperate;damage"
+    },
+    {
+      "id": "BQ-ACT-0001",
+      "name": "Overdrive",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Double movement for this turn.",
+      "rules": {
+        "movement": 2,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":2,\"duration\":1}"
+      ],
+      "flavor": "movement;speed"
+    },
+    {
+      "id": "BQ-ACT-0005",
+      "name": "Repair",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Heal 3 HP.",
+      "rules": {
+        "heal": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"heal\":3}"
+      ],
+      "flavor": "repair;heal"
+    },
+    {
+      "id": "BQ-ACT-0008",
+      "name": "Retreat",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Move 2 tiles away from nearest enemy.",
+      "rules": {
+        "movement": 2,
+        "awayFrom": "nearestEnemy"
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":2,\"awayFrom\":\"nearestEnemy\"}"
+      ],
+      "flavor": "retreat;movement"
+    },
+    {
+      "id": "BQ-ACT-0004",
+      "name": "Shield Bash",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Deal 1 damage and push enemy back 1.",
+      "rules": {
+        "damage": 1,
+        "push": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":1,\"push\":1}"
+      ],
+      "flavor": "shield;push"
+    },
+    {
+      "id": "BQ-ACT-0014",
+      "name": "Combat Protocol",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Deal 3 damage to target. Draw 1 card if it dies.",
+      "rules": {
+        "damage": 3,
+        "onKill": {
+          "draw": 1
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":3,\"onKill\":{\"draw\":1}}"
+      ],
+      "flavor": "combat;protocol"
+    },
+    {
+      "id": "BQ-ACT-0015",
+      "name": "Defensive Matrix",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Gain 3 temporary HP and +1 Defense until end of turn.",
+      "rules": {
+        "tempHP": 3,
+        "buff": {
+          "defense": 1
+        },
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"tempHP\":3,\"buff\":{\"defense\":1},\"duration\":1}"
+      ],
+      "flavor": "defense;matrix"
+    },
+    {
+      "id": "BQ-ACT-0013",
+      "name": "Energy Blast",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Deal 2 damage to all enemies in range 2. Gain 1 Energy for each enemy hit.",
+      "rules": {
+        "damage": 2,
+        "range": 2,
+        "target": "allEnemies",
+        "onHit": {
+          "energy": 1
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":2,\"range\":2,\"target\":\"allEnemies\",\"onHit\":{\"energy\":1}}"
+      ],
+      "flavor": "energy;blast"
+    },
+    {
+      "id": "BQ-ACT-0006",
+      "name": "Energy Surge",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Gain 3 Energy.",
+      "rules": {
+        "energy": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"energy\":3}"
+      ],
+      "flavor": "energy;surge"
+    },
+    {
+      "id": "BQ-ACT-0018",
+      "name": "Fortress Mode",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Gain +3 Defense and cannot move until end of turn.",
+      "rules": {
+        "buff": {
+          "defense": 3
+        },
+        "immobilize": 1,
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"buff\":{\"defense\":3},\"immobilize\":1,\"duration\":1}"
+      ],
+      "flavor": "fortress;defense"
+    },
+    {
+      "id": "BQ-ACT-0016",
+      "name": "Overcharge",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Deal 5 damage to target. Take 2 damage.",
+      "rules": {
+        "damage": 5,
+        "selfDamage": 2
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":5,\"selfDamage\":2}"
+      ],
+      "flavor": "overcharge;risk"
+    },
+    {
+      "id": "BQ-ACT-0011",
+      "name": "Power Strike",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Deal 4 damage to target. If you have 8+ Energy",
+      "rules": {},
+      "v": 2,
+      "icons": [
+        "deal +2 damage."
+      ],
+      "flavor": "{\"damage\":4,\"conditional\":{\"energy\":\">=8\",\"damage\":6}}"
+    },
+    {
+      "id": "BQ-ACT-0007",
+      "name": "Precision Shot",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Deal 3 damage to target. Cannot miss.",
+      "rules": {
+        "damage": 3,
+        "cannotMiss": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":3,\"cannotMiss\":true}"
+      ],
+      "flavor": "aim;damage"
+    },
+    {
+      "id": "BQ-ACT-0003",
+      "name": "Pulse Strike",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Deal 2 damage to all enemies in range 3.",
+      "rules": {
+        "damage": 2,
+        "range": 3,
+        "target": "allEnemies"
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":2,\"range\":3,\"target\":\"allEnemies\"}"
+      ],
+      "flavor": "energy;damage"
+    },
+    {
+      "id": "BQ-ACT-0009",
+      "name": "Rally",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "All allies gain +1 Attack this turn.",
+      "rules": {
+        "buff": {
+          "attack": 1
+        },
+        "target": "allies",
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"buff\":{\"attack\":1},\"target\":\"allies\",\"duration\":1}"
+      ],
+      "flavor": "rally;buff"
+    },
+    {
+      "id": "BQ-ACT-0017",
+      "name": "System Scan",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Draw 3 cards. All enemies lose 1 Energy.",
+      "rules": {
+        "draw": 3,
+        "energyLoss": 1,
+        "target": "allEnemies"
+      },
+      "v": 2,
+      "icons": [
+        "{\"draw\":3,\"energyLoss\":1,\"target\":\"allEnemies\"}"
+      ],
+      "flavor": "scan;information"
+    },
+    {
+      "id": "BQ-ACT-0012",
+      "name": "Tactical Retreat",
+      "type": "Action",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Move 3 tiles and gain +2 Defense until end of turn.",
+      "rules": {
+        "movement": 3,
+        "buff": {
+          "defense": 2
+        },
+        "duration": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"movement\":3,\"buff\":{\"defense\":2},\"duration\":1}"
+      ],
+      "flavor": "tactical;defense"
+    },
+    {
+      "id": "BQ-REA-0004",
+      "name": "Emergency Repair",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "When you take damage, heal 2 HP.",
+      "rules": {
+        "trigger": "onTakingDamage",
+        "heal": 2
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onTakingDamage\",\"heal\":2}"
+      ],
+      "flavor": "repair;emergency"
+    },
+    {
+      "id": "BQ-REA-0003",
+      "name": "Counter Strike",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "When an enemy attacks you, deal 2 damage back to them.",
+      "rules": {
+        "trigger": "onBeingAttacked",
+        "damage": 2,
+        "target": "attacker"
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onBeingAttacked\",\"damage\":2,\"target\":\"attacker\"}"
+      ],
+      "flavor": "counter;strike"
+    },
+    {
+      "id": "BQ-REA-0007",
+      "name": "Defensive Matrix",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "When an enemy attacks an ally, prevent 2 damage to them.",
+      "rules": {
+        "trigger": "onAllyBeingAttacked",
+        "prevent": 2,
+        "target": "ally"
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onAllyBeingAttacked\",\"prevent\":2,\"target\":\"ally\"}"
+      ],
+      "flavor": "defense;matrix"
+    },
+    {
+      "id": "BQ-REA-0008",
+      "name": "Energy Drain",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "When an enemy gains Energy, they lose 1 Energy instead.",
+      "rules": {
+        "trigger": "onEnemyEnergyGain",
+        "energyLoss": 1,
+        "target": "enemy"
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onEnemyEnergyGain\",\"energyLoss\":1,\"target\":\"enemy\"}"
+      ],
+      "flavor": "drain;energy"
+    },
+    {
+      "id": "BQ-REA-0002",
+      "name": "Energy Shield",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "When you would take damage, prevent 3. If prevented damage is 5+, gain 1 Energy.",
+      "rules": {
+        "trigger": "onIncomingDamage",
+        "prevent": 3,
+        "bonusEnergyIf": {
+          "damage": ">=5",
+          "amount": 1
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onIncomingDamage\",\"prevent\":3,\"bonusEnergyIf\":{\"damage\":\">=5\",\"amount\":1}}"
+      ],
+      "flavor": "shield;energy"
+    },
+    {
+      "id": "BQ-REA-0001",
+      "name": "Parry Matrix",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 1
+      },
+      "text": "When your automaton would take damage, prevent 2. Gain 1 Energy if the attacker is adjacent.",
+      "rules": {
+        "trigger": "onIncomingDamage",
+        "prevent": 2,
+        "bonusEnergyIf": {
+          "rangeMax": 1,
+          "amount": 1
+        }
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onIncomingDamage\",\"prevent\":2,\"bonusEnergyIf\":{\"rangeMax\":1,\"amount\":1}}"
+      ],
+      "flavor": "shield;bolt"
+    },
+    {
+      "id": "BQ-REA-0005",
+      "name": "Power Surge",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "When an enemy plays a card, gain 1 Energy.",
+      "rules": {
+        "trigger": "onEnemyCardPlay",
+        "energy": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onEnemyCardPlay\",\"energy\":1}"
+      ],
+      "flavor": "surge;power"
+    },
+    {
+      "id": "BQ-REA-0006",
+      "name": "Tactical Interrupt",
+      "type": "Reaction",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 3
+      },
+      "text": "When an enemy moves, you may move 1 tile in response.",
+      "rules": {
+        "trigger": "onEnemyMovement",
+        "movement": 1,
+        "optional": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"trigger\":\"onEnemyMovement\",\"movement\":1,\"optional\":true}"
+      ],
+      "flavor": "tactical;interrupt"
+    },
+    {
+      "id": "BQ-STR-0002",
+      "name": "Barricade",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Blocks movement. +2 Defense to adjacent units. Cost: 4 bricks (3 regular, 1 plate).",
+      "rules": {
+        "blocksMovement": true,
+        "defenseBonus": 2,
+        "adjacent": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"blocksMovement\":true,\"defenseBonus\":2,\"adjacent\":true}"
+      ],
+      "flavor": "wall;defense",
+      "buildReq": {
+        "footprint": "barricade"
+      }
+    },
+    {
+      "id": "BQ-STR-0003",
+      "name": "Bridge",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Connects two tiles. Units can move across. Cost: 6 bricks (4 regular, 2 plates).",
+      "rules": {
+        "connects": true,
+        "movement": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"connects\":true,\"movement\":true}"
+      ],
+      "flavor": "bridge;connect",
+      "buildReq": {
+        "footprint": "bridge"
+      }
+    },
+    {
+      "id": "BQ-STR-0007",
+      "name": "Command Center",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Allies within range 2 gain +1 Attack. Cost: 6 bricks (4 regular, 2 plates).",
+      "rules": {
+        "attackBonus": 1,
+        "range": 2,
+        "allies": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"attackBonus\":1,\"range\":2,\"allies\":true}"
+      ],
+      "flavor": "command;center",
+      "buildReq": {
+        "footprint": "command_center"
+      }
+    },
+    {
+      "id": "BQ-STR-0006",
+      "name": "Healing Station",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Heal 2 HP to all adjacent units at end of turn. Cost: 5 bricks (3 regular, 1 plate, 1 special).",
+      "rules": {
+        "heal": 2,
+        "adjacent": true,
+        "endOfTurn": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"heal\":2,\"adjacent\":true,\"endOfTurn\":true}"
+      ],
+      "flavor": "heal;station",
+      "buildReq": {
+        "footprint": "healing_station"
+      }
+    },
+    {
+      "id": "BQ-STR-0010",
+      "name": "Observation Post",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "+3 Range to all attacks from this tile. Cost: 6 bricks (4 regular, 2 plates).",
+      "rules": {
+        "rangeBonus": 3
+      },
+      "v": 2,
+      "icons": [
+        "{\"rangeBonus\":3}"
+      ],
+      "flavor": "observation;range",
+      "buildReq": {
+        "footprint": "observation_post"
+      }
+    },
+    {
+      "id": "BQ-STR-0009",
+      "name": "Reinforced Wall",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Blocks movement. +3 Defense to adjacent units. Cost: 7 bricks (5 regular, 2 plates).",
+      "rules": {
+        "blocksMovement": true,
+        "defenseBonus": 3,
+        "adjacent": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"blocksMovement\":true,\"defenseBonus\":3,\"adjacent\":true}"
+      ],
+      "flavor": "wall;reinforced",
+      "buildReq": {
+        "footprint": "reinforced_wall"
+      }
+    },
+    {
+      "id": "BQ-STR-0008",
+      "name": "Supply Depot",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Allies adjacent gain +1 Energy per turn. Cost: 5 bricks (3 regular, 2 plates).",
+      "rules": {
+        "energyRegen": 1,
+        "adjacent": true,
+        "allies": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"energyRegen\":1,\"adjacent\":true,\"allies\":true}"
+      ],
+      "flavor": "supply;depot",
+      "buildReq": {
+        "footprint": "supply_depot"
+      }
+    },
+    {
+      "id": "BQ-STR-0004",
+      "name": "Turret Base",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Ranged attack: 2 damage, 4 range. Cost: 8 bricks (6 regular, 1 special).",
+      "rules": {
+        "attack": 2,
+        "range": 4,
+        "ranged": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"attack\":2,\"range\":4,\"ranged\":true}"
+      ],
+      "flavor": "turret;ranged",
+      "buildReq": {
+        "footprint": "turret_base"
+      }
+    },
+    {
+      "id": "BQ-STR-0001",
+      "name": "Watchtower",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Provides +2 range to ranged attacks from this tile. Cost: 6 bricks (4 regular, 2 plates).",
+      "rules": {
+        "rangeBonus": 2,
+        "rangedOnly": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"rangeBonus\":2,\"rangedOnly\":true}"
+      ],
+      "flavor": "tower;range",
+      "buildReq": {
+        "footprint": "watchtower"
+      }
+    },
+    {
+      "id": "BQ-STR-0012",
+      "name": "Battle Station",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Ranged attack: 3 damage, 5 range. +1 Defense to adjacent allies. Cost: 10 bricks (7 regular, 2 plates, 1 special).",
+      "rules": {
+        "attack": 3,
+        "range": 5,
+        "defenseBonus": 1,
+        "adjacent": true,
+        "allies": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"attack\":3,\"range\":5,\"defenseBonus\":1,\"adjacent\":true,\"allies\":true}"
+      ],
+      "flavor": "battle;station",
+      "buildReq": {
+        "footprint": "battle_station"
+      }
+    },
+    {
+      "id": "BQ-STR-0005",
+      "name": "Energy Core",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 5
+      },
+      "text": "All adjacent units gain +1 Energy per turn. Cost: 7 bricks (4 regular, 2 plates, 1 special).",
+      "rules": {
+        "energyRegen": 1,
+        "adjacent": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"energyRegen\":1,\"adjacent\":true}"
+      ],
+      "flavor": "energy;core",
+      "buildReq": {
+        "footprint": "energy_core"
+      }
+    },
+    {
+      "id": "BQ-STR-0011",
+      "name": "Power Generator",
+      "type": "Structure",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 4
+      },
+      "text": "All units within range 2 gain +1 Energy per turn. Cost: 8 bricks (5 regular, 2 plates, 1 special).",
+      "rules": {
+        "energyRegen": 1,
+        "range": 2,
+        "all": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"energyRegen\":1,\"range\":2,\"all\":true}"
+      ],
+      "flavor": "power;generator",
+      "buildReq": {
+        "footprint": "power_generator"
+      }
+    },
+    {
+      "id": "BQ-PRO-0003",
+      "name": "Retreat Loop",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 1
+      },
+      "text": "Duration: 2 rounds. When damaged, move 1 tile away from attacker.",
+      "rules": {
+        "duration": 2,
+        "trigger": "onDamage",
+        "movement": 1,
+        "awayFrom": "attacker"
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":2,\"trigger\":\"onDamage\",\"movement\":1,\"awayFrom\":\"attacker\"}"
+      ],
+      "flavor": "retreat;defensive"
+    },
+    {
+      "id": "BQ-PRO-0001",
+      "name": "Auto-Repair",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Duration: 3 rounds. Heal 1 HP at start of each turn.",
+      "rules": {
+        "duration": 3,
+        "heal": 1,
+        "startOfTurn": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":3,\"heal\":1,\"startOfTurn\":true}"
+      ],
+      "flavor": "repair;auto"
+    },
+    {
+      "id": "BQ-PRO-0006",
+      "name": "Combat Protocols",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Duration: 2 rounds. +2 Attack and +1 Defense.",
+      "rules": {
+        "duration": 2,
+        "attackBonus": 2,
+        "defenseBonus": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":2,\"attackBonus\":2,\"defenseBonus\":1}"
+      ],
+      "flavor": "combat;protocols"
+    },
+    {
+      "id": "BQ-PRO-0007",
+      "name": "Energy Efficiency",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Duration: 3 rounds. All cards cost -1 Energy (minimum 1).",
+      "rules": {
+        "duration": 3,
+        "cardDiscount": 1,
+        "minimum": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":3,\"cardDiscount\":1,\"minimum\":1}"
+      ],
+      "flavor": "efficiency;energy"
+    },
+    {
+      "id": "BQ-PRO-0002",
+      "name": "Seek and Destroy",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Duration: 2 rounds. +1 Attack against damaged enemies.",
+      "rules": {
+        "duration": 2,
+        "attackBonus": 1,
+        "vsDamaged": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":2,\"attackBonus\":1,\"vsDamaged\":true}"
+      ],
+      "flavor": "hunt;attack"
+    },
+    {
+      "id": "BQ-PRO-0005",
+      "name": "Stealth Mode",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 2
+      },
+      "text": "Duration: 3 rounds. Enemies cannot target you with ranged attacks.",
+      "rules": {
+        "duration": 3,
+        "stealth": true,
+        "vsRanged": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":3,\"stealth\":true,\"vsRanged\":true}"
+      ],
+      "flavor": "stealth;defense"
+    },
+    {
+      "id": "BQ-PRO-0008",
+      "name": "Tactical Awareness",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 3
+      },
+      "text": "Duration: 2 rounds. +2 Range and cannot be surprised.",
+      "rules": {
+        "duration": 2,
+        "rangeBonus": 2,
+        "surpriseImmune": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":2,\"rangeBonus\":2,\"surpriseImmune\":true}"
+      ],
+      "flavor": "tactical;awareness"
+    },
+    {
+      "id": "BQ-PRO-0010",
+      "name": "Defensive Systems",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Duration: 3 rounds. +2 Defense and reduce all incoming damage by 1.",
+      "rules": {
+        "duration": 3,
+        "defenseBonus": 2,
+        "damageReduction": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":3,\"defenseBonus\":2,\"damageReduction\":1}"
+      ],
+      "flavor": "defense;systems"
+    },
+    {
+      "id": "BQ-PRO-0004",
+      "name": "Overclock",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Duration: 2 rounds. +2 Energy per turn, take 1 Heat at end of turn.",
+      "rules": {
+        "duration": 2,
+        "energyRegen": 2,
+        "selfDamage": 1,
+        "damageType": "Heat"
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":2,\"energyRegen\":2,\"selfDamage\":1,\"damageType\":\"Heat\"}"
+      ],
+      "flavor": "overclock;risk"
+    },
+    {
+      "id": "BQ-PRO-0009",
+      "name": "Overdrive Protocol",
+      "type": "Program",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 4
+      },
+      "text": "Duration: 2 rounds. +3 Movement and +2 Attack. Take 1 damage at end of each turn.",
+      "rules": {
+        "duration": 2,
+        "movementBonus": 3,
+        "attackBonus": 2,
+        "selfDamage": 1,
+        "endOfTurn": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"duration\":2,\"movementBonus\":3,\"attackBonus\":2,\"selfDamage\":1,\"endOfTurn\":true}"
+      ],
+      "flavor": "overdrive;protocol"
+    },
+    {
+      "id": "BQ-EVT-0002",
+      "name": "Security Breach",
+      "type": "Event",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 0
+      },
+      "text": "All players draw 2 cards.",
+      "rules": {
+        "draw": 2,
+        "target": "all"
+      },
+      "v": 2,
+      "icons": [
+        "{\"draw\":2,\"target\":\"all\"}"
+      ],
+      "flavor": "breach;draw"
+    },
+    {
+      "id": "BQ-EVT-0004",
+      "name": "Power Surge",
+      "type": "Event",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 0
+      },
+      "text": "All units gain +2 Energy.",
+      "rules": {
+        "energy": 2,
+        "target": "all"
+      },
+      "v": 2,
+      "icons": [
+        "{\"energy\":2,\"target\":\"all\"}"
+      ],
+      "flavor": "surge;energy"
+    },
+    {
+      "id": "BQ-EVT-0001",
+      "name": "System Overload",
+      "type": "Event",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 1
+      },
+      "text": "All units take 1 damage. Energy costs are doubled this turn.",
+      "rules": {
+        "damage": 1,
+        "target": "all",
+        "energyCostDouble": true
+      },
+      "v": 2,
+      "icons": [
+        "{\"damage\":1,\"target\":\"all\",\"energyCostDouble\":true}"
+      ],
+      "flavor": "overload;damage"
+    },
+    {
+      "id": "BQ-EVT-0005",
+      "name": "Structural Collapse",
+      "type": "Event",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Destroy all structures. Return half their brick cost to shared pool.",
+      "rules": {
+        "destroyStructures": true,
+        "brickRefund": 0.5
+      },
+      "v": 2,
+      "icons": [
+        "{\"destroyStructures\":true,\"brickRefund\":0.5}"
+      ],
+      "flavor": "collapse;destruction"
+    },
+    {
+      "id": "BQ-EVT-0003",
+      "name": "Treasure Cache",
+      "type": "Event",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Draw 3 cards and gain 2 Energy.",
+      "rules": {
+        "draw": 3,
+        "energy": 2
+      },
+      "v": 2,
+      "icons": [
+        "{\"draw\":3,\"energy\":2}"
+      ],
+      "flavor": "treasure;benefit"
+    },
+    {
+      "id": "BQ-LOT-0003",
+      "name": "Speed Boost",
+      "type": "Loot",
+      "faction": "Neutral",
+      "rarity": "Common",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Permanent: +1 Movement.",
+      "rules": {
+        "permanent": true,
+        "movement": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"permanent\":true,\"movement\":1}"
+      ],
+      "flavor": "speed;movement"
+    },
+    {
+      "id": "BQ-LOT-0001",
+      "name": "Energy Core",
+      "type": "Loot",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Permanent: +1 max Energy.",
+      "rules": {
+        "permanent": true,
+        "maxEnergy": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"permanent\":true,\"maxEnergy\":1}"
+      ],
+      "flavor": "core;energy"
+    },
+    {
+      "id": "BQ-LOT-0002",
+      "name": "Shield Generator",
+      "type": "Loot",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Permanent: +2 Defense.",
+      "rules": {
+        "permanent": true,
+        "defense": 2
+      },
+      "v": 2,
+      "icons": [
+        "{\"permanent\":true,\"defense\":2}"
+      ],
+      "flavor": "shield;defense"
+    },
+    {
+      "id": "BQ-LOT-0004",
+      "name": "Weapon Upgrade",
+      "type": "Loot",
+      "faction": "Neutral",
+      "rarity": "Uncommon",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Permanent: +1 Attack.",
+      "rules": {
+        "permanent": true,
+        "attack": 1
+      },
+      "v": 2,
+      "icons": [
+        "{\"permanent\":true,\"attack\":1}"
+      ],
+      "flavor": "weapon;attack"
+    },
+    {
+      "id": "BQ-LOT-0005",
+      "name": "Sensor Array",
+      "type": "Loot",
+      "faction": "Neutral",
+      "rarity": "Rare",
+      "cost": {
+        "energy": 0
+      },
+      "text": "Permanent: +2 Range.",
+      "rules": {
+        "permanent": true,
+        "range": 2
+      },
+      "v": 2,
+      "icons": [
+        "{\"permanent\":true,\"range\":2}"
+      ],
+      "flavor": "sensor;range"
+    }
+  ],
   "metadata": {
-    "generated": "2025-10-26T01:29:34.328Z",
-    "totalCards": 0,
+    "generated": "2025-10-26T02:25:21.406Z",
+    "totalCards": 58,
     "validationErrors": 0
   }
 }

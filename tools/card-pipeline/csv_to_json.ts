@@ -87,10 +87,15 @@ function parseCSV(csvContent: string): CardData[] {
       
       // Parse JSON fields
       if (['stats', 'rules'].includes(header)) {
-        try {
-          card[header] = value ? JSON.parse(value) : undefined;
-        } catch {
-          card[header] = value || undefined;
+        if (value && value.trim()) {
+          try {
+            card[header] = JSON.parse(value);
+          } catch {
+            // If JSON parsing fails, keep as string for now
+            card[header] = value;
+          }
+        } else {
+          card[header] = undefined;
         }
       }
       // Parse array fields
@@ -121,6 +126,7 @@ function parseCSVLine(line: string): string[] {
   const result: string[] = [];
   let current = '';
   let inQuotes = false;
+  let escapeNext = false;
   
   // Remove carriage returns
   line = line.replace(/\r/g, '');
@@ -128,7 +134,12 @@ function parseCSVLine(line: string): string[] {
   for (let i = 0; i < line.length; i++) {
     const char = line[i];
     
-    if (char === '"') {
+    if (escapeNext) {
+      current += char;
+      escapeNext = false;
+    } else if (char === '\\') {
+      escapeNext = true;
+    } else if (char === '"') {
       inQuotes = !inQuotes;
     } else if (char === ',' && !inQuotes) {
       result.push(current.trim());
@@ -143,20 +154,26 @@ function parseCSVLine(line: string): string[] {
 }
 
 function transformCard(cardData: CardData): BrickQuestCard {
-  // The CSV has text in the 'rules' field, swap them if text is empty
-  const text = cardData.text || (typeof cardData.rules === 'string' ? cardData.rules : '') || '';
+  // The CSV has the text and rules fields swapped
+  // text field is empty, rules field contains the description text
+  const text = cardData.rules || cardData.text || '';
   
-  // Parse rules - could be object or string (as JSON)
+  // Parse rules - the actual JSON rules are in the icons field
   let rules: any = {};
-  if (typeof cardData.rules === 'object' && cardData.rules !== null) {
-    rules = cardData.rules;
-  } else if (typeof cardData.rules === 'string' && cardData.rules && cardData.rules !== text) {
-    try {
-      rules = JSON.parse(cardData.rules);
-    } catch (e) {
-      rules = {};
+  if (cardData.icons && Array.isArray(cardData.icons)) {
+    // Look for JSON in the icons array
+    for (const icon of cardData.icons) {
+      if (typeof icon === 'string' && icon.startsWith('{')) {
+        try {
+          rules = JSON.parse(icon);
+          break;
+        } catch (e) {
+          // Continue looking
+        }
+      }
     }
   }
+  
   
 
   const card: BrickQuestCard = {
@@ -168,7 +185,7 @@ function transformCard(cardData: CardData): BrickQuestCard {
     cost: {
       energy: cardData.cost_energy
     },
-    text: text,
+    text: text, // Use the corrected text field
     rules: rules, // Ensure rules field is an object
     v: 2
   };
@@ -179,7 +196,6 @@ function transformCard(cardData: CardData): BrickQuestCard {
   if (cardData.cost_exhaust) card.cost.exhaust = cardData.cost_exhaust;
   if (cardData.cost_sacrifice) card.cost.sacrifice = cardData.cost_sacrifice;
   if (cardData.stats) card.stats = cardData.stats;
-  if (cardData.rules) card.rules = cardData.rules;
   if (cardData.icons) card.icons = cardData.icons;
   if (cardData.flavor) card.flavor = cardData.flavor;
 
