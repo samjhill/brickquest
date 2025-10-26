@@ -54,3 +54,7 @@ coverage/
 
 # Card generation outputs
 cards/generated/
+
+# Client build and node_modules
+src/client/build/
+src/client/node_modules/

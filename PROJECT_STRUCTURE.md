@@ -46,17 +46,12 @@ brickquest/
 - **`sources/`** - Human-editable CSV files
 - **`factions/`** - Faction-specific card collections
 
-### `/terrain/` - 3D Content
-- **`STL/`** - 3D printable STL files
-- **`previews/`** - Preview images and documentation
-
 ### `/docs/` - Documentation
 - **`generated/`** - Auto-generated reports (balance, duplicates)
 - **Manual docs** - Game rules, guides, and references
 
 ### `/tools/` - Development Tools
 - **`card-pipeline/`** - Modern TypeScript card processing
-- **`legacy/`** - Legacy Python scripts (deprecated)
 - **`test/`** - Test utilities and sample files
 
 ## 🔧 Key Files
@@ -75,7 +70,6 @@ brickquest/
 
 ### Tools
 - `tools/card-pipeline/` - Modern card processing tools
-- `tools/legacy/` - Legacy Python scripts
 - `tools/test/` - Test utilities
 
 ### Assets
@@ -100,5 +94,4 @@ brickquest/
 
 - Generated files go in `docs/generated/`
 - Test files go in `tools/test/`
-- Legacy scripts are in `tools/legacy/`
 - Use `.gitignore` to exclude generated content

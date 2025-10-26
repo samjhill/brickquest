@@ -1,0 +1,9 @@
+{
+  "watch": ["src/server", "src/engine"],
+  "ext": "js,ts,json",
+  "ignore": ["src/client", "node_modules", "**/*.test.ts"],
+  "exec": "node src/server/server.js",
+  "env": {
+    "NODE_ENV": "development"
+  }
+}

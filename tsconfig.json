@@ -13,10 +13,13 @@
     "moduleResolution": "node"
   },
   "include": [
+    "tools/**/*",
+    "src/engine/**/*",
     "scripts/**/*"
   ],
   "exclude": [
     "node_modules",
-    "dist"
+    "dist",
+    "src/client"
   ]
 }
