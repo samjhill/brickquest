@@ -149,13 +149,23 @@
 | **Open Ground** | Normal | No restrictions |
 | **Difficult Terrain** | +1E per stud | Rough, rocky, or unstable |
 | **Water** | Double cost | Requires special movement |
-| **Elevation** | +1E per level | Climbing costs extra |
+| **Elevation** | Free for 1st level, then +1E per level | First height change free, climbing costs extra |
 
 ### Structure Interaction
 - **Bridges**: Allow movement over gaps
 - **Walls**: Block movement (unless you have special abilities)
 - **Platforms**: Provide height advantages
 - **Turrets**: Can be moved around for positioning
+
+### Vertical Movement Examples
+| From Height | To Height | Energy Cost | Notes |
+|-------------|-----------|-------------|-------|
+| 0 studs | 1 studs | **0E** (Free!) | First level is free |
+| 0 studs | 2 studs | **1E** | Pay for 2nd level only |
+| 1 studs | 3 studs | **2E** | Pay for 2nd and 3rd levels |
+| 3 studs | 1 studs | **0E** (Free!) | Moving down is always free |
+| 0 studs | 5 studs | **4E** | Pay for 2nd through 5th levels |
+| 4 studs | 6 studs | **2E** | Pay for 5th and 6th levels |
 
 ---
 
