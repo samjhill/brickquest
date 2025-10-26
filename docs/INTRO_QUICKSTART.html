@@ -1,0 +1,500 @@
+<!DOCTYPE html><html><head><title></title><meta charset="utf-8"><style>* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	line-height: 1.6;
+	font-size: 0.6875em; /* 11 pt */
+	color: #111;
+	margin: 0;
+}
+
+body > :first-child {
+	padding-top: 0;
+	margin-top: 0;
+}
+
+body > :last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0.5em 0 0.25em;
+}
+
+h5,
+h6 {
+	padding: 0;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+h6 {
+	font-size: 0.875em;
+	text-transform: uppercase;
+}
+
+p {
+	margin: 0.25em 0 1em;
+}
+
+blockquote {
+	margin: 0.5em 0 1em;
+	padding-left: 0.5em;
+	padding-right: 1em;
+	border-left: 4px solid gainsboro;
+	font-style: italic;
+}
+
+ul,
+ol {
+	margin: 0;
+	margin-left: 1em;
+	padding: 0 1.5em 0.5em;
+}
+
+pre {
+	white-space: pre-wrap;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+p code,
+li code,
+pre code {
+	background-color: #f8f8f8;
+	padding: 0.1em 0.375em;
+	border: 1px solid #f8f8f8;
+	border-radius: 0.25em;
+	font-family: monospace;
+	font-size: 1.2em;
+}
+
+pre code {
+	display: block;
+	padding: 0.5em;
+}
+
+.page-break {
+	page-break-after: always;
+}
+
+img {
+	max-width: 100%;
+	margin: 1em 0;
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	display: block;
+	margin: 0 0 1em;
+	width: 100%;
+	overflow: auto;
+}
+
+table th,
+table td {
+	padding: 0.5em 1em;
+	border: 1px solid gainsboro;
+}
+
+table th {
+	font-weight: 600;
+}
+
+table tr {
+	background-color: white;
+	border-top: 1px solid gainsboro;
+}
+
+table tr:nth-child(2n) {
+	background-color: whitesmoke;
+}
+/*# sourceURL=/Users/samhilll/Documents/opensource/brickquest/node_modules/md-to-pdf/markdown.css*/</style><style>pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: GitHub
+  Description: Light theme as seen on github.com
+  Author: github.com
+  Maintainer: @Hirse
+  Updated: 2021-05-15
+
+  Outdated base version: https://github.com/primer/github-syntax-light
+  Current colors taken from GitHub's CSS
+*/
+.hljs {
+  color: #24292e;
+  background: #ffffff
+}
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable.language_ {
+  /* prettylights-syntax-keyword */
+  color: #d73a49
+}
+.hljs-title,
+.hljs-title.class_,
+.hljs-title.class_.inherited__,
+.hljs-title.function_ {
+  /* prettylights-syntax-entity */
+  color: #6f42c1
+}
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-operator,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #005cc5
+}
+.hljs-regexp,
+.hljs-string,
+.hljs-meta .hljs-string {
+  /* prettylights-syntax-string */
+  color: #032f62
+}
+.hljs-built_in,
+.hljs-symbol {
+  /* prettylights-syntax-variable */
+  color: #e36209
+}
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #6a737d
+}
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #22863a
+}
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e
+}
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold
+}
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #735c0f
+}
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic
+}
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold
+}
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4
+}
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0
+}
+.hljs-char.escape_,
+.hljs-link,
+.hljs-params,
+.hljs-property,
+.hljs-punctuation,
+.hljs-tag {
+  /* purposely ignored */
+  
+}/*# sourceURL=/Users/samhilll/Documents/opensource/brickquest/node_modules/highlight.js/styles/github.css*/</style></head>
+	<body class="">
+		<h1 id="🧱-brickquest-welcome-to-the-future-of-tactical-gaming">🧱 BrickQuest: Welcome to the Future of Tactical Gaming</h1>
+<h2 id="🌟-welcome-hero-automaton">🌟 Welcome, Hero Automaton!</h2>
+<p>Welcome to <strong>BrickQuest</strong>—where tactical card combat, LEGO building, and strategic thinking collide in the most unique tabletop experience you'll ever play.</p>
+<p>In the year 2157, the Quantum Network collapsed, leaving behind only the sentient Automatons. You control one of these heroes, each with unique abilities, as you battle across dynamic LEGO battlefields using cards and wits. Build structures, upgrade your robot, and dominate the battlefield!</p>
+<hr>
+<h2 id="🎯-what-makes-brickquest-special">🎯 What Makes BrickQuest Special?</h2>
+<h3 id="🧱-hybrid-tabletop--lego-building">🧱 <strong>Hybrid Tabletop + LEGO Building</strong></h3>
+<p>Unlike any other card game, you physically build your defenses and structures using LEGO bricks. Every structure you play becomes a real, tangible obstacle on the battlefield.</p>
+<h3 id="🤖-four-unique-character-classes">🤖 <strong>Four Unique Character Classes</strong></h3>
+<ul>
+<li><strong>🔧 Engineer</strong>: Master of construction and defense</li>
+<li><strong>⚔️ Warrior</strong>: Unstoppable combat specialist  </li>
+<li><strong>⚡ MageCore</strong>: Energy manipulation and power</li>
+<li><strong>🎭 Trickster</strong>: Mobility and tactical positioning</li>
+</ul>
+<h3 id="⚔️-fast-paced-strategic-combat">⚔️ <strong>Fast-Paced Strategic Combat</strong></h3>
+<p>Plan your moves carefully. Every energy point, every card, every movement matters in this tactical skirmish.</p>
+<h3 id="🎨-beautiful-custom-cards">🎨 <strong>Beautiful Custom Cards</strong></h3>
+<p>51 hand-designed cards across 5 types, with stunning faction themes (Steampunk, Cyber, Arcane, and Neutral).</p>
+<hr>
+<h2 id="🚀-quick-start-guide">🚀 Quick Start Guide</h2>
+<h3 id="what-you-need-to-play">What You Need to Play</h3>
+<ol>
+<li><strong>BrickQuest Cards</strong> - 51 custom printed cards (print at home or professionally)</li>
+<li><strong>LEGO Bricks</strong> - For building structures on the board</li>
+<li><strong>A Battlefield</strong> - A 4-quadrant modular board (included or DIY)</li>
+<li><strong>A LEGO Robot</strong> - Your hero figure (build from our guide or use your own)</li>
+<li><strong>2-5 Players</strong> - Grab friends and prepare for battle!</li>
+</ol>
+<h3 id="your-first-game-in-3-steps">Your First Game in 3 Steps</h3>
+<h4 id="step-1-choose-your-hero-2-minutes">Step 1: Choose Your Hero (2 minutes)</h4>
+<p>Select one of four classes:</p>
+<ul>
+<li><strong>New to tactical games?</strong> → Start with <strong>Warrior</strong> (simple combat focus)</li>
+<li><strong>Love building?</strong> → Choose <strong>Engineer</strong> (defensive structures)</li>
+<li><strong>Want energy combos?</strong> → Pick <strong>MageCore</strong> (resource manipulation)</li>
+<li><strong>Love mobility?</strong> → Be a <strong>Trickster</strong> (hit-and-run tactics)</li>
+</ul>
+<h4 id="step-2-set-up-the-battlefield-5-minutes">Step 2: Set Up the Battlefield (5 minutes)</h4>
+<ol>
+<li>Place your modular board pieces (4 quadrants)</li>
+<li>Each player starts at opposite corners</li>
+<li>Place the shared LEGO brick pool in the center</li>
+<li>Shuffle your deck and draw 5 cards</li>
+</ol>
+<h4 id="step-3-start-your-first-turn-learn-as-you-play">Step 3: Start Your First Turn (Learn as You Play!)</h4>
+<p><strong>Turn Structure Made Simple:</strong></p>
+<ol>
+<li><strong>Draw Phase</strong> - Gain energy, get bricks, draw cards</li>
+<li><strong>Action Phase</strong> - This is where you make your moves:<ul>
+<li>🃏 <strong>Play Cards</strong> - Actions, structures, programs</li>
+<li>🚶 <strong>Move</strong> - Position your robot</li>
+<li>⚔️ <strong>Attack</strong> - Fight enemies</li>
+<li>🧱 <strong>Build</strong> - Create structures with bricks</li>
+</ul>
+</li>
+<li><strong>End Phase</strong> - Clean up and reset</li>
+</ol>
+<p><strong>That's it!</strong> Most games last 20-30 minutes of fast-paced tactical fun.</p>
+<hr>
+<h2 id="🎮-your-first-turn-walkthrough">🎮 Your First Turn Walkthrough</h2>
+<h3 id="alices-first-turn-warrior-class">Alice's First Turn (Warrior Class)</h3>
+<p><strong>Starting Hand:</strong></p>
+<ul>
+<li>⚔️ Charge (2 energy - move &amp; attack)</li>
+<li>🛡️ Defend (1 energy - +2 defense)</li>
+<li>🧱 Barricade (3 energy - defensive structure)</li>
+<li>⚡ Overclock (2 energy - +1 energy next turn)</li>
+<li>⚔️ Precision Shot (1 energy - ranged attack)</li>
+</ul>
+<p><strong>Energy:</strong> 5 (Warrior base)</p>
+<p><strong>Alice's Turn:</strong></p>
+<ol>
+<li><p><strong>Draw Phase</strong></p>
+<ul>
+<li>Gain +2 Energy → Now has 7 total</li>
+<li>Draw +2 Bricks from pool</li>
+<li>Hand size is 5 cards (good!)</li>
+</ul>
+</li>
+<li><p><strong>Action Phase</strong></p>
+<ul>
+<li><strong>Play:</strong> ⚔️ Charge (spend 2 energy) → Move 2 tiles toward enemy Bob, deal 1 damage</li>
+<li>Alice moves adjacent to Bob and attacks!</li>
+<li><strong>Use Standard Action:</strong> 🛡️ Defend (spend 1 energy)</li>
+<li>Now has +2 Defense until next turn</li>
+<li><strong>End action phase</strong> (4 energy left, saved for next turn)</li>
+</ul>
+</li>
+<li><p><strong>End Phase</strong></p>
+<ul>
+<li>Check for active programs (none yet)</li>
+<li>Remove temporary effects (Defend stays until next turn)</li>
+<li>Alice ends with 4 energy carried over</li>
+</ul>
+</li>
+</ol>
+<p><strong>Result:</strong> Alice closed distance, dealt damage, and buffed her defense. A solid first turn!</p>
+<hr>
+<h2 id="🎯-five-essential-strategies-for-beginners">🎯 Five Essential Strategies for Beginners</h2>
+<h3 id="1-energy-management-is-everything">1. <strong>Energy Management is Everything</strong></h3>
+<p>Energy regenerates each turn (+2 per turn). Most cards cost 1-3 energy. You typically play 1-2 cards per turn. <strong>Plan your turns ahead!</strong></p>
+<h3 id="2-positioning-wins-battles">2. <strong>Positioning Wins Battles</strong></h3>
+<ul>
+<li>Use terrain for cover</li>
+<li>Control high ground (+1 attack bonus)</li>
+<li>Keep enemies at your optimal range</li>
+</ul>
+<h3 id="3-build-structures-strategically">3. <strong>Build Structures Strategically</strong></h3>
+<ul>
+<li>Engineer gets <strong>1 less energy cost</strong> on structures</li>
+<li>Turrets shoot enemies automatically</li>
+<li>Barricades block enemy movement</li>
+<li>Bridges create tactical paths</li>
+</ul>
+<h3 id="4-know-your-class-special-ability">4. <strong>Know Your Class Special Ability</strong></h3>
+<p>Each class has a unique ability that changes how you play:</p>
+<ul>
+<li><strong>Warrior:</strong> +1 damage on all attacks</li>
+<li><strong>Engineer:</strong> Structures cost 1 less energy</li>
+<li><strong>MageCore:</strong> Draw extra card when playing energy cards</li>
+<li><strong>Trickster:</strong> Can move through enemy spaces</li>
+</ul>
+<h3 id="5-programs-are-powerful">5. <strong>Programs are Powerful</strong></h3>
+<p>Programs last 2-3 turns and give ongoing benefits:</p>
+<ul>
+<li><strong>Auto-Repair:</strong> Heal 2 HP per turn</li>
+<li><strong>Stealth Mode:</strong> Can't be targeted at range</li>
+<li><strong>Seek and Destroy:</strong> +2 attack when charging</li>
+</ul>
+<hr>
+<h2 id="🏆-first-game-checklist">🏆 First Game Checklist</h2>
+<p>✅ <strong>Before You Start:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Read your class special ability</li>
+<li><input disabled="" type="checkbox"> Understand the 3 phases of a turn</li>
+<li><input disabled="" type="checkbox"> Know the 5 standard actions (Attack, Defend, Move, Repair, Ranged Attack)</li>
+<li><input disabled="" type="checkbox"> Shuffle your deck and draw 5 cards</li>
+</ul>
+<p>✅ <strong>During the Game:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Track your energy each turn</li>
+<li><input disabled="" type="checkbox"> Spend bricks to build structures</li>
+<li><input disabled="" type="checkbox"> Use your class ability when helpful</li>
+<li><input disabled="" type="checkbox"> Pay attention to terrain and cover</li>
+</ul>
+<p>✅ <strong>Victory Conditions:</strong></p>
+<ul>
+<li><strong>Last Robot Standing</strong> - Eliminate all other players</li>
+<li><strong>Objective Control</strong> - Hold specific board positions</li>
+<li><strong>Survival</strong> - Be the last player alive</li>
+</ul>
+<hr>
+<h2 id="🎨-the-factions">🎨 The Factions</h2>
+<p>Each card belongs to a faction with unique flavor:</p>
+<ul>
+<li><strong>⚙️ Steampunk</strong> - Gears, steam, mechanical complexity</li>
+<li><strong>💻 Cyber</strong> - Sensors, overclock, digital warfare</li>
+<li><strong>💎 Arcane</strong> - Crystals, runes, magical energy</li>
+<li><strong>⚖️ Neutral</strong> - Universal, adaptable, foundational</li>
+</ul>
+<hr>
+<h2 id="🤖-meet-the-hero-classes">🤖 Meet the Hero Classes</h2>
+<h3 id="🔧-engineer---build-dont-destroy">🔧 Engineer - "Build, Don't Destroy"</h3>
+<p><strong>Stats:</strong> High Defense (3), Extra Energy (6)<br><strong>Playstyle:</strong> Defensive builder who controls the battlefield<br><strong>Best For:</strong> Players who love planning and building<br><strong>Signature Move:</strong> Build a turret and defend it with your life!</p>
+<h3 id="⚔️-warrior---strength-through-unity">⚔️ Warrior - "Strength Through Unity"</h3>
+<p><strong>Stats:</strong> High Attack (5), Extra HP (21)<br><strong>Playstyle:</strong> Aggressive fighter who charges into battle<br><strong>Best For:</strong> Players who want straightforward combat<br><strong>Signature Move:</strong> Charge into the fray and dominate!</p>
+<h3 id="⚡-magecore---energy-is-life">⚡ MageCore - "Energy is Life"</h3>
+<p><strong>Stats:</strong> Highest Energy (7), Extra Movement (4)<br><strong>Playstyle:</strong> Energy manipulator who controls resources<br><strong>Best For:</strong> Players who love combo plays<br><strong>Signature Move:</strong> Chain energy cards for massive power!</p>
+<h3 id="🎭-trickster---adapt-survive-thrive">🎭 Trickster - "Adapt, Survive, Thrive"</h3>
+<p><strong>Stats:</strong> Highest Movement (5), Balanced Stats<br><strong>Playstyle:</strong> Mobile saboteur who hit-and-runs<br><strong>Best For:</strong> Players who love positioning and tactics<br><strong>Signature Move:</strong> Teleport behind enemies and strike!</p>
+<hr>
+<h2 id="🎮-game-modes">🎮 Game Modes</h2>
+<h3 id="competitive-mode">Competitive Mode</h3>
+<ul>
+<li><strong>Last Robot Standing</strong> - Battle to the death</li>
+<li><strong>Free-for-All</strong> - Every player for themselves</li>
+<li><strong>Teams</strong> - 2v2 or 3v2 matches</li>
+</ul>
+<h3 id="cooperative-mode-coming-soon">Cooperative Mode (Coming Soon)</h3>
+<ul>
+<li><strong>Boss Battles</strong> - Team up against powerful enemies</li>
+<li><strong>Campaign Mode</strong> - Persistent upgrades between games</li>
+<li><strong>Survival Mode</strong> - Endless waves of enemies</li>
+</ul>
+<hr>
+<h2 id="💡-pro-tips">💡 Pro Tips</h2>
+<h3 id="for-your-first-games">For Your First Games</h3>
+<ol>
+<li><strong>Start Simple</strong> - Focus on one card type until comfortable</li>
+<li><strong>Watch Other Players</strong> - Learn from their strategies</li>
+<li><strong>Don't Hoard Energy</strong> - Spend it or lose it!</li>
+<li><strong>Build Early</strong> - Structures take time to be effective</li>
+<li><strong>Read the Cards</strong> - Every card has synergy potential</li>
+</ol>
+<h3 id="advanced-tactics">Advanced Tactics</h3>
+<ol>
+<li><strong>Combo Cards</strong> - Some cards work better together</li>
+<li><strong>Bluffing</strong> - Keep opponents guessing about your hand</li>
+<li><strong>Resource Denial</strong> - Target the shared brick pool</li>
+<li><strong>Tempo Control</strong> - Dictate the pace of battle</li>
+<li><strong>Metagame Adaptation</strong> - Adjust to your playgroup</li>
+</ol>
+<hr>
+<h2 id="📚-next-steps">📚 Next Steps</h2>
+<h3 id="learn-the-rules-deep">Learn the Rules Deep</h3>
+<ul>
+<li>Read the <a href="GAME_RULES.md">Complete Game Rules</a></li>
+<li>Study the <a href="CARD_REFERENCE.md">Card Reference</a></li>
+<li>Check out class-specific <a href="BrickQuest_CheatSheet.md">Cheat Sheets</a></li>
+</ul>
+<h3 id="expand-your-game">Expand Your Game</h3>
+<ul>
+<li>Print all 51 cards from <code>brickquest_printable_cards.html</code></li>
+<li>Get your LEGO parts from our <a href="bricklink_parts_spec.md">BrickLink parts list</a></li>
+<li>Build your robot using our <a href="STUDIO_MODELS.md">LEGO instructions</a></li>
+</ul>
+<h3 id="join-the-community">Join the Community</h3>
+<ul>
+<li>Share your custom builds</li>
+<li>Report playtest results</li>
+<li>Contribute new cards and strategies</li>
+</ul>
+<hr>
+<h2 id="🎬-ready-to-play">🎬 Ready to Play?</h2>
+<p><strong>You're all set!</strong> You now know:</p>
+<ul>
+<li>✅ What BrickQuest is</li>
+<li>✅ How turns work</li>
+<li>✅ What makes your class special</li>
+<li>✅ Key strategies to win</li>
+</ul>
+<p><strong>Grab your cards, build your robot, and prepare for tactical combat!</strong></p>
+<hr>
+<h2 id="🙏-getting-help">🙏 Getting Help</h2>
+<p>Stuck on something? Check out our complete documentation:</p>
+<ul>
+<li><strong>Rules Questions?</strong> → <a href="GAME_RULES.md">Game Rules</a></li>
+<li><strong>Card Questions?</strong> → <a href="CARD_REFERENCE.md">Card Reference</a></li>
+<li><strong>Class Questions?</strong> → <a href="BrickQuest_CheatSheet.md">Class Cheat Sheets</a></li>
+<li><strong>Building Questions?</strong> → <a href="bricklink_parts_spec.md">LEGO Parts Guide</a></li>
+</ul>
+<hr>
+<p><strong>Welcome to BrickQuest, Hero Automaton. The future of tactical gaming awaits.</strong></p>
+<p><em>Now build your robot, shuffle your deck, and prepare for battle!</em> 🧱⚔️🤖</p>
+
+	
+
+</body></html>

@@ -22,9 +22,6 @@ Unlike any other card game, you physically build your defenses and structures us
 ### ⚔️ **Fast-Paced Strategic Combat**
 Plan your moves carefully. Every energy point, every card, every movement matters in this tactical skirmish.
 
-### 🎨 **Beautiful Custom Cards**
-51 hand-designed cards across 5 types, with stunning faction themes (Steampunk, Cyber, Arcane, and Neutral).
-
 ---
 
 ## 🚀 Quick Start Guide
@@ -49,7 +46,7 @@ Select one of four classes:
 #### Step 2: Set Up the Battlefield (5 minutes)
 1. Place your modular board pieces
 2. Each player starts at opposite corners
-3. Place the shared LEGO brick pool in the center
+3. Place the shared LEGO brick pool within arms reach
 4. Shuffle your deck and draw 5 cards
 
 #### Step 3: Start Your First Turn (Learn as You Play!)
@@ -150,9 +147,8 @@ Programs last 2-3 turns and give ongoing benefits:
 - [ ] Pay attention to terrain and cover
 
 ✅ **Victory Conditions:**
-- **Last Robot Standing** - Eliminate all other players
+- **Last Robot Standing** - Be the last player alive
 - **Objective Control** - Hold specific board positions
-- **Survival** - Be the last player alive
 
 ---
 
@@ -170,25 +166,25 @@ Each card belongs to a faction with unique flavor:
 ## 🤖 Meet the Hero Classes
 
 ### 🔧 Engineer - "Build, Don't Destroy"
-**Stats:** High Defense (3), Extra Energy (6)  
+**Stats:** HP 20 | Attack 2 | Defense 4 | Energy 6 | Movement 3  
 **Playstyle:** Defensive builder who controls the battlefield  
 **Best For:** Players who love planning and building  
 **Signature Move:** Build a turret and defend it with your life!
 
 ### ⚔️ Warrior - "Strength Through Unity"
-**Stats:** High Attack (5), Extra HP (21)  
+**Stats:** HP 21 | Attack 5 | Defense 2 | Energy 5 | Movement 3  
 **Playstyle:** Aggressive fighter who charges into battle  
 **Best For:** Players who want straightforward combat  
 **Signature Move:** Charge into the fray and dominate!
 
 ### ⚡ MageCore - "Energy is Life"
-**Stats:** Highest Energy (7), Extra Movement (4)  
+**Stats:** HP 20 | Attack 3 | Defense 2 | Energy 7 | Movement 4  
 **Playstyle:** Energy manipulator who controls resources  
 **Best For:** Players who love combo plays  
 **Signature Move:** Chain energy cards for massive power!
 
 ### 🎭 Trickster - "Adapt, Survive, Thrive"
-**Stats:** Highest Movement (5), Balanced Stats  
+**Stats:** HP 20 | Attack 3 | Defense 2 | Energy 5 | Movement 5  
 **Playstyle:** Mobile saboteur who hit-and-runs  
 **Best For:** Players who love positioning and tactics  
 **Signature Move:** Teleport behind enemies and strike!

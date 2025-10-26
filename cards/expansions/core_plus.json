@@ -1,28 +1,6 @@
 {
   "cards": [
     {
-      "id": "BQ-ACT-0016",
-      "name": "Charge",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Common",
-      "cost": {
-        "energy": 2
-      },
-      "text": "Move 2 tiles toward target enemy. Deal 2 damage if you end adjacent.",
-      "rules": {
-        "movement": "charge",
-        "distance": 2,
-        "damage": 2,
-        "requiresAdjacent": true
-      },
-      "v": 2,
-      "icons": [
-        "{\"movement\":\"charge\",\"distance\":2,\"damage\":2,\"requiresAdjacent\":true}"
-      ],
-      "flavor": "charge;movement;damage"
-    },
-    {
       "id": "BQ-ACT-0006",
       "name": "Defend",
       "type": "Action",
@@ -43,51 +21,6 @@
       "flavor": "defense"
     },
     {
-      "id": "BQ-ACT-0010",
-      "name": "Desperate Strike",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Common",
-      "cost": {
-        "energy": 1
-      },
-      "text": "Deal 1 damage. If you have 5 or less HP, deal +3 damage instead.",
-      "rules": {
-        "damage": 1,
-        "conditional": {
-          "hp": "<=5",
-          "damage": 4
-        }
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":1,\"conditional\":{\"hp\":\"<=5\",\"damage\":4}}"
-      ],
-      "flavor": "desperate;damage"
-    },
-    {
-      "id": "BQ-ACT-0003",
-      "name": "Flanking Strike",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Common",
-      "cost": {
-        "energy": 1
-      },
-      "text": "Deal damage equal to your attack stat +1 if target is adjacent to an ally.",
-      "rules": {
-        "damage": "attack",
-        "conditional": {
-          "adjacentToAlly": "+1"
-        }
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":\"attack\",\"conditional\":{\"adjacentToAlly\":\"+1\"}}"
-      ],
-      "flavor": "flank;attack"
-    },
-    {
       "id": "BQ-ACT-0001",
       "name": "Overdrive",
       "type": "Action",
@@ -106,26 +39,6 @@
         "{\"movementMultiplier\":2,\"duration\":1}"
       ],
       "flavor": "movement;overdrive"
-    },
-    {
-      "id": "BQ-ACT-0004",
-      "name": "Ranged Attack",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Common",
-      "cost": {
-        "energy": 1
-      },
-      "text": "Deal damage equal to your attack stat -1 to target within 2 tiles.",
-      "rules": {
-        "damage": "attack-1",
-        "range": 2
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":\"attack-1\",\"range\":2}"
-      ],
-      "flavor": "ranged;attack"
     },
     {
       "id": "BQ-ACT-0005",
@@ -215,52 +128,6 @@
       "flavor": "flank;positioning"
     },
     {
-      "id": "BQ-ACT-0013",
-      "name": "Combat Protocol",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 3
-      },
-      "text": "Deal 3 damage to target. Draw 1 card if it dies.",
-      "rules": {
-        "damage": 3,
-        "onKill": {
-          "draw": 1
-        }
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":3,\"onKill\":{\"draw\":1}}"
-      ],
-      "flavor": "combat;protocol"
-    },
-    {
-      "id": "BQ-ACT-0023",
-      "name": "Coordinated Assault",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 3
-      },
-      "text": "Deal 2 damage to target. Allies within 2 tiles deal +1 damage this turn.",
-      "rules": {
-        "damage": 2,
-        "allyBuff": {
-          "damage": 1,
-          "range": 2,
-          "duration": 1
-        }
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":2,\"allyBuff\":{\"damage\":1,\"range\":2,\"duration\":1}}"
-      ],
-      "flavor": "coordinate;assault"
-    },
-    {
       "id": "BQ-ACT-0014",
       "name": "Defensive Matrix",
       "type": "Action",
@@ -280,27 +147,6 @@
         "{\"tempHP\":3,\"defense\":1,\"duration\":1}"
       ],
       "flavor": "defense;matrix"
-    },
-    {
-      "id": "BQ-ACT-0012",
-      "name": "Energy Blast",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 3
-      },
-      "text": "Deal 2 damage to all enemies within 2 tiles.",
-      "rules": {
-        "damage": 2,
-        "range": 2,
-        "target": "allEnemies"
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":2,\"range\":2,\"target\":\"allEnemies\"}"
-      ],
-      "flavor": "energy;blast"
     },
     {
       "id": "BQ-ACT-0007",
@@ -365,46 +211,6 @@
       "flavor": "juke;evasion"
     },
     {
-      "id": "BQ-ACT-0011",
-      "name": "Power Strike",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 3
-      },
-      "text": "Deal 4 damage to target.",
-      "rules": {
-        "damage": 4
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":4}"
-      ],
-      "flavor": "power;damage"
-    },
-    {
-      "id": "BQ-ACT-0008",
-      "name": "Precision Shot",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 2
-      },
-      "text": "Deal 3 damage to target within 3 tiles. Cannot miss.",
-      "rules": {
-        "damage": 3,
-        "range": 3,
-        "cannotMiss": true
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":3,\"range\":3,\"cannotMiss\":true}"
-      ],
-      "flavor": "aim;damage"
-    },
-    {
       "id": "BQ-ACT-0009",
       "name": "Rally",
       "type": "Action",
@@ -449,46 +255,6 @@
       "flavor": "rush;movement"
     },
     {
-      "id": "BQ-ACT-0021",
-      "name": "Tactical Strike",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 3
-      },
-      "text": "Deal 3 damage and draw 1 card.",
-      "rules": {
-        "damage": 3,
-        "draw": 1
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":3,\"draw\":1}"
-      ],
-      "flavor": "tactical;damage;draw"
-    },
-    {
-      "id": "BQ-ACT-0015",
-      "name": "Overcharge",
-      "type": "Action",
-      "faction": "Neutral",
-      "rarity": "Rare",
-      "cost": {
-        "energy": 4
-      },
-      "text": "Deal 5 damage to target. Take 2 damage.",
-      "rules": {
-        "damage": 5,
-        "selfDamage": 2
-      },
-      "v": 2,
-      "icons": [
-        "{\"damage\":5,\"selfDamage\":2}"
-      ],
-      "flavor": "overcharge;risk"
-    },
-    {
       "id": "BQ-ACT-0019",
       "name": "Shadow Step",
       "type": "Action",
@@ -529,27 +295,6 @@
       "flavor": "repair;emergency"
     },
     {
-      "id": "BQ-REA-0002",
-      "name": "Counter Strike",
-      "type": "Reaction",
-      "faction": "Neutral",
-      "rarity": "Uncommon",
-      "cost": {
-        "energy": 2
-      },
-      "text": "When an enemy attacks you, deal 2 damage back to them.",
-      "rules": {
-        "trigger": "onBeingAttacked",
-        "damage": 2,
-        "target": "attacker"
-      },
-      "v": 2,
-      "icons": [
-        "{\"trigger\":\"onBeingAttacked\",\"damage\":2,\"target\":\"attacker\"}"
-      ],
-      "flavor": "counter;strike"
-    },
-    {
       "id": "BQ-REA-0001",
       "name": "Parry Matrix",
       "type": "Reaction",
@@ -586,11 +331,12 @@
       "rules": {
         "blocksMovement": true,
         "defenseBonus": 2,
-        "adjacent": true
+        "adjacent": true,
+        "hp": 3
       },
       "v": 2,
       "icons": [
-        "{\"blocksMovement\":true,\"defenseBonus\":2,\"adjacent\":true}"
+        "{\"blocksMovement\":true,\"defenseBonus\":2,\"adjacent\":true,\"hp\":3}"
       ],
       "flavor": "wall;defense",
       "buildReq": {
@@ -609,11 +355,12 @@
       "text": "Connects two tiles. Units can move across. Cost: 6 bricks.",
       "rules": {
         "connects": true,
-        "movement": true
+        "movement": true,
+        "hp": 5
       },
       "v": 2,
       "icons": [
-        "{\"connects\":true,\"movement\":true}"
+        "{\"connects\":true,\"movement\":true,\"hp\":5}"
       ],
       "flavor": "bridge;connect",
       "buildReq": {
@@ -658,11 +405,12 @@
       "rules": {
         "heal": 2,
         "adjacent": true,
-        "endOfTurn": true
+        "endOfTurn": true,
+        "hp": 4
       },
       "v": 2,
       "icons": [
-        "{\"heal\":2,\"adjacent\":true,\"endOfTurn\":true}"
+        "{\"heal\":2,\"adjacent\":true,\"endOfTurn\":true,\"hp\":4}"
       ],
       "flavor": "heal;station",
       "buildReq": {
@@ -706,11 +454,12 @@
       "rules": {
         "attack": 2,
         "range": 3,
-        "ranged": true
+        "ranged": true,
+        "hp": 4
       },
       "v": 2,
       "icons": [
-        "{\"attack\":2,\"range\":3,\"ranged\":true}"
+        "{\"attack\":2,\"range\":3,\"ranged\":true,\"hp\":4}"
       ],
       "flavor": "turret;ranged",
       "buildReq": {
@@ -753,11 +502,12 @@
       },
       "text": "+2 Range to all attacks from this tile. Cost: 6 bricks.",
       "rules": {
-        "rangeBonus": 2
+        "rangeBonus": 2,
+        "hp": 3
       },
       "v": 2,
       "icons": [
-        "{\"rangeBonus\":2}"
+        "{\"rangeBonus\":2,\"hp\":3}"
       ],
       "flavor": "tower;range",
       "buildReq": {
@@ -802,11 +552,12 @@
       "text": "All adjacent units gain +1 Energy per turn. Cost: 8 bricks.",
       "rules": {
         "energyRegen": 1,
-        "adjacent": true
+        "adjacent": true,
+        "hp": 5
       },
       "v": 2,
       "icons": [
-        "{\"energyRegen\":1,\"adjacent\":true}"
+        "{\"energyRegen\":1,\"adjacent\":true,\"hp\":5}"
       ],
       "flavor": "energy;core",
       "buildReq": {
@@ -1073,8 +824,8 @@
     }
   ],
   "metadata": {
-    "generated": "2025-10-26T13:21:20.918Z",
-    "totalCards": 49,
+    "generated": "2025-10-26T16:41:52.263Z",
+    "totalCards": 37,
     "validationErrors": 0
   }
 }
