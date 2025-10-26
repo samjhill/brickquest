@@ -239,11 +239,13 @@
     <div class="controls">
         <label for="cardFile">Load Cards from:</label>
         <select id="cardFile">
-            <option value="cards/expansions/core_plus.json" selected>Core Plus Expansion (70+ cards)</option>
-            <option value="cards/base_set.json">Base Set (Legacy Format)</option>
-            <option value="cards/factions/STEAMPUNK.json">Steampunk Faction (10+ cards)</option>
-            <option value="cards/factions/CYBER.json">Cyber Faction (10+ cards)</option>
-            <option value="cards/factions/ARCANE.json">Arcane Faction (10+ cards)</option>
+            <option value="all" selected>All Cards (58 cards)</option>
+            <option value="actions">Action Cards (18 cards)</option>
+            <option value="structures">Structure Cards (12 cards)</option>
+            <option value="programs">Program Cards (10 cards)</option>
+            <option value="reactions">Reaction Cards (8 cards)</option>
+            <option value="events">Event Cards (5 cards)</option>
+            <option value="loot">Loot & Upgrade Cards (5 cards)</option>
         </select>
     </div>
     
@@ -266,6 +268,717 @@
     </div>
     
     <script>
+        // Complete BrickQuest Card Database (58 cards)
+        const cardDatabase = {
+            // ACTION CARDS (18 cards)
+            'BQ-ACT-0001': {
+                id: 'BQ-ACT-0001',
+                name: 'Overdrive',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 2 },
+                text: 'Double movement for this turn.',
+                rules: { movement: 2, duration: 1 },
+                icons: ['movement', 'speed'],
+                v: 2
+            },
+            'BQ-ACT-0002': {
+                id: 'BQ-ACT-0002',
+                name: 'Dash',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 1 },
+                text: 'Move to adjacent tile.',
+                rules: { movement: 1 },
+                icons: ['movement', 'dash'],
+                v: 2
+            },
+            'BQ-ACT-0003': {
+                id: 'BQ-ACT-0003',
+                name: 'Pulse Strike',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Deal 2 damage to all enemies in range 3.',
+                rules: { damage: 2, range: 3, target: 'allEnemies' },
+                icons: ['energy', 'damage'],
+                v: 2
+            },
+            'BQ-ACT-0004': {
+                id: 'BQ-ACT-0004',
+                name: 'Shield Bash',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 2 },
+                text: 'Deal 1 damage and push enemy back 1.',
+                rules: { damage: 1, push: 1 },
+                icons: ['shield', 'push'],
+                v: 2
+            },
+            'BQ-ACT-0005': {
+                id: 'BQ-ACT-0005',
+                name: 'Repair',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 1 },
+                text: 'Heal 3 HP.',
+                rules: { heal: 3 },
+                icons: ['repair', 'heal'],
+                v: 2
+            },
+            'BQ-ACT-0006': {
+                id: 'BQ-ACT-0006',
+                name: 'Energy Surge',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'Gain 3 Energy.',
+                rules: { energy: 3 },
+                icons: ['energy', 'surge'],
+                v: 2
+            },
+            'BQ-ACT-0007': {
+                id: 'BQ-ACT-0007',
+                name: 'Precision Shot',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'Deal 3 damage to target. Cannot miss.',
+                rules: { damage: 3, cannotMiss: true },
+                icons: ['aim', 'damage'],
+                v: 2
+            },
+            'BQ-ACT-0008': {
+                id: 'BQ-ACT-0008',
+                name: 'Retreat',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 1 },
+                text: 'Move 2 tiles away from nearest enemy.',
+                rules: { movement: 2, awayFrom: 'nearestEnemy' },
+                icons: ['retreat', 'movement'],
+                v: 2
+            },
+            'BQ-ACT-0009': {
+                id: 'BQ-ACT-0009',
+                name: 'Rally',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'All allies gain +1 Attack this turn.',
+                rules: { buff: { attack: 1 }, target: 'allies', duration: 1 },
+                icons: ['rally', 'buff'],
+                v: 2
+            },
+            'BQ-ACT-0010': {
+                id: 'BQ-ACT-0010',
+                name: 'Desperate Strike',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 1 },
+                text: 'Deal 2 damage. If you have 5 or less HP, deal +2 damage.',
+                rules: { damage: 2, conditional: { hp: '<=5', damage: 4 } },
+                icons: ['desperate', 'damage'],
+                v: 2
+            },
+            'BQ-ACT-0011': {
+                id: 'BQ-ACT-0011',
+                name: 'Power Strike',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Deal 4 damage to target. If you have 8+ Energy, deal +2 damage.',
+                rules: { damage: 4, conditional: { energy: '>=8', damage: 6 } },
+                icons: ['power', 'damage'],
+                v: 2
+            },
+            'BQ-ACT-0012': {
+                id: 'BQ-ACT-0012',
+                name: 'Tactical Retreat',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Move 3 tiles and gain +2 Defense until end of turn.',
+                rules: { movement: 3, buff: { defense: 2 }, duration: 1 },
+                icons: ['tactical', 'defense'],
+                v: 2
+            },
+            'BQ-ACT-0013': {
+                id: 'BQ-ACT-0013',
+                name: 'Energy Blast',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Deal 2 damage to all enemies in range 2. Gain 1 Energy for each enemy hit.',
+                rules: { damage: 2, range: 2, target: 'allEnemies', onHit: { energy: 1 } },
+                icons: ['energy', 'blast'],
+                v: 2
+            },
+            'BQ-ACT-0014': {
+                id: 'BQ-ACT-0014',
+                name: 'Combat Protocol',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Deal 3 damage to target. Draw 1 card if it dies.',
+                rules: { damage: 3, onKill: { draw: 1 } },
+                icons: ['combat', 'protocol'],
+                v: 2
+            },
+            'BQ-ACT-0015': {
+                id: 'BQ-ACT-0015',
+                name: 'Defensive Matrix',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Gain 3 temporary HP and +1 Defense until end of turn.',
+                rules: { tempHP: 3, buff: { defense: 1 }, duration: 1 },
+                icons: ['defense', 'matrix'],
+                v: 2
+            },
+            'BQ-ACT-0016': {
+                id: 'BQ-ACT-0016',
+                name: 'Overcharge',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 4 },
+                text: 'Deal 5 damage to target. Take 2 damage.',
+                rules: { damage: 5, selfDamage: 2 },
+                icons: ['overcharge', 'risk'],
+                v: 2
+            },
+            'BQ-ACT-0017': {
+                id: 'BQ-ACT-0017',
+                name: 'System Scan',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 4 },
+                text: 'Draw 3 cards. All enemies lose 1 Energy.',
+                rules: { draw: 3, energyLoss: 1, target: 'allEnemies' },
+                icons: ['scan', 'information'],
+                v: 2
+            },
+            'BQ-ACT-0018': {
+                id: 'BQ-ACT-0018',
+                name: 'Fortress Mode',
+                type: 'Action',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 4 },
+                text: 'Gain +3 Defense and cannot move until end of turn.',
+                rules: { buff: { defense: 3 }, immobilize: 1, duration: 1 },
+                icons: ['fortress', 'defense'],
+                v: 2
+            },
+
+            // STRUCTURE CARDS (12 cards)
+            'BQ-STR-0001': {
+                id: 'BQ-STR-0001',
+                name: 'Watchtower',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Provides +2 range to ranged attacks from this tile.',
+                rules: { rangeBonus: 2, rangedOnly: true },
+                icons: ['tower', 'range'],
+                v: 2
+            },
+            'BQ-STR-0002': {
+                id: 'BQ-STR-0002',
+                name: 'Barricade',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 2 },
+                text: 'Blocks movement. +2 Defense to adjacent units.',
+                rules: { blocksMovement: true, defenseBonus: 2, adjacent: true },
+                icons: ['wall', 'defense'],
+                v: 2
+            },
+            'BQ-STR-0003': {
+                id: 'BQ-STR-0003',
+                name: 'Bridge',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 2 },
+                text: 'Connects two tiles. Units can move across.',
+                rules: { connects: true, movement: true },
+                icons: ['bridge', 'connect'],
+                v: 2
+            },
+            'BQ-STR-0004': {
+                id: 'BQ-STR-0004',
+                name: 'Turret Base',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 4 },
+                text: 'Ranged attack: 2 damage, 4 range.',
+                rules: { attack: 2, range: 4, ranged: true },
+                icons: ['turret', 'ranged'],
+                v: 2
+            },
+            'BQ-STR-0005': {
+                id: 'BQ-STR-0005',
+                name: 'Energy Core',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 5 },
+                text: 'All adjacent units gain +1 Energy per turn.',
+                rules: { energyRegen: 1, adjacent: true },
+                icons: ['energy', 'core'],
+                v: 2
+            },
+            'BQ-STR-0006': {
+                id: 'BQ-STR-0006',
+                name: 'Healing Station',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Heal 2 HP to all adjacent units at end of turn.',
+                rules: { heal: 2, adjacent: true, endOfTurn: true },
+                icons: ['heal', 'station'],
+                v: 2
+            },
+            'BQ-STR-0007': {
+                id: 'BQ-STR-0007',
+                name: 'Command Center',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Allies within range 2 gain +1 Attack.',
+                rules: { attackBonus: 1, range: 2, allies: true },
+                icons: ['command', 'center'],
+                v: 2
+            },
+            'BQ-STR-0008': {
+                id: 'BQ-STR-0008',
+                name: 'Supply Depot',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Allies adjacent gain +1 Energy per turn.',
+                rules: { energyRegen: 1, adjacent: true, allies: true },
+                icons: ['supply', 'depot'],
+                v: 2
+            },
+            'BQ-STR-0009': {
+                id: 'BQ-STR-0009',
+                name: 'Reinforced Wall',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Blocks movement. +3 Defense to adjacent units.',
+                rules: { blocksMovement: true, defenseBonus: 3, adjacent: true },
+                icons: ['wall', 'reinforced'],
+                v: 2
+            },
+            'BQ-STR-0010': {
+                id: 'BQ-STR-0010',
+                name: 'Observation Post',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: '+3 Range to all attacks from this tile.',
+                rules: { rangeBonus: 3 },
+                icons: ['observation', 'range'],
+                v: 2
+            },
+            'BQ-STR-0011': {
+                id: 'BQ-STR-0011',
+                name: 'Power Generator',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 4 },
+                text: 'All units within range 2 gain +1 Energy per turn.',
+                rules: { energyRegen: 1, range: 2, all: true },
+                icons: ['power', 'generator'],
+                v: 2
+            },
+            'BQ-STR-0012': {
+                id: 'BQ-STR-0012',
+                name: 'Battle Station',
+                type: 'Structure',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 4 },
+                text: 'Ranged attack: 3 damage, 5 range. +1 Defense to adjacent allies.',
+                rules: { attack: 3, range: 5, defenseBonus: 1, adjacent: true, allies: true },
+                icons: ['battle', 'station'],
+                v: 2
+            },
+
+            // PROGRAM CARDS (10 cards)
+            'BQ-PRO-0001': {
+                id: 'BQ-PRO-0001',
+                name: 'Auto-Repair',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'Duration: 3 rounds. Heal 1 HP at start of each turn.',
+                rules: { duration: 3, heal: 1, startOfTurn: true },
+                icons: ['repair', 'auto'],
+                v: 2
+            },
+            'BQ-PRO-0002': {
+                id: 'BQ-PRO-0002',
+                name: 'Seek and Destroy',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Duration: 2 rounds. +1 Attack against damaged enemies.',
+                rules: { duration: 2, attackBonus: 1, vsDamaged: true },
+                icons: ['hunt', 'attack'],
+                v: 2
+            },
+            'BQ-PRO-0003': {
+                id: 'BQ-PRO-0003',
+                name: 'Retreat Loop',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 1 },
+                text: 'Duration: 2 rounds. When damaged, move 1 tile away from attacker.',
+                rules: { duration: 2, trigger: 'onDamage', movement: 1, awayFrom: 'attacker' },
+                icons: ['retreat', 'defensive'],
+                v: 2
+            },
+            'BQ-PRO-0004': {
+                id: 'BQ-PRO-0004',
+                name: 'Overclock',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 4 },
+                text: 'Duration: 2 rounds. +2 Energy per turn, take 1 Heat at end of turn.',
+                rules: { duration: 2, energyRegen: 2, selfDamage: 1, damageType: 'Heat' },
+                icons: ['overclock', 'risk'],
+                v: 2
+            },
+            'BQ-PRO-0005': {
+                id: 'BQ-PRO-0005',
+                name: 'Stealth Mode',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'Duration: 3 rounds. Enemies cannot target you with ranged attacks.',
+                rules: { duration: 3, stealth: true, vsRanged: true },
+                icons: ['stealth', 'defense'],
+                v: 2
+            },
+            'BQ-PRO-0006': {
+                id: 'BQ-PRO-0006',
+                name: 'Combat Protocols',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Duration: 2 rounds. +2 Attack and +1 Defense.',
+                rules: { duration: 2, attackBonus: 2, defenseBonus: 1 },
+                icons: ['combat', 'protocols'],
+                v: 2
+            },
+            'BQ-PRO-0007': {
+                id: 'BQ-PRO-0007',
+                name: 'Energy Efficiency',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Duration: 3 rounds. All cards cost -1 Energy (minimum 1).',
+                rules: { duration: 3, cardDiscount: 1, minimum: 1 },
+                icons: ['efficiency', 'energy'],
+                v: 2
+            },
+            'BQ-PRO-0008': {
+                id: 'BQ-PRO-0008',
+                name: 'Tactical Awareness',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 3 },
+                text: 'Duration: 2 rounds. +2 Range and cannot be surprised.',
+                rules: { duration: 2, rangeBonus: 2, surpriseImmune: true },
+                icons: ['tactical', 'awareness'],
+                v: 2
+            },
+            'BQ-PRO-0009': {
+                id: 'BQ-PRO-0009',
+                name: 'Overdrive Protocol',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 4 },
+                text: 'Duration: 2 rounds. +3 Movement and +2 Attack. Take 1 damage at end of each turn.',
+                rules: { duration: 2, movementBonus: 3, attackBonus: 2, selfDamage: 1, endOfTurn: true },
+                icons: ['overdrive', 'protocol'],
+                v: 2
+            },
+            'BQ-PRO-0010': {
+                id: 'BQ-PRO-0010',
+                name: 'Defensive Systems',
+                type: 'Program',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 4 },
+                text: 'Duration: 3 rounds. +2 Defense and reduce all incoming damage by 1.',
+                rules: { duration: 3, defenseBonus: 2, damageReduction: 1 },
+                icons: ['defense', 'systems'],
+                v: 2
+            },
+
+            // EVENT CARDS (5 cards)
+            'BQ-EVT-0001': {
+                id: 'BQ-EVT-0001',
+                name: 'System Overload',
+                type: 'Event',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 1 },
+                text: 'All units take 1 damage. Energy costs are doubled this turn.',
+                rules: { damage: 1, target: 'all', energyCostDouble: true },
+                icons: ['overload', 'damage'],
+                v: 2
+            },
+            'BQ-EVT-0002': {
+                id: 'BQ-EVT-0002',
+                name: 'Security Breach',
+                type: 'Event',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 0 },
+                text: 'All players draw 2 cards.',
+                rules: { draw: 2, target: 'all' },
+                icons: ['breach', 'draw'],
+                v: 2
+            },
+            'BQ-EVT-0003': {
+                id: 'BQ-EVT-0003',
+                name: 'Treasure Cache',
+                type: 'Event',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 0 },
+                text: 'Draw 3 cards and gain 2 Energy.',
+                rules: { draw: 3, energy: 2 },
+                icons: ['treasure', 'benefit'],
+                v: 2
+            },
+            'BQ-EVT-0004': {
+                id: 'BQ-EVT-0004',
+                name: 'Power Surge',
+                type: 'Event',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 0 },
+                text: 'All units gain +2 Energy.',
+                rules: { energy: 2, target: 'all' },
+                icons: ['surge', 'energy'],
+                v: 2
+            },
+            'BQ-EVT-0005': {
+                id: 'BQ-EVT-0005',
+                name: 'Structural Collapse',
+                type: 'Event',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 0 },
+                text: 'Destroy all structures. Return half their brick cost to shared pool.',
+                rules: { destroyStructures: true, brickRefund: 0.5 },
+                icons: ['collapse', 'destruction'],
+                v: 2
+            },
+
+            // LOOT & UPGRADE CARDS (5 cards)
+            'BQ-LOT-0001': {
+                id: 'BQ-LOT-0001',
+                name: 'Energy Core',
+                type: 'Loot',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 0 },
+                text: 'Permanent: +1 max Energy.',
+                rules: { permanent: true, maxEnergy: 1 },
+                icons: ['core', 'energy'],
+                v: 2
+            },
+            'BQ-LOT-0002': {
+                id: 'BQ-LOT-0002',
+                name: 'Shield Generator',
+                type: 'Loot',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 0 },
+                text: 'Permanent: +2 Defense.',
+                rules: { permanent: true, defense: 2 },
+                icons: ['shield', 'defense'],
+                v: 2
+            },
+            'BQ-LOT-0003': {
+                id: 'BQ-LOT-0003',
+                name: 'Speed Boost',
+                type: 'Loot',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 0 },
+                text: 'Permanent: +1 Movement.',
+                rules: { permanent: true, movement: 1 },
+                icons: ['speed', 'movement'],
+                v: 2
+            },
+            'BQ-LOT-0004': {
+                id: 'BQ-LOT-0004',
+                name: 'Weapon Upgrade',
+                type: 'Loot',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 0 },
+                text: 'Permanent: +1 Attack.',
+                rules: { permanent: true, attack: 1 },
+                icons: ['weapon', 'attack'],
+                v: 2
+            },
+            'BQ-LOT-0005': {
+                id: 'BQ-LOT-0005',
+                name: 'Sensor Array',
+                type: 'Loot',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 0 },
+                text: 'Permanent: +2 Range.',
+                rules: { permanent: true, range: 2 },
+                icons: ['sensor', 'range'],
+                v: 2
+            },
+
+            // REACTION CARDS (8 cards)
+            'BQ-REA-0001': {
+                id: 'BQ-REA-0001',
+                name: 'Parry Matrix',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 1 },
+                text: 'When your automaton would take damage, prevent 2. Gain 1 Energy if the attacker is adjacent.',
+                rules: { trigger: 'onIncomingDamage', prevent: 2, bonusEnergyIf: { rangeMax: 1, amount: 1 } },
+                icons: ['shield', 'bolt'],
+                v: 2
+            },
+            'BQ-REA-0002': {
+                id: 'BQ-REA-0002',
+                name: 'Energy Shield',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'When you would take damage, prevent 3. If prevented damage is 5+, gain 1 Energy.',
+                rules: { trigger: 'onIncomingDamage', prevent: 3, bonusEnergyIf: { damage: '>=5', amount: 1 } },
+                icons: ['shield', 'energy'],
+                v: 2
+            },
+            'BQ-REA-0003': {
+                id: 'BQ-REA-0003',
+                name: 'Counter Strike',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'When an enemy attacks you, deal 2 damage back to them.',
+                rules: { trigger: 'onBeingAttacked', damage: 2, target: 'attacker' },
+                icons: ['counter', 'strike'],
+                v: 2
+            },
+            'BQ-REA-0004': {
+                id: 'BQ-REA-0004',
+                name: 'Emergency Repair',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Common',
+                cost: { energy: 1 },
+                text: 'When you take damage, heal 2 HP.',
+                rules: { trigger: 'onTakingDamage', heal: 2 },
+                icons: ['repair', 'emergency'],
+                v: 2
+            },
+            'BQ-REA-0005': {
+                id: 'BQ-REA-0005',
+                name: 'Power Surge',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'When an enemy plays a card, gain 1 Energy.',
+                rules: { trigger: 'onEnemyCardPlay', energy: 1 },
+                icons: ['surge', 'power'],
+                v: 2
+            },
+            'BQ-REA-0006': {
+                id: 'BQ-REA-0006',
+                name: 'Tactical Interrupt',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Rare',
+                cost: { energy: 3 },
+                text: 'When an enemy moves, you may move 1 tile in response.',
+                rules: { trigger: 'onEnemyMovement', movement: 1, optional: true },
+                icons: ['tactical', 'interrupt'],
+                v: 2
+            },
+            'BQ-REA-0007': {
+                id: 'BQ-REA-0007',
+                name: 'Defensive Matrix',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'When an enemy attacks an ally, prevent 2 damage to them.',
+                rules: { trigger: 'onAllyBeingAttacked', prevent: 2, target: 'ally' },
+                icons: ['defense', 'matrix'],
+                v: 2
+            },
+            'BQ-REA-0008': {
+                id: 'BQ-REA-0008',
+                name: 'Energy Drain',
+                type: 'Reaction',
+                faction: 'Neutral',
+                rarity: 'Uncommon',
+                cost: { energy: 2 },
+                text: 'When an enemy gains Energy, they lose 1 Energy instead.',
+                rules: { trigger: 'onEnemyEnergyGain', energyLoss: 1, target: 'enemy' },
+                icons: ['drain', 'energy'],
+                v: 2
+            }
+        };
+
         const typeIcons = {
             'Action': '⚡',
             'Structure': '🏗️',
@@ -375,7 +1088,42 @@
                 'overload': '⚡',
                 'event': '🎲',
                 'structure': '🏗️',
-                'action': '⚡'
+                'action': '⚡',
+                'power': '⚡',
+                'tactical': '🎯',
+                'blast': '💥',
+                'protocol': '📋',
+                'matrix': '🔲',
+                'overcharge': '⚡',
+                'scan': '📡',
+                'fortress': '🏰',
+                'command': '🎖️',
+                'center': '🏢',
+                'supply': '📦',
+                'depot': '🏪',
+                'reinforced': '🔒',
+                'observation': '👁️',
+                'generator': '⚡',
+                'battle': '⚔️',
+                'protocols': '📋',
+                'efficiency': '⚡',
+                'awareness': '🧠',
+                'systems': '⚙️',
+                'breach': '🔓',
+                'treasure': '💰',
+                'benefit': '✨',
+                'collapse': '💥',
+                'destruction': '💥',
+                'upgrade': '⬆️',
+                'weapon': '⚔️',
+                'sensor': '📡',
+                'parry': '🛡️',
+                'bolt': '⚡',
+                'counter': '🔄',
+                'strike': '⚔️',
+                'emergency': '🚨',
+                'interrupt': '⏸️',
+                'drain': '🔋'
             };
             return iconMap[icon] || '❓';
         }
@@ -476,51 +1224,38 @@
             document.getElementById('estimatedPages').textContent = estimatedPages;
         }
         
-        async function loadCards(filePath) {
+        function loadCards(filterType) {
             const container = document.getElementById('cardContainer');
             container.innerHTML = '<div class="loading">Loading cards...</div>';
             
             try {
-                const response = await fetch(filePath);
-                const data = await response.json();
-                let cards = data.cards || [];
+                let cards = Object.values(cardDatabase);
                 
-                // Handle different card formats
-                if (Array.isArray(data) && !data.cards) {
-                    cards = data;
+                // Filter cards by type if specified
+                if (filterType !== 'all') {
+                    const typeMap = {
+                        'actions': 'Action',
+                        'structures': 'Structure',
+                        'programs': 'Program',
+                        'reactions': 'Reaction',
+                        'events': 'Event',
+                        'loot': 'Loot'
+                    };
+                    
+                    const targetType = typeMap[filterType];
+                    if (targetType) {
+                        cards = cards.filter(card => card.type === targetType);
+                    }
                 }
                 
-                // Convert old format to new format if needed
-                cards = cards.map(card => {
-                    // If it's already in new format, return as-is
-                    if (card.v === 2) {
-                        return card;
-                    }
-                    
-                    // Convert old format to new format
-                    return {
-                        id: card.id,
-                        name: card.name,
-                        type: card.type.charAt(0).toUpperCase() + card.type.slice(1),
-                        faction: 'Neutral',
-                        rarity: card.rarity.charAt(0).toUpperCase() + card.rarity.slice(1),
-                        cost: { energy: card.cost || 0 },
-                        text: card.description || '',
-                        rules: {
-                            damage: card.damage || 0,
-                            range: card.range || 0,
-                            duration: card.duration || 0
-                        },
-                        icons: [],
-                        v: 2
-                    };
-                });
+                // Sort cards by ID for consistent ordering
+                cards.sort((a, b) => a.id.localeCompare(b.id));
                 
                 container.innerHTML = cards.map(card => renderCard(card)).join('');
                 updateCardStats(cards);
             } catch (error) {
                 console.error('Error loading cards:', error);
-                container.innerHTML = '<div class="loading" style="color: red;">Error loading cards. Make sure the card file exists.</div>';
+                container.innerHTML = '<div class="loading" style="color: red;">Error loading cards.</div>';
             }
         }
         
@@ -529,7 +1264,7 @@
         });
         
         // Load initial cards
-        loadCards(document.getElementById('cardFile').value);
+        loadCards('all');
     </script>
 </body>
 </html>

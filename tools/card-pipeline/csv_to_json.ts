@@ -108,20 +108,23 @@ function parseCSVLine(line: string): string[] {
   let current = '';
   let inQuotes = false;
   
+  // Remove carriage returns
+  line = line.replace(/\r/g, '');
+  
   for (let i = 0; i < line.length; i++) {
     const char = line[i];
     
     if (char === '"') {
       inQuotes = !inQuotes;
     } else if (char === ',' && !inQuotes) {
-      result.push(current);
+      result.push(current.trim());
       current = '';
     } else {
       current += char;
     }
   }
   
-  result.push(current);
+  result.push(current.trim());
   return result;
 }
 
@@ -129,13 +132,14 @@ function transformCard(cardData: CardData): BrickQuestCard {
   const card: BrickQuestCard = {
     id: cardData.id,
     name: cardData.name,
-    type: cardData.type,
-    faction: cardData.faction,
-    rarity: cardData.rarity,
+    type: cardData.type.charAt(0).toUpperCase() + cardData.type.slice(1), // Capitalize type
+    faction: cardData.faction.charAt(0).toUpperCase() + cardData.faction.slice(1), // Capitalize faction
+    rarity: cardData.rarity.charAt(0).toUpperCase() + cardData.rarity.slice(1), // Capitalize rarity
     cost: {
       energy: cardData.cost_energy
     },
     text: cardData.text,
+    rules: cardData.rules || {}, // Ensure rules field exists
     v: 2
   };
 
@@ -222,8 +226,11 @@ BQ-REA-0001,Parry Matrix,Reaction,,Neutral,,Uncommon,1,false,,,,"","","When your
 
     const csvContent = fs.readFileSync(csvPath, 'utf8');
     const cardData = parseCSV(csvContent);
+    console.log(`Parsed ${cardData.length} cards from CSV`);
     const transformedCards = cardData.map(transformCard);
+    console.log(`Transformed ${transformedCards.length} cards`);
     const { valid, errors } = validateCards(transformedCards);
+    console.log(`Validated ${valid.length} valid cards, ${errors.length} errors`);
     const sortedCards = sortCards(valid);
 
     // Write output
@@ -241,7 +248,10 @@ BQ-REA-0001,Parry Matrix,Reaction,,Neutral,,Uncommon,1,false,,,,"","","When your
     console.log(`✅ Generated ${sortedCards.length} valid cards`);
     if (errors.length > 0) {
       console.log(`❌ ${errors.length} validation errors:`);
-      errors.forEach(error => console.log(`  - ${error}`));
+      errors.slice(0, 3).forEach(error => console.log(`  - ${error}`));
+      if (errors.length > 3) {
+        console.log(`  ... and ${errors.length - 3} more errors`);
+      }
     }
 
   } catch (error) {
