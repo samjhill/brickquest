@@ -4,7 +4,7 @@
 | Stat | Bonus | Special Ability |
 |------|-------|-----------------|
 | **Defense** | +2 | Build structures for 1 less energy |
-| **Energy** | +1 | Extra structure cards |
+| **Energy** | +1 | |
 | **Focus** | Build efficiency and structures | |
 
 ## 🕹️ Standard Actions (Available to All Classes)

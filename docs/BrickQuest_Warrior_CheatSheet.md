@@ -4,7 +4,7 @@
 | Stat | Bonus | Special Ability |
 |------|-------|-----------------|
 | **Attack** | +3 | Deal +1 damage with attack cards |
-| **HP** | +1 | Extra action cards |
+| **HP** | +1 | |
 | **Focus** | Combat and damage | |
 
 ## 🕹️ Standard Actions (Available to All Classes)

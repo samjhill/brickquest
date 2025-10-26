@@ -16,25 +16,21 @@ BrickQuest is a hybrid tabletop + maker game that combines card mechanics, D&D-s
 - **Focus**: Build efficiency and structures
 - **Starting Stats**: +2 Defense, +1 Energy
 - **Special Ability**: Build structures for 1 less energy
-- **Starting Cards**: Extra structure cards
 
 ### ⚔️ Warrior
 - **Focus**: Combat and damage
 - **Starting Stats**: +3 Attack, +1 HP
 - **Special Ability**: Deal +1 damage with attack cards
-- **Starting Cards**: Extra action cards
 
 ### ⚡ Mage Core
 - **Focus**: Energy manipulation
 - **Starting Stats**: +2 Energy, +1 Movement
 - **Special Ability**: Draw extra card when playing energy cards
-- **Starting Cards**: Extra program cards
 
 ### 🎭 Trickster
 - **Focus**: Mobility and sabotage
 - **Starting Stats**: +2 Movement, +1 Attack
 - **Special Ability**: Move through enemy spaces
-- **Starting Cards**: Extra event cards
 
 ## 🃏 Card Types
 

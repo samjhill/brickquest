@@ -4,7 +4,7 @@
 | Stat | Bonus | Special Ability |
 |------|-------|-----------------|
 | **Movement** | +2 | Move through enemy spaces |
-| **Attack** | +1 | Extra event cards |
+| **Attack** | +1 | |
 | **Focus** | Mobility and sabotage | |
 
 ## 🕹️ Standard Actions (Available to All Classes)

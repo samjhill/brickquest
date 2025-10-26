@@ -4,7 +4,7 @@
 | Stat | Bonus | Special Ability |
 |------|-------|-----------------|
 | **Energy** | +2 | Draw extra card when playing energy cards |
-| **Movement** | +1 | Extra program cards |
+| **Movement** | +1 | |
 | **Focus** | Energy manipulation | |
 
 ## 🕹️ Standard Actions (Available to All Classes)
