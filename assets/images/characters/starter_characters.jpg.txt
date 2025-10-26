@@ -1,0 +1,9 @@
+PLACEHOLDER: starter_characters.jpg
+
+This file should contain the image showing the four BrickQuest starter characters in their base state:
+- Engineer (light bluish-gray with yellow accents, basic tool arm)
+- Warrior (dark bluish-gray with red accents, basic sword and shield)  
+- MageCore (white with translucent blue elements, basic sensor array)
+- Trickster (white with orange accents, basic jetpack and grapple)
+
+The image shows these characters arranged in a 2x2 grid on a white background, showcasing the modular LEGO building system and distinct character classes.

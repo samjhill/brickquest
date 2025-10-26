@@ -10,6 +10,30 @@ BrickQuest is a story-driven skirmish adventure with:
 - 🧱 **Lego building** for dynamic in-game construction
 - 🖨️ **3D printed terrain and parts** for modular, fast setup
 
+## 🤖 Meet Your Characters
+
+Build, customize, and upgrade your LEGO robot heroes! Each character class offers unique abilities and upgrade paths.
+
+### Starter Characters
+![BrickQuest Starter Characters](assets/images/characters/starter_characters.jpg)
+
+**From left to right:**
+- **🔧 Engineer** - Light bluish-gray with yellow accents, master of construction and repair
+- **⚔️ Warrior** - Dark bluish-gray with red armor, combat specialist with sword and shield
+- **🔮 MageCore** - White with translucent blue elements, energy manipulation and sensors
+- **🎭 Trickster** - White with orange accents, mobility expert with jetpack and grapple
+
+### Mid-Game Upgrades
+![BrickQuest Upgraded Characters](assets/images/characters/upgraded_characters.jpg)
+
+**Enhanced capabilities:**
+- **Engineer** - Advanced tool arms, sensor arrays, and construction drones
+- **Warrior** - Dual sword arms, enhanced armor, and defensive systems
+- **MageCore** - Advanced sensor domes, energy cores, and mystical artifacts
+- **Trickster** - Stealth panels, enhanced jetpacks, and grappling systems
+
+*Ready to build your own? Check out our [LEGO Parts Guide](#-table-setup) below!*
+
 ## 🚀 Quick Start
 
 ```bash
@@ -94,6 +118,17 @@ Check `terrain/STL/` for printable components:
 - Multiple Card Sets - Switch between expansions, factions, and base sets
 - Print Optimized - A4 layout, 3 cards per row, 9 cards per page
 - High Quality - Designed for 300gsm cardstock printing
+
+## 🧱 Table Setup
+
+### LEGO Parts for Starter Characters
+BrickQuest characters are built with LEGO bricks! Get started with our curated parts list:
+
+- **Parts Specification**: See [BrickLink Parts Spec](docs/bricklink_parts_spec.md) for complete details
+- **BrickLink Wanted List**: Import `brickquest_starter_bricklink_wantedlist.xml` directly to [bricklink.com](https://bricklink.com)
+- **Regenerate XML**: Run `python3 scripts/generate_bricklink_xml.py` to update the parts list
+
+The starter set includes parts for 4 character classes (Engineer, Warrior, MageCore, Trickster) plus upgrade mods and spare parts for customization.
 
 ## 📚 Documentation
 

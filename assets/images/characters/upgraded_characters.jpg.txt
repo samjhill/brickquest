@@ -1,0 +1,9 @@
+PLACEHOLDER: upgraded_characters.jpg
+
+This file should contain the image showing the four BrickQuest characters in their upgraded mid-game state:
+- Engineer (enhanced with advanced tool arm and sensor upgrades)
+- Warrior (upgraded with dual sword arms and enhanced armor)
+- MageCore (advanced sensor dome and energy manipulation tools)
+- Trickster (stealth panels, enhanced jetpack, and grappling systems)
+
+The image shows these characters standing in a line against a white background, demonstrating the progression system and upgrade mods available in the game.
