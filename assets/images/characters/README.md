@@ -2,9 +2,31 @@
 
 This directory contains visual references for BrickQuest characters.
 
-## Starter Characters
-- `starter_characters.jpg` - The four base character classes in their initial state
-- `upgraded_characters.jpg` - The same characters equipped with mid-game upgrades and mods
+## Adding Images
+
+**To add the character images:**
+
+1. Replace `starter_characters.jpg.txt` with the actual `starter_characters.jpg` file
+2. Replace `upgraded_characters.jpg.txt` with the actual `upgraded_characters.jpg` file
+3. Update README.md to use proper image markdown syntax:
+   ```markdown
+   ![BrickQuest Starter Characters](assets/images/characters/starter_characters.jpg)
+   ![BrickQuest Upgraded Characters](assets/images/characters/upgraded_characters.jpg)
+   ```
+
+## Image Descriptions
+
+### Starter Characters (`starter_characters.jpg`)
+- Shows four base character classes in 2x2 grid layout
+- Engineer (light bluish-gray with yellow accents)
+- Warrior (dark bluish-gray with red armor)
+- MageCore (white with translucent blue elements)
+- Trickster (white with orange accents)
+
+### Upgraded Characters (`upgraded_characters.jpg`)
+- Shows same characters in a line with mid-game upgrades
+- Enhanced capabilities and modular attachments
+- Demonstrates progression system and upgrade paths
 
 ## Usage
 These images are referenced in:
