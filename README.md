@@ -158,7 +158,6 @@ brickquest/
 ### Core Documentation
 - [Game Rules](docs/GAME_RULES.md) - Complete game mechanics and rules
 - [Card Reference](docs/CARD_REFERENCE.md) - Card types and effects
-- [Brick Economy Guide](docs/BRICK_ECONOMY_GUIDE.md) - LEGO building mechanics
 
 ### Design & Development
 - [Card Design Guide](docs/CARD_DESIGN_GUIDE.md) - Comprehensive design principles
