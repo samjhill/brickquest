@@ -27,7 +27,9 @@ brickquest/
 │   ├── generate_cards.py          # Card generation utilities
 │   └── print_cards.*              # Card printing scripts
 └── assets/               # Static assets and resources
-    └── images/           # Character images and visuals
+    └── images/           # Game images and visuals
+        ├── characters/   # Character showcase images
+        └── board/        # Gameplay and board setup images
 ```
 
 ## 📂 Detailed Structure
@@ -75,6 +77,10 @@ brickquest/
 - `tools/card-pipeline/` - Modern card processing tools
 - `tools/legacy/` - Legacy Python scripts
 - `tools/test/` - Test utilities
+
+### Assets
+- `assets/images/characters/` - Character showcase images (starter.png, upgraded.png)
+- `assets/images/board/` - Gameplay images showing board setup and cards in action
 
 ## 🚀 Getting Started
 

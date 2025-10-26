@@ -33,6 +33,18 @@ Build, customize, and upgrade your LEGO robot heroes! Each character class offer
 
 *Ready to build your own? Check out our [LEGO Parts Guide](#-table-setup) below!*
 
+## 🎯 Gameplay in Action
+
+![BrickQuest Mid-Game Board](assets/images/board/mid-game.png)
+
+**Experience the hybrid gameplay:**
+- 🧱 **LEGO Board** - Dynamic 4-quadrant battlefield with terrain features
+- 🃏 **Custom Cards** - Spells, creatures, and abilities that interact with the board
+- ⚔️ **Tactical Combat** - Position your figures strategically across different terrain
+- 🔧 **Building Mechanics** - Use "Construct" spells to modify the battlefield
+
+*This image shows a mid-game scenario with custom cards like "Blindins Radiance" (damage spell), "Construct" (building ability), "Forgemaster" (creature that grows with brick placement), and "Auro of Restoration" (healing spell).*
+
 ## 🚀 Quick Start
 
 ```bash
