@@ -25,46 +25,46 @@ async function buildCheatSheet(inputFile, outputFile, title) {
 
 body {
   font-family: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 9px;
-  line-height: 1.2;
+  font-size: 11px;
+  line-height: 1.3;
   color: #333;
   margin: 0;
   padding: 0;
   column-count: 2;
-  column-gap: 20px;
+  column-gap: 25px;
   column-fill: auto;
 }
 
 h1 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   text-align: center;
   color: #2c3e50;
   column-span: all;
 }
 
 h2 {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: bold;
-  margin: 8px 0 4px 0;
+  margin: 10px 0 6px 0;
   color: #34495e;
   border-bottom: 1px solid #3498db;
-  padding-bottom: 1px;
+  padding-bottom: 2px;
   break-after: avoid;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 4px 0;
-  font-size: 8px;
+  margin: 6px 0;
+  font-size: 10px;
   break-inside: avoid;
 }
 
 th, td {
   border: 1px solid #bdc3c7;
-  padding: 2px 4px;
+  padding: 3px 6px;
   text-align: left;
   vertical-align: top;
 }
@@ -72,7 +72,7 @@ th, td {
 th {
   background-color: #ecf0f1;
   font-weight: bold;
-  font-size: 8px;
+  font-size: 10px;
 }
 
 tr:nth-child(even) {
@@ -98,26 +98,26 @@ hr {
 }
 
 h2 {
-  margin-top: 6px;
-  margin-bottom: 3px;
+  margin-top: 8px;
+  margin-bottom: 4px;
 }
 
 table {
-  margin-top: 2px;
-  margin-bottom: 2px;
+  margin-top: 4px;
+  margin-bottom: 4px;
 }
 
 /* Icon styling */
 .icon {
-  font-size: 10px;
-  margin-right: 1px;
+  font-size: 12px;
+  margin-right: 2px;
 }
 
 /* Footer */
 .footer {
-  font-size: 7px;
+  font-size: 9px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: 8px;
   color: #7f8c8d;
   font-style: italic;
   column-span: all;

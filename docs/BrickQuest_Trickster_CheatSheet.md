@@ -5,13 +5,14 @@
 |------|-------|-----------------|
 | **Movement** | +2 | Move through enemy spaces |
 | **Attack** | +1 | Extra event cards |
+| **Focus** | Mobility and sabotage | |
 
 ## 🎭 Class Actions
-| Action | Cost | Effect |
-|--------|------|--------|
-| **Shadow Step** | 1E | Teleport to unoccupied stud (3 range) |
-| **Misdirection** | 1E | Enemy can't attack you 1 turn |
-| **Sabotage** | 2E | Structure -3 HP, disabled 1 turn |
+| Action | Cost | Effect | Duration |
+|--------|------|--------|----------|
+| **Shadow Step** | 1E | Teleport to unoccupied stud (3 range) | Immediate |
+| **Misdirection** | 1E | Enemy can't attack you 1 turn | 1 turn |
+| **Sabotage** | 2E | Structure -3 HP, disabled 1 turn | 1 turn |
 
 ## 🌑 Mobility & Stealth
 | Action | Range | Restrictions | Best Use |
@@ -25,12 +26,33 @@
 - **Energy Efficiency**: Shadow Step (1E) excellent value, Misdirection (1E) cheap avoidance
 - **Positioning**: Shadow Step through obstacles, Misdirection to isolate enemies
 - **Base Movement**: 4 studs (2 + 2 bonus), can move through enemy spaces
+- **Hit & Run**: Use mobility to strike and retreat safely
 
-## 🔧 Sabotage Targets
+## 🔧 Sabotage Tactics
+### Sabotage Mechanics
+- **Damage**: 3 HP to target structure
+- **Disable**: Structure cannot function for 1 turn
+- **Range**: 2 studs from Trickster
+- **Target**: Enemy structures only
+
+### Sabotage Targets
 - **Turrets** - Disable enemy firepower
 - **Bridges** - Block enemy movement  
 - **Platforms** - Remove height advantages
 - **Walls** - Weaken defensive positions
+- **Modular Structures** - Disable upgrade systems
+
+## 🌑 Stealth & Positioning
+### Shadow Step Usage
+- **Escape**: Teleport away from danger
+- **Flanking**: Position behind enemies
+- **Objective**: Reach key positions quickly
+- **Obstacles**: Bypass walls and barriers
+
+### Misdirection Strategy
+- **Tank**: Draw enemy attention away from allies
+- **Isolation**: Prevent specific enemies from attacking
+- **Timing**: Use before enemy turn for maximum effect
 
 ## 🎯 Win Conditions
 - **Competitive**: Hit & run, structure control, mobility advantage
@@ -40,6 +62,14 @@
 1. **Shadow Step** → **Misdirection** → **Standard Attack**
 2. **Sabotage** → **Shadow Step** → **Standard Move**
 3. **Misdirection** → **Standard Attack** → **Shadow Step**
+
+## 🔥 Trickster Icons
+| Icon | Meaning | Icon | Meaning |
+|------|---------|------|---------|
+| 🎭 | Trickster/Stealth | 🌑 | Shadow/Darkness |
+| ⚡ | Teleport/Movement | 🔧 | Sabotage/Damage |
+| 🎯 | Misdirection/Control | 🕳️ | Trap/Sabotage |
+| 💨 | Speed/Mobility | 🎪 | Trick/Illusion |
 
 ---
 *BrickQuest Trickster Cheat Sheet v1.0*
