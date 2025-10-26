@@ -97,6 +97,10 @@ jobs:
       
       - name: Build client
         working-directory: ./src/client
+        env:
+          CI: true
+          NODE_OPTIONS: --max-old-space-size=4096
+          GENERATE_SOURCEMAP: false
         run: npm run build
       
       - name: Upload build artifacts
