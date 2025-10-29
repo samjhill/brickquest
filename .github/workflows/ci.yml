@@ -1,22 +1,25 @@
-name: CI
+name: BrickQuest CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [ main, develop ]
   pull_request:
-    branches: [main, develop]
+    branches: [ main, develop ]
 
 jobs:
-  test:
+  test-and-simulate:
     runs-on: ubuntu-latest
+    
     strategy:
       matrix:
         node-version: [18.x, 20.x]
+    
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
       
       - name: Setup Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
@@ -24,137 +27,134 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Run tests
-        run: npm test -- --coverage --watchAll=false
-      
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v4
-        with:
-          files: ./coverage/coverage-final.json
-          fail_ci_if_error: false
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          cache: 'npm'
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Run card validation
-        run: npm run cards:validate
-      
-      - name: Validate card schema
+      - name: Build card database
         run: npm run cards:build
-
-  build-engine:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Lint cards
+        run: npm run cards:lint
+      
+      - name: Run unit tests
+        run: npm test
+      
+      - name: Run simulations (CI mode - reduced)
+        run: npm run sim:run -- --scenarios all --games 500 --seeds 8
+        timeout-minutes: 30
+      
+      - name: Generate balance report
+        run: npm run sim:report
+      
+      - name: Upload simulation results
+        uses: actions/upload-artifact@v3
         with:
-          node-version: '20.x'
-          cache: 'npm'
+          name: simulation-results-${{ matrix.node-version }}
+          path: |
+            sim_results.json
+            docs/BALANCE.md
+          retention-days: 30
       
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build engine
-        run: npm run cards:all
-      
-      - name: Check for build artifacts
+      - name: Check for balance issues
+        id: balance-check
         run: |
-          if [ ! -f "cards/base_set.json" ]; then
-            echo "Build artifacts not found"
-            exit 1
+          if grep -q "⚠️ \*\*WARNING\*\*" docs/BALANCE.md; then
+            echo "::warning::Balance issues detected. Review docs/BALANCE.md"
+            echo "has_warnings=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_warnings=false" >> $GITHUB_OUTPUT
           fi
-
-  build-client:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          cache: 'npm'
-      
-      - name: Install root dependencies
-        run: npm ci
-      
-      - name: Install client dependencies
-        working-directory: ./src/client
-        run: npm ci
-      
-      - name: Build client
-        working-directory: ./src/client
-        env:
-          CI: true
-          GENERATE_SOURCEMAP: false
-        run: npm run build
-      
-      - name: Upload build artifacts
-        if: success()
-        uses: actions/upload-artifact@v4
-        with:
-          name: client-build
-          path: src/client/build
-          retention-days: 7
-
-  build-cheatsheet:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
-          cache: 'npm'
-      
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libnss3 \
-            libatk-bridge2.0-0 \
-            libdrm2 \
-            libxkbcommon0 \
-            libxcomposite1 \
-            libxdamage1 \
-            libxfixes3 \
-            libxrandr2 \
-            libgbm1 \
-            libasound2t64
-      
-      - name: Install dependencies
-        run: npm ci
-      
-      - name: Build cheat sheet
-        run: npm run build:cheatsheet
         continue-on-error: true
       
-      - name: Check PDF was created
-        if: success()
-        run: |
-          if [ ! -f "docs/BrickQuest_CheatSheet.pdf" ]; then
-            echo "PDF not created"
-            exit 1
-          fi
+      - name: Comment balance warnings on PR
+        if: github.event_name == 'pull_request' && steps.balance-check.outputs.has_warnings == 'true'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const balanceReport = fs.readFileSync('docs/BALANCE.md', 'utf8');
+            const warnings = balanceReport.match(/⚠️.*$/gm) || [];
+            
+            if (warnings.length > 0) {
+              const comment = `## ⚠️ Balance Issues Detected\n\n${warnings.slice(0, 5).join('\n')}\n\nSee full report in CI artifacts.`;
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: comment
+              });
+            }
+  
+  build-cheatsheet:
+    runs-on: ubuntu-latest
+    needs: test-and-simulate
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
       
-      - name: Upload PDF
-        if: success()
-        uses: actions/upload-artifact@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build cheatsheet PDF
+        run: npm run cheat:build
+        continue-on-error: true
+      
+      - name: Upload cheatsheet
+        uses: actions/upload-artifact@v3
         with:
           name: cheatsheet-pdf
           path: docs/BrickQuest_CheatSheet.pdf
+          retention-days: 30
+        if: success()
+  
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Validate card schema
+        run: npm run cards:lint
+      
+      - name: Check for duplicate cards
+        run: npm run cards:dedupe
+      
+      - name: TypeScript compile check
+        run: npx tsc --noEmit
+  
+  summary:
+    runs-on: ubuntu-latest
+    needs: [test-and-simulate, build-cheatsheet, lint-and-validate]
+    if: always()
+    
+    steps:
+      - name: Check job results
+        run: |
+          echo "## CI Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- Tests: ${{ needs.test-and-simulate.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Cheatsheet: ${{ needs.build-cheatsheet.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Linting: ${{ needs.lint-and-validate.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ needs.test-and-simulate.result }}" != "success" ] || [ "${{ needs.lint-and-validate.result }}" != "success" ]; then
+            echo "❌ CI checks failed" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          else
+            echo "✅ All CI checks passed" >> $GITHUB_STEP_SUMMARY
+          fi

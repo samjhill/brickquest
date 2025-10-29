@@ -1,0 +1,46 @@
+[
+  {
+    "cardId": "BQ-ACT-0003",
+    "changes": [
+      {
+        "field": "damage",
+        "operation": "add",
+        "value": -1
+      }
+    ],
+    "reason": "Pulse Strike dealing too much damage - reduce from 2 to 1"
+  },
+  {
+    "cardId": "BQ-STR-0001",
+    "changes": [
+      {
+        "field": "hp",
+        "operation": "add",
+        "value": 2
+      },
+      {
+        "field": "ar",
+        "operation": "set",
+        "value": 2
+      }
+    ],
+    "reason": "Watchtower too fragile - increase HP and AR"
+  },
+  {
+    "cardId": "BQ-ACT-0042",
+    "changes": [
+      {
+        "field": "energy",
+        "operation": "add",
+        "value": 1
+      },
+      {
+        "field": "exhaust",
+        "operation": "set",
+        "value": 1
+      }
+    ],
+    "reason": "Control card too cheap - increase cost and add exhaust"
+  }
+]
+

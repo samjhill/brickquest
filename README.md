@@ -190,6 +190,25 @@ Based on comprehensive virtual playtesting, we've made key improvements to enhan
 - [Balance Report](docs/generated/BALANCE.md) - Energy curve analysis
 - [Duplicate Report](docs/generated/DUPLICATES.md) - Duplicate card detection
 
+## 📊 Simulation & Balance
+
+BrickQuest includes an automated playtest pipeline for data-driven balance:
+
+- **Simulation Engine**: Run thousands of automated games to test balance
+- **Balance Reports**: Auto-generated analysis with recommendations  
+- **SimLab UI**: Development interface for running simulations at `/?dev=1`
+- **CI Integration**: Automated testing on every PR
+
+```bash
+# Run simulations
+npm run sim:run
+
+# Generate balance report
+npm run sim:report
+```
+
+See [SIMULATION_GUIDE.md](docs/SIMULATION_GUIDE.md) for complete documentation.
+
 ## 🤝 Contributing
 
 This is an open-source project! We welcome contributions in many areas:

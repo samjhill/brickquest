@@ -8,7 +8,7 @@
     "server": "nodemon src/server/server.js",
     "client": "cd src/client && npm start",
     "build": "cd src/client && npm run build",
-    "test": "jest --passWithNoTests",
+    "test": "jest --runInBand",
     "generate-cards": "python3 scripts/generate_cards.py",
     "print-cards": "python3 scripts/print_cards.py",
     "cards": "npm run generate-cards && npm run print-cards",
@@ -18,7 +18,13 @@
     "cards:dedupe": "ts-node tools/card-pipeline/dedupe.ts",
     "cards:validate": "npm run cards:lint && npm run cards:balance && npm run cards:dedupe",
     "cards:all": "npm run cards:build && npm run cards:validate",
-    "build:cheatsheet": "node scripts/build_cheatsheet.js"
+    "build:cheatsheet": "node scripts/build_cheatsheet.js",
+    "sim:run": "ts-node src/sim/runner.ts --scenarios all --games 5000 --seeds 32",
+    "sim:report": "ts-node src/sim/report.ts --out docs/BALANCE.md",
+    "sim:ci": "npm run cards:build && npm run cards:lint && npm run sim:run -- --games 500 --seeds 8 && npm run sim:report && npm test && npm run cheat:build",
+    "sim:mutate": "ts-node src/sim/mutate.ts --config mutations.json",
+    "cheat:build": "md-to-pdf docs/BrickQuest_CheatSheet.md --config-file docs/.md2pdf.json",
+    "docs:refresh": "npm run sim:report && node tools/sync-readme.js"
   },
   "keywords": [
     "tabletop",
