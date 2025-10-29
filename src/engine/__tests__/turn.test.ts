@@ -48,11 +48,25 @@ describe('TurnManager', () => {
     });
 
     test('should cycle back to next player after end phase', () => {
-      // Complete all phases for player 1
-      turnManager.nextPhase(); // action
-      turnManager.nextPhase(); // end
+      // Start in draw phase
+      expect(turnManager.getCurrentPhase()).toBe('draw');
+      expect(turnManager.getCurrentPlayer()?.id).toBe('player1');
       
-      // Should now be player 2's turn
+      // Move to action phase
+      const result1 = turnManager.nextPhase(); // action
+      expect(result1).toBe(true);
+      expect(turnManager.getCurrentPhase()).toBe('action');
+      
+      // Move to end phase
+      const result2 = turnManager.nextPhase(); // end
+      expect(result2).toBe(true); // Still in same turn, just moved to end phase
+      expect(turnManager.getCurrentPhase()).toBe('end');
+      
+      // Now call nextPhase() from end phase to end the turn
+      const result3 = turnManager.nextPhase(); // end turn
+      expect(result3).toBe(false); // Turn ended, should return false
+      
+      // Should now be player 2's turn in draw phase
       const currentPlayer = turnManager.getCurrentPlayer();
       expect(currentPlayer?.id).toBe('player2');
       expect(turnManager.getCurrentPhase()).toBe('draw');

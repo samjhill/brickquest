@@ -166,3 +166,31 @@ BrickQuest combines card game mechanics, tactical positioning, physical building
 The BrickQuest playtest simulation validates the core game design. The hybrid tabletop + maker concept works well, with solid mechanics supporting strategic gameplay. The game is ready for expanded playtesting with real players and continued development.
 
 Focus on implementing the prioritized improvements while maintaining the unique hybrid gameplay that makes BrickQuest special. The foundation is strong and ready for the next phase of development.
+
+
+---
+
+## Simulation Run - 2025-10-29
+
+**Date**: 10/28/2025
+
+**Games**: 20,000
+
+**Scenarios**: skirmish_2v2, skirmish_3v3, boss_gate_siege, tech_heavy_environment, control_vs_burst
+
+**Seeds**: Multiple (deterministic)
+
+### Highlights
+
+- Average TTK: 23.0 rounds
+- Damage per Energy: 0.00
+- Balance Issues: 5 high priority
+
+### Top 5 Fixes
+
+1. Damage per energy (0.00) is below target 2.0 in skirmish_2v2
+2. warrior win rate (0.0%) is too low in skirmish_2v2
+3. mage win rate (0.0%) is too low in skirmish_2v2
+4. engineer win rate (0.0%) is too low in skirmish_2v2
+5. trickster win rate (0.0%) is too low in skirmish_2v2
+

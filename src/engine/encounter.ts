@@ -3,7 +3,7 @@
  */
 
 import { Card, Player } from './cards';
-import { TerrainTile } from './terrain';
+import { TerrainTile } from './turn';
 
 export interface Encounter {
   id: string;
@@ -308,10 +308,10 @@ export class EncounterManager {
    */
   private getEnemyBehavior(difficulty: Encounter['difficulty']): EnemyBehavior {
     const behaviors = {
-      easy: { type: 'defensive', target: 'nearest', movement: 'toward', attack: 'melee' },
-      medium: { type: 'aggressive', target: 'nearest', movement: 'toward', attack: 'ranged' },
-      hard: { type: 'aggressive', target: 'weakest', movement: 'toward', attack: 'area' },
-      extreme: { type: 'berserker', target: 'strongest', movement: 'toward', attack: 'special' }
+      easy: { type: 'defensive' as const, target: 'nearest' as const, movement: 'toward' as const, attack: 'melee' as const },
+      medium: { type: 'aggressive' as const, target: 'nearest' as const, movement: 'toward' as const, attack: 'ranged' as const },
+      hard: { type: 'aggressive' as const, target: 'weakest' as const, movement: 'toward' as const, attack: 'area' as const },
+      extreme: { type: 'berserker' as const, target: 'strongest' as const, movement: 'toward' as const, attack: 'special' as const }
     };
 
     return behaviors[difficulty];

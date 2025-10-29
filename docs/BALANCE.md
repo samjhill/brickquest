@@ -1,36 +1,275 @@
 # BrickQuest Balance Report
 
-*Generated: 2025-10-29*
+*Generated: 2025-10-29T02:05:18.587Z*
 
 ---
 
 ## Executive Summary
 
-- **Total Games Simulated**: Pending first simulation run
-- **Scenarios Tested**: 0
-- **Average TTK (Time to Kill)**: TBD
-- **Average Damage per Energy**: TBD (Target: 2.0)
-- **Balance Issues Found**: TBD
+- **Total Games Simulated**: 20,000
+- **Scenarios Tested**: 5
+- **Average TTK (Time to Kill)**: 23.0 rounds
+- **Average Damage per Energy**: 0.00 (Target: 2.0)
+- **Balance Issues Found**: 5 high priority
 
-## Instructions
+## Top 5 Recommendations
 
-This file will be auto-generated when you run simulations:
+1. **[HIGH]** Damage per energy (0.00) is below target 2.0 in skirmish_2v2
+   - Current: 0.0%
+   - Suggested: 2.00
 
-```bash
-# Run full simulation suite (5000 games, 32 seeds)
-npm run sim:run
+2. **[HIGH]** warrior win rate (0.0%) is too low in skirmish_2v2
+   - Current: 0.0%
+   - Suggested: 50.0%
 
-# Generate this report
-npm run sim:report
-```
+3. **[HIGH]** mage win rate (0.0%) is too low in skirmish_2v2
+   - Current: 0.0%
+   - Suggested: 50.0%
 
-For faster iterations during development:
+4. **[HIGH]** engineer win rate (0.0%) is too low in skirmish_2v2
+   - Current: 0.0%
+   - Suggested: 50.0%
 
-```bash
-# Run reduced simulations (100 games, 4 seeds)
-npm run sim:run -- --scenarios skirmish_2v2 --games 100 --seeds 4
-npm run sim:report
-```
+5. **[HIGH]** trickster win rate (0.0%) is too low in skirmish_2v2
+   - Current: 0.0%
+   - Suggested: 50.0%
+
+## Scenario Analysis
+
+### skirmish_2v2
+
+- **Games Played**: 4000
+- **Average TTK**: 20.0 rounds
+- **Damage per Energy**: 0.00
+
+#### Team Win Rates
+
+| Team | Win Rate | Sparkline |
+|------|----------|----------|
+| team_a | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| team_b | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Class Win Rates
+
+| Class | Win Rate | Sparkline |
+|-------|----------|----------|
+| warrior | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| mage | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| engineer | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| trickster | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Card Type Distribution
+
+| Card Type | Play Rate |
+|-----------|----------|
+| action | 49.1% |
+| structure | 50.9% |
+
+#### Damage Distribution (by Energy)
+
+| Energy Spent | Avg Damage | Games |
+|--------------|-----------|-------|
+| 5E | 0.0 | 15451 |
+| 0E | 0.0 | 549 |
+
+#### Control Effects
+
+- **Control Prevalence**: 0.0% of turns
+  - ℹ️ **NOTE**: Control is rarely used (target: 10-25%)
+
+#### Armor Effectiveness
+
+- **Damage Mitigation**: 0.0%
+  - ⚠️ **WARNING**: Armor is too weak (target: 20-30%)
+
+---
+
+### skirmish_3v3
+
+- **Games Played**: 4000
+- **Average TTK**: 30.0 rounds
+- **Damage per Energy**: 0.00
+
+#### Team Win Rates
+
+| Team | Win Rate | Sparkline |
+|------|----------|----------|
+| team_a | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| team_b | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Class Win Rates
+
+| Class | Win Rate | Sparkline |
+|-------|----------|----------|
+| warrior | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| mage | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| engineer | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| trickster | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Card Type Distribution
+
+| Card Type | Play Rate |
+|-----------|----------|
+| action | 48.6% |
+| structure | 51.4% |
+
+#### Damage Distribution (by Energy)
+
+| Energy Spent | Avg Damage | Games |
+|--------------|-----------|-------|
+| 5E | 0.0 | 22660 |
+| 0E | 0.0 | 1340 |
+
+#### Control Effects
+
+- **Control Prevalence**: 0.0% of turns
+  - ℹ️ **NOTE**: Control is rarely used (target: 10-25%)
+
+#### Armor Effectiveness
+
+- **Damage Mitigation**: 0.0%
+  - ⚠️ **WARNING**: Armor is too weak (target: 20-30%)
+
+---
+
+### boss_gate_siege
+
+- **Games Played**: 4000
+- **Average TTK**: 25.0 rounds
+- **Damage per Energy**: 0.00
+
+#### Team Win Rates
+
+| Team | Win Rate | Sparkline |
+|------|----------|----------|
+| heroes | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| boss | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| npc | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Class Win Rates
+
+| Class | Win Rate | Sparkline |
+|-------|----------|----------|
+| warrior | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| mage | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| engineer | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| trickster | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Card Type Distribution
+
+| Card Type | Play Rate |
+|-----------|----------|
+| action | 28.0% |
+| structure | 72.0% |
+
+#### Damage Distribution (by Energy)
+
+| Energy Spent | Avg Damage | Games |
+|--------------|-----------|-------|
+| 5E | 0.0 | 17093 |
+| 0E | 0.0 | 26907 |
+
+#### Control Effects
+
+- **Control Prevalence**: 0.0% of turns
+  - ℹ️ **NOTE**: Control is rarely used (target: 10-25%)
+
+#### Armor Effectiveness
+
+- **Damage Mitigation**: 0.0%
+  - ⚠️ **WARNING**: Armor is too weak (target: 20-30%)
+
+---
+
+### tech_heavy_environment
+
+- **Games Played**: 4000
+- **Average TTK**: 25.0 rounds
+- **Damage per Energy**: 0.00
+
+#### Team Win Rates
+
+| Team | Win Rate | Sparkline |
+|------|----------|----------|
+| team_a | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| team_b | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Class Win Rates
+
+| Class | Win Rate | Sparkline |
+|-------|----------|----------|
+| engineer | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| mage | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| trickster | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Card Type Distribution
+
+| Card Type | Play Rate |
+|-----------|----------|
+| structure | 100.0% |
+
+#### Damage Distribution (by Energy)
+
+| Energy Spent | Avg Damage | Games |
+|--------------|-----------|-------|
+| 0E | 0.0 | 24000 |
+
+#### Control Effects
+
+- **Control Prevalence**: 0.0% of turns
+  - ℹ️ **NOTE**: Control is rarely used (target: 10-25%)
+
+#### Armor Effectiveness
+
+- **Damage Mitigation**: 0.0%
+  - ⚠️ **WARNING**: Armor is too weak (target: 20-30%)
+
+---
+
+### control_vs_burst
+
+- **Games Played**: 4000
+- **Average TTK**: 15.0 rounds
+- **Damage per Energy**: 0.00
+
+#### Team Win Rates
+
+| Team | Win Rate | Sparkline |
+|------|----------|----------|
+| control_team | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| burst_team | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Class Win Rates
+
+| Class | Win Rate | Sparkline |
+|-------|----------|----------|
+| mage | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| trickster | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+| warrior | 0.0% | ░░░░░░░░░░░░░░░░░░░░ |
+
+#### Card Type Distribution
+
+| Card Type | Play Rate |
+|-----------|----------|
+| structure | 100.0% |
+
+#### Damage Distribution (by Energy)
+
+| Energy Spent | Avg Damage | Games |
+|--------------|-----------|-------|
+| 0E | 0.0 | 16000 |
+
+#### Control Effects
+
+- **Control Prevalence**: 0.0% of turns
+  - ℹ️ **NOTE**: Control is rarely used (target: 10-25%)
+
+#### Armor Effectiveness
+
+- **Damage Mitigation**: 0.0%
+  - ⚠️ **WARNING**: Armor is too weak (target: 20-30%)
+
+---
 
 ## Balance Rails Reference
 
@@ -50,7 +289,7 @@ These are the target guidelines for card balance:
 
 ## Methodology
 
-This report is generated from automated game simulations using:
+This report was generated from automated game simulations using:
 
 - **Deterministic AI**: Simple policy-based decision making
 - **Seeded RNG**: Reproducible results across runs
@@ -67,4 +306,3 @@ The AI policy prioritizes:
 ---
 
 *This report is auto-generated. Review recommendations carefully before applying changes.*
-
