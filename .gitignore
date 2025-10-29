@@ -57,6 +57,10 @@ coverage/
 # Card generation outputs
 cards/generated/
 
+# Simulation results (large files)
+sim_results.json
+src/client/public/sim_results.json
+
 # Client build and node_modules
 src/client/build/
 src/client/node_modules/
